@@ -1,0 +1,22 @@
+"Vrome is GoogleChrome Extention.
+
+" long feet scroll
+map j 5j
+map k 5k
+
+" disable conflicts function with Chrome default find function
+unmap <M-f>
+unmap <C-f>
+
+" remove current tab
+map d dc
+unmap dm
+unmap do
+unmap dl
+unmap dr
+unmap dp
+unmap dP
+
+" move tab
+map J gT
+map K gt
