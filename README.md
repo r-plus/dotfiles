@@ -14,6 +14,9 @@
 * Update | :NeoBundleInstall!
 * Remove | :NeoBundleClean
 
+###vimproc
+`make -f ~/.vim/bundle/vimproc/make_mac.mak`
+
 ###lynx setup for Lion
 `/opt/local/etc/lynx.cfg` (MacPorts)   
 CHARACTER_SET:utf-8
