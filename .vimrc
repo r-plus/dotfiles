@@ -7,12 +7,12 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-"NeoBundle 'git://github.com/Shougo/vimfiler.git'
+NeoBundle 'git://github.com/Shougo/vimfiler.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-"NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
-"NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 
 filetype plugin indent on
@@ -58,6 +58,23 @@ autocmd BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
                 \   exe "normal g`\"" |
                         \ endif
+"" quickrun for theos tweak
+"let g:quickrun_config = {}
+"let g:quickrun_config['objcpp'] = {'command': 'make'}
+"augroup TheosTweak
+"  autocmd!
+"  autocmd BufWinEnter,BufNewFile *.xm set filetype=objcpp
+"augroup END
+
+" keymap make package and install to iDevice for theos tweak
+nmap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make install)<CR>
+
+" keymap for window resize
+nnoremap <silent> <S-Up>    :5wincmd -<CR>
+nnoremap <silent> <S-Down>  :5wincmd +<CR>
+nnoremap <silent> <S-Left>  :5wincmd <<CR>
+nnoremap <silent> <S-Right> :5wincmd ><CR>
+
 
 " -----------------------------------------------------------------------
 " neocomplcache from README
