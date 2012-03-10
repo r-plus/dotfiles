@@ -14,6 +14,8 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
+NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
+NeoBundle 'git://github.com/vim-scripts/YankRing.vim.git'
 
 filetype plugin indent on
 
@@ -42,15 +44,24 @@ set nobackup
 " colorshceme
 colorscheme desert
 
-" Ref-vim
-nmap ,ra :<C-u>Ref alc<Space>
-let g:ref_alc_start_linenumber = 43
-"let g:ref_alc_encoding = 'Shift-JIS'
+" foldmethod
+"set foldmethod=indent
+
+" decimal increment
+setlocal nf=
+" setlocal nf=octal,hex
 
 " programming syntax + indent
 syntax on
 set cindent
 set autoindent
+
+" Ref-vim
+nmap ,ra :<C-u>Ref alc<Space>
+nnoremap <silent> <Space>K :<C-u>call ref#jump('normal', 'alc')<CR>
+vnoremap <silent> <Space>K :<C-u>call ref#jump('visual', 'alc')<CR>
+let g:ref_alc_start_linenumber = 43
+"let g:ref_alc_encoding = 'Shift-JIS'
 
 " theos
 autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x set filetype=objcpp
@@ -58,6 +69,7 @@ autocmd BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
                 \   exe "normal g`\"" |
                         \ endif
+
 "" quickrun for theos tweak
 "let g:quickrun_config = {}
 "let g:quickrun_config['objcpp'] = {'command': 'make'}
@@ -66,8 +78,10 @@ autocmd BufReadPost *
 "  autocmd BufWinEnter,BufNewFile *.xm set filetype=objcpp
 "augroup END
 
-" keymap make package and install to iDevice for theos tweak
-nmap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make install)<CR>
+" keymap for theos framework
+nnoremap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make install)<CR>
+nnoremap ,v $xo{<CR>%log;<CR>%orig;<CR>}<Esc>
+nnoremap ,r $xo{<CR>%log;<CR>return %orig;<CR>}<Esc>
 
 " keymap for window resize
 nnoremap <silent> <S-Up>    :5wincmd -<CR>
@@ -75,6 +89,13 @@ nnoremap <silent> <S-Down>  :5wincmd +<CR>
 nnoremap <silent> <S-Left>  :5wincmd <<CR>
 nnoremap <silent> <S-Right> :5wincmd ><CR>
 
+" comment line creater
+inoreabbrev <expr> dl repeat('/', 80 - col('.'))
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_color_change_percent = 30
+let g:indent_guides_guide_size = 1
 
 " -----------------------------------------------------------------------
 " neocomplcache from README
