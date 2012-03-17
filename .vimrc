@@ -56,8 +56,12 @@ syntax on
 set cindent
 set autoindent
 
+" set modeline
+set modeline
+
 " Ref-vim
 nmap ,ra :<C-u>Ref alc<Space>
+nnoremap ,ro :<C-u>Ref alc<Space><C-r><C-w><CR>
 nnoremap <silent> <Space>K :<C-u>call ref#jump('normal', 'alc')<CR>
 vnoremap <silent> <Space>K :<C-u>call ref#jump('visual', 'alc')<CR>
 let g:ref_alc_start_linenumber = 43
@@ -96,6 +100,10 @@ inoreabbrev <expr> dl repeat('/', 80 - col('.'))
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
+
+" PEP8 indent
+autocmd FileType python set cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 " -----------------------------------------------------------------------
 " neocomplcache from README
