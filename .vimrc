@@ -16,6 +16,7 @@ NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 NeoBundle 'git://github.com/vim-scripts/YankRing.vim.git'
+NeoBundle 'git://github.com/r-plus/EnhCommentify.vim.git'
 
 filetype plugin indent on
 
