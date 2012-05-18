@@ -106,6 +106,9 @@ let g:indent_guides_guide_size = 1
 autocmd FileType python set cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
+" error-fix yankring
+let g:yankring_manual_clipboard_check = 0
+
 " -----------------------------------------------------------------------
 " neocomplcache from README
 
