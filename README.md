@@ -36,7 +36,7 @@ then clone neobundle and dotfiles (Required `git` package for cygwin)
     git clone https://github.com/r-plus/dotfiles.git
     
 
-and replace git protocol to https protocol in `.vimrc` (many company blocking git protocol)
+and https protocol to replace the git protocol in `.vimrc` (many company blocking git protocol)
 
     sed -e 's%git://%https://%' dotfiles/.vimrc > _vimrc
 
