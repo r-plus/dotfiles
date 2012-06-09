@@ -42,13 +42,12 @@ and replace git protocol to https protocol in `.vimrc` (many company blocking gi
 
 make the vimproc.dll (Required `make` and `gcc` package for cygwin)
 
-
     cd ~/.vim/bundle/vimproc; make -f make_cygwin.mak
 
-Finally, install plogins!
+Finally, install plugins!
 
     vim
     :NeoBundleInstall
     
-###Install lynx for Windows
+###Lynx for Windows
 [Lynx for Win32 - http://lynx-win32-pata.sourceforge.jp/index-ja.html](http://lynx-win32-pata.sourceforge.jp/index-ja.html)
