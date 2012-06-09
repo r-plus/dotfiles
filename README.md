@@ -10,7 +10,7 @@
 
 ###Vim-Plugins
 
-* Install| :NeoBundleInstall
+* Install | :NeoBundleInstall
 * Update | :NeoBundleInstall!
 * Remove | :NeoBundleClean
 
