@@ -40,14 +40,14 @@ and https protocol to replace the git protocol in `.vimrc` (many company blockin
 
     sed -e 's%git://%https://%' dotfiles/.vimrc > _vimrc
 
+install plugins!
+
+    vim(also available KaoriYa-vim)
+    :NeoBundleInstall
+
 make the vimproc.dll (Required `make` and `gcc` package for cygwin)
 
     cd .vim/bundle/vimproc; make -f make_cygwin.mak
-
-Finally, install plugins!
-
-    vim
-    :NeoBundleInstall
 
 ###Lynx for Windows
 [Lynx for Win32 - http://lynx-win32-pata.sourceforge.jp/index-ja.html](http://lynx-win32-pata.sourceforge.jp/index-ja.html)
