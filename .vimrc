@@ -60,13 +60,23 @@ set autoindent
 " set modeline
 set modeline
 
-" Ref-vim
+" vim-ref
 nmap ,ra :<C-u>Ref alc<Space>
 nnoremap ,ro :<C-u>Ref alc<Space><C-r><C-w><CR>
 nnoremap <silent> <Space>K :<C-u>call ref#jump('normal', 'alc')<CR>
 vnoremap <silent> <Space>K :<C-u>call ref#jump('visual', 'alc')<CR>
 let g:ref_alc_start_linenumber = 43
-"let g:ref_alc_encoding = 'Shift-JIS'
+" vim-ref for Windows
+if has('gui_win32')
+  let $PATH = $PATH . ';C:\Program Files (x86)\Lynx for Win32'
+  let g:ref_alc_encoding = 'cp932'
+  let g:ref_alc_start_linenumber = 45
+endif
+
+" Copy-Paste-Cut shortcut key enable for Windows
+if has('gui_win32')
+  source $VIMRUNTIME/mswin.vim
+endif
 
 " theos
 autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x set filetype=objcpp
