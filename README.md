@@ -22,7 +22,7 @@
 CHARACTER_SET:utf-8
 
 -----
-##for Windows(Cygwin)
+##for Windows KaoriYa-vim(used Cygwin for make and git)
 if you using proxy, set below (bash)
 
     export HTTP_PROXY=http://PROXY_HOSTorIP:PORT
