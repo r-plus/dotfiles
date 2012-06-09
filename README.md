@@ -31,24 +31,23 @@ if you using proxy, set below (bash)
 
 then clone neobundle and dotfiles (Required `git` package for cygwin)
 
-    cd ~; mkdir -p .vim/bundle
-    git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+    cd $HOMEPATH; mkdir -p .vim/bundle
+    git clone https://github.com/Shougo/neobundle.vim.git .vim/bundle/neobundle.vim
     git clone https://github.com/r-plus/dotfiles.git
-    
 
 and https protocol to replace the git protocol in `.vimrc` (many company blocking git protocol)   
-`~/_vimrc` is for KaoriYa-vim/gvim, `~/.vimrc` for cygwin's one?
+`$HOMEPATH/_vimrc` is for KaoriYa-vim/gvim, `~/.vimrc` for cygwin's one.
 
     sed -e 's%git://%https://%' dotfiles/.vimrc > _vimrc
 
 make the vimproc.dll (Required `make` and `gcc` package for cygwin)
 
-    cd ~/.vim/bundle/vimproc; make -f make_cygwin.mak
+    cd .vim/bundle/vimproc; make -f make_cygwin.mak
 
 Finally, install plugins!
 
     vim
     :NeoBundleInstall
-    
+
 ###Lynx for Windows
 [Lynx for Win32 - http://lynx-win32-pata.sourceforge.jp/index-ja.html](http://lynx-win32-pata.sourceforge.jp/index-ja.html)
