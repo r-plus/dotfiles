@@ -6,7 +6,7 @@
     ln -s dotfiles/.bashrc .bashrc
     ln -s dotfiles/.bash_profile .bash_profile
     mkdir -p ~/.vim/bundle
-    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+    git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
 ##Vim-Plugins
 
