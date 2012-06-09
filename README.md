@@ -40,8 +40,9 @@ and https protocol to replace the git protocol in `.vimrc` (many company blockin
 
     sed -e 's%git://%https://%' dotfiles/.vimrc > _vimrc
 
-install plugins! (Please use correct vim (`$HOMEPATH/_vimrc`: KaoriYa-vim, `~/.vimrc`: Cygwin's vim))
+install plugins! (Please use correct vim that can be used `git(git.exe)`)
 
+    :let $PATH = $PATH . ';C:\cygwin\bin'
     :NeoBundleInstall
 
 make the vimproc.dll (Required `make` and `gcc` package for cygwin)
