@@ -73,6 +73,10 @@ if has('gui_win32')
   let g:ref_alc_start_linenumber = 45
 endif
 
+" auto set paste, nopaste for C-v from clipboard
+autocmd InsertEnter * set paste
+autocmd InsertLeave * set nopaste
+
 " Copy-Paste-Cut shortcut key enable for Windows
 if has('gui_win32')
   source $VIMRUNTIME/mswin.vim
