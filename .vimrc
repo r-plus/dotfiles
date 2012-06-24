@@ -74,7 +74,7 @@ if has('gui_win32')
 endif
 
 " auto set paste, nopaste for C-v from clipboard
-autocmd InsertEnter * set paste
+"autocmd InsertEnter * set paste
 autocmd InsertLeave * set nopaste
 
 " Copy-Paste-Cut shortcut key enable for Windows
