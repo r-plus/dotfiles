@@ -77,9 +77,10 @@ endif
 "autocmd InsertEnter * set paste
 autocmd InsertLeave * set nopaste
 
-" Copy-Paste-Cut shortcut key enable for Windows
+" Copy-Paste-Cut shortcut key enable and yank to clipboard for Windows
 if has('gui_win32')
   source $VIMRUNTIME/mswin.vim
+  set clipboard+=unnamed
 endif
 
 " theos
