@@ -51,3 +51,7 @@ make the vimproc.dll (Required `make` and `gcc` package for cygwin)
 
 ###Lynx for Windows
 [Lynx for Win32 - http://lynx-win32-pata.sourceforge.jp/index-ja.html](http://lynx-win32-pata.sourceforge.jp/index-ja.html)
+
+###vimdiff for Windows
+* Download diff `Binaries` and `Dependencies` from [DiffUtils for Windows](http://gnuwin32.sourceforge.net/packages/diffutils.htm)
+* Put dlls and exes to vim directory.
