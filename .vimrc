@@ -58,6 +58,7 @@ set cindent
 set autoindent
 
 " set modeline
+set modelines=2
 set modeline
 
 " vim-ref
