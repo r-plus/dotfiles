@@ -110,6 +110,9 @@ nnoremap <silent> <S-Down>  :5wincmd +<CR>
 nnoremap <silent> <S-Left>  :5wincmd <<CR>
 nnoremap <silent> <S-Right> :5wincmd ><CR>
 
+" escape safety
+imap <C-@> <C-[>
+
 " comment line creater
 inoreabbrev <expr> dl repeat('/', 80 - col('.'))
 
