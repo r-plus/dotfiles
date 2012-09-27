@@ -28,15 +28,17 @@ if you using proxy, set below (bash)
     export HTTP_PROXY=http://PROXY_HOSTorIP:PORT
     export HTTPS_PROXY=http://PROXY_HOSTorIP:PORT
     export FTP_PROXY=http://PROXY_HOSTorIP:PORT
+    //or
+    git config --global http.proxy http://PROXY_HOSTorIP:PORT
 
-then clone neobundle and dotfiles (Required `git` package for cygwin)
+then clone neobundle and dotfiles. (Required `git` package for cygwin) If you see the certificate error, try `http` or `git` protocol.
 
-    cd $HOMEPATH; mkdir -p .vim/bundle
+    cd "/cygdrive/c/$HOMEPATH"; mkdir -p .vim/bundle
     git clone https://github.com/Shougo/neobundle.vim.git .vim/bundle/neobundle.vim
     git clone https://github.com/r-plus/dotfiles.git
 
 and https protocol to replace the git protocol in `.vimrc` (many company blocking git protocol)   
-`$HOMEPATH/_vimrc` is for KaoriYa-vim/gvim, `~/.vimrc` for cygwin's one.
+`/cygdrive/c/$HOMEPATH/_vimrc` is for KaoriYa-vim/gvim, `~/.vimrc` for cygwin's one.
 
     sed -e 's%git://%https://%' dotfiles/.vimrc > _vimrc
 
