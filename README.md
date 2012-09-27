@@ -1,4 +1,4 @@
-#dotfiles
+# dotfiles
 
     cd ~
     git clone git://github.com/r-plus/dotfiles.git
@@ -8,27 +8,33 @@
     mkdir -p ~/.vim/bundle
     git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
-###Vim-Plugins
+### Vim-Plugins
 
 * Install | :NeoBundleInstall
 * Update | :NeoBundleInstall!
 * Remove | :NeoBundleClean
 
-###vimproc
+### vimproc
 `cd ~/.vim/bundle/vimproc/; make -f ~/.vim/bundle/vimproc/make_mac.mak`
 
-###lynx setup for Lion
+### lynx setup for Lion
 `/opt/local/etc/lynx.cfg` (MacPorts)   
 CHARACTER_SET:utf-8
 
+### get vim-ref ref file.
+
+    wget --no-check-certificate https://raw.github.com/gist/2762277/c8cf993bec75b819759fad524b7b6b4661d41209/alc.vim .vim/bundle/vim-ref/autoload/ref/alc.vim
+    // or
+    curl -o .vim/bundle/vim-ref/autoload/ref/alc.vim -k https://raw.github.com/gist/2762277/c8cf993bec75b819759fad524b7b6b4661d41209/alc.vim
+
 -----
-##for Windows KaoriYa-vim(used Cygwin for make and git)
+## for Windows KaoriYa-vim(used Cygwin for make and git)
 if you using proxy, set below (bash)
 
     export HTTP_PROXY=http://PROXY_HOSTorIP:PORT
     export HTTPS_PROXY=http://PROXY_HOSTorIP:PORT
     export FTP_PROXY=http://PROXY_HOSTorIP:PORT
-    //or
+    // or
     git config --global http.proxy http://PROXY_HOSTorIP:PORT
 
 then clone neobundle and dotfiles. (Required `git` package for cygwin) If you see the certificate error, try `http` or `git` protocol.
@@ -51,9 +57,9 @@ make the vimproc.dll (Required `make` and `gcc` package for cygwin)
 
     cd .vim/bundle/vimproc; make -f make_cygwin.mak
 
-###Lynx for Windows
+### Lynx for Windows
 [Lynx for Win32 - http://lynx-win32-pata.sourceforge.jp/index-ja.html](http://lynx-win32-pata.sourceforge.jp/index-ja.html)
 
-###vimdiff for Windows
+### vimdiff for Windows
 * Download diff `Binaries` and `Dependencies` from [DiffUtils for Windows](http://gnuwin32.sourceforge.net/packages/diffutils.htm)
 * Put dlls and exes to vim directory.
