@@ -20,7 +20,7 @@
 
 ### lynx setup for Lion
 `/opt/local/etc/lynx.cfg` (MacPorts)  
-`/usr/local/etc/lynx.cfg` (homebrew)
+`/usr/local/etc/lynx.cfg` (homebrew)    
 CHARACTER_SET:utf-8
 
 ### get vim-ref ref file.
