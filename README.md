@@ -19,9 +19,12 @@
 `cd ~/.vim/bundle/vimproc/; make -f ~/.vim/bundle/vimproc/make_mac.mak`
 
 ### lynx setup for Lion
-`/opt/local/etc/lynx.cfg` (MacPorts)  
-`/usr/local/etc/lynx.cfg` (homebrew)    
-CHARACTER_SET:utf-8
+
+    /opt/local/etc/lynx.cfg (MacPorts)
+    /usr/local/etc/lynx.cfg (homebrew)
+
+Add below line.
+`CHARACTER_SET:utf-8`
 
 ### get vim-ref ref file.
 
