@@ -5,7 +5,7 @@
     ln -s dotfiles/.vimrc .vimrc
     ln -s dotfiles/.bashrc .bashrc
     ln -s dotfiles/.bash_profile .bash_profile
-    ln -s dotfiles/.ssh ~/.ssh
+    ln -s ~/dotfiles/.ssh/config ~/.ssh/config
     mkdir -p ~/.vim/bundle
     git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
@@ -19,7 +19,8 @@
 `cd ~/.vim/bundle/vimproc/; make -f ~/.vim/bundle/vimproc/make_mac.mak`
 
 ### lynx setup for Lion
-`/opt/local/etc/lynx.cfg` (MacPorts)   
+`/opt/local/etc/lynx.cfg` (MacPorts)  
+`/usr/local/etc/lynx.cfg` (homebrew)
 CHARACTER_SET:utf-8
 
 ### get vim-ref ref file.
