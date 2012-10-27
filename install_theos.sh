@@ -25,7 +25,7 @@ install_theos() {
     rmdir include.bak/
 
     # get IOSurfaceAPI.h
-    find /System -name "IOSurfaceAPI.h" 2>/dev/null | xargs cp $THEOS/include/IOSurface/
+    find /System -name "IOSurfaceAPI.h" 2>/dev/null | xargs -J % cp % $THEOS/include/IOSurface/
 
     # clone CaptainHook.git
     cd $THEOS/include/
