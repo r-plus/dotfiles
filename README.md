@@ -9,6 +9,12 @@
     mkdir -p ~/.vim/bundle
     git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
+### mod remote (for author)
+
+    cd ~/dotfiles
+    git remote rm origin
+    git remote add origin git@github.com:r-plus/dotfiles.git
+
 ### Vim-Plugins
 
 * Install | :NeoBundleInstall
