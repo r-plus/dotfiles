@@ -15,6 +15,9 @@
     git remote rm origin
     git remote add origin git@github.com:r-plus/dotfiles.git
 
+### Add mail address for github identity
+Add `git config --global user.email hogehoge@gmail.com` to `.bashrc`
+
 ### Vim-Plugins
 
 * Install | :NeoBundleInstall
