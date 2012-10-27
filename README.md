@@ -23,8 +23,7 @@
     /opt/local/etc/lynx.cfg (MacPorts)
     /usr/local/etc/lynx.cfg (homebrew)
 
-Add below line.
-`CHARACTER_SET:utf-8`
+Add this line.  `CHARACTER_SET:utf-8`
 
 ### get vim-ref ref file.
 
