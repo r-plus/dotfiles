@@ -116,7 +116,7 @@ imap <C-@> <C-[>
 " comment line creater
 inoreabbrev <expr> dl repeat('/', 80 - col('.'))
 inoreabbrev <expr> logc 'id tmp = %orig;<CR>NSLog(@"return = %@", tmp);<CR>NSLog(@"return class = %@", NSStringFromClass([tmp class]));'
-inoreabbrev <expr> subjc 'SubjC_set_maximum_depth(0);<CR>SubjC_start();<CR>%orig;<CR>SubjC_end();'
+inoreabbrev <expr> subjcc 'SubjC_set_maximum_depth(0);<CR>SubjC_start();<CR>%orig;<CR>SubjC_end();'
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
