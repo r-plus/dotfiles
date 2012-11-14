@@ -104,6 +104,19 @@ install_layersnapshotter() {
     rm -rf usr Packages.bz2 $pkg
 }
 
+install_instabanner() {
+    cd /tmp
+    echo "Downloading InstaBanner..."
+    curl -s -L "${BIGBOSS_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2" > Packages.bz2
+    pkg_path=$(bzcat Packages.bz2 | grep "debs2.0/libinstabanner" | awk '{print $2}')
+    pkg=$(basename $pkg_path)
+    curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
+    ar -p $pkg data.tar.gz | tar -zxf - ./usr
+    mv ./usr/include/InstaBanner.h $THEOS/include/
+    mv ./usr/lib/libinstabanner.dylib $THEOS/lib/
+    rm -rf usr Packages.bz2 $pkg
+}
+
 install_applist() {
     cd /tmp
     echo "Downloading applist..."
@@ -130,6 +143,7 @@ if [ $# -eq 0 ]; then
     install_activator
     install_actionmenu
     install_layersnapshotter
+    install_instabanner
 else
     for i in $@; do
         $i
