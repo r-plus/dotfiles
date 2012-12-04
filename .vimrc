@@ -78,10 +78,13 @@ endif
 "autocmd InsertEnter * set paste
 autocmd InsertLeave * set nopaste
 
-" Copy-Paste-Cut shortcut key enable and yank to clipboard for Windows
+" gvim win32
 if has('gui_win32')
   "source $VIMRUNTIME/mswin.vim
+  " Copy-Paste-Cut shortcut key enable and yank to clipboard for Windows
   set clipboard+=unnamed
+  " Minimize shortcut
+  nnoremap <M-n> :simalt ~n<CR>
 endif
 
 " theos
@@ -110,6 +113,10 @@ nnoremap <silent> <S-Down>  :5wincmd +<CR>
 nnoremap <silent> <S-Left>  :5wincmd <<CR>
 nnoremap <silent> <S-Right> :5wincmd ><CR>
 
+" keymap for tab move
+nnoremap <C-TAB> gt
+nnoremap <C-S-TAB> gT
+
 " escape safety
 imap <C-@> <C-[>
 
@@ -135,6 +142,9 @@ autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 " error-fix yankring
 let g:yankring_manual_clipboard_check = 0
+
+" VimFiler
+let g:vimfiler_edit_action = 'tabopen'
 
 " -----------------------------------------------------------------------
 " neocomplcache from README
