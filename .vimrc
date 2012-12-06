@@ -16,6 +16,7 @@ NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 NeoBundle 'git://github.com/vim-scripts/YankRing.vim.git'
+NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/r-plus/EnhCommentify.vim.git'
 
 filetype plugin indent on
@@ -101,6 +102,13 @@ let g:quickrun_config['objcpp'] = {'command': 'make'}
 "  autocmd!
 "  autocmd BufWinEnter,BufNewFile *.xm set filetype=objcpp
 "augroup END
+
+" markdown
+autocmd BufNewFile,BufRead *.md,*.markdown set filetype=markdown
+let g:quickrun_config['markdown'] = {
+      \ 'outputter': 'browser',
+      \ 'command': 'markdown'
+      \ }
 
 " keymap for theos framework
 nnoremap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make install)<CR>
