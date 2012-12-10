@@ -1,5 +1,3 @@
-
-
 " NeoBundle
 set nocompatible
 filetype plugin indent off
