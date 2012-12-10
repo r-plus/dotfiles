@@ -1,3 +1,5 @@
+
+
 " NeoBundle
 set nocompatible
 filetype plugin indent off
@@ -153,6 +155,7 @@ let g:yankring_manual_clipboard_check = 0
 
 " VimFiler
 let g:vimfiler_edit_action = 'tabopen'
+nnoremap vf :VimFilerTab<CR>
 
 " -----------------------------------------------------------------------
 " neocomplcache from README
