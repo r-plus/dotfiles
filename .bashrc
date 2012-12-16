@@ -1,6 +1,3 @@
-# github
-git config --global user.name "r-plus"
-
 # alias
 alias gs="git status"
 alias gd='git diff'
