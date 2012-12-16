@@ -20,6 +20,7 @@ NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/kana/vim-metarw.git'
 NeoBundle 'git://github.com/ujihisa/blogger.vim.git'
 NeoBundle 'git://github.com/fkfk/rbpit.vim.git'
+NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 NeoBundle 'git://github.com/r-plus/EnhCommentify.vim.git'
 
 filetype plugin indent on
@@ -64,6 +65,10 @@ set autoindent
 " set modeline
 set modelines=2
 set modeline
+
+" vim-powerline recommended
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
 
 " vim-ref
 nmap ,ra :<C-u>Ref alc<Space>
