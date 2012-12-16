@@ -17,6 +17,9 @@ NeoBundle 'git://github.com/thinca/vim-ref.git'
 NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 NeoBundle 'git://github.com/vim-scripts/YankRing.vim.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
+NeoBundle 'git://github.com/kana/vim-metarw.git'
+NeoBundle 'git://github.com/ujihisa/blogger.vim.git'
+NeoBundle 'git://github.com/fkfk/rbpit.vim.git'
 NeoBundle 'git://github.com/r-plus/EnhCommentify.vim.git'
 
 filetype plugin indent on
@@ -107,8 +110,16 @@ let g:quickrun_config['objcpp'] = {'command': 'make'}
 autocmd BufNewFile,BufRead *.md,*.markdown set filetype=markdown
 let g:quickrun_config['markdown'] = {
       \ 'outputter': 'browser',
-      \ 'command': 'markdown'
+      \ 'command': 'pandoc',
+      \ 'exec': ['%c -s -f markdown -t html -o %s:p:r.html %s', 'open %s:p:r.html', 'sleep 1', 'rm %s:p:r.html'],
+      \ 'tempfile': '{tempname()}.md'
       \ }
+" blogger settings saved to pit.
+"let g:blogger_blogid = ''
+"let g:blogger_email = ''
+"let g:blogger_pass = ''
+let g:blogger_ruby_path = '/usr/local/bin/ruby'
+"let g:blogger_ruby_path = join(split(system('which ruby'), '')[0:-2], "")
 
 " keymap for theos framework
 nnoremap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make install)<CR>
