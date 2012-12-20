@@ -30,6 +30,13 @@ filetype plugin indent on
 " display
 set number
 set ruler
+set showcmd
+set title
+set wildmenu
+set wildmode=list:longest,full
+" vim-powerline recommended
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
 
 " search
 set ignorecase
@@ -37,15 +44,16 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
+" search centering
+nmap n nzz
+nmap N Nzz
 
 " tab-space
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-
-" candidate bar
-set wildmenu
+set smarttab
 
 " backup file
 set nobackup
@@ -69,12 +77,8 @@ set autoindent
 set modelines=2
 set modeline
 
-" vim-powerline recommended
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-
 " vim-ref
-nmap ,ra :<C-u>Ref alc<Space>
+nnoremap ,ra :<C-u>Ref alc<Space>
 nnoremap ,ro :<C-u>Ref alc<Space><C-r><C-w><CR>
 nnoremap <silent> <Space>K :<C-u>call ref#jump('normal', 'alc')<CR>
 vnoremap <silent> <Space>K :<C-u>call ref#jump('visual', 'alc')<CR>
