@@ -44,6 +44,9 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+" candidate bar
+set wildmenu
+
 " backup file
 set nobackup
 
