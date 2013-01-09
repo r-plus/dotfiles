@@ -176,9 +176,13 @@ autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 " error-fix yankring
 let g:yankring_manual_clipboard_check = 0
 
-" VimFiler
+" unite.vim vimproc.vim VimFiler
 let g:vimfiler_edit_action = 'tabopen'
-nnoremap vf :VimFilerTab<CR>
+"let g:unite_enable_start_insert = 1
+nnoremap vf :<C-u>VimFilerTab<CR>
+nnoremap ff :<C-u>Unite buffer -buffer-name=buf -no-quit<CR>
+nnoremap fb :<C-u>Unite bookmark -buffer-name=bookmark<CR>
+nnoremap fg :<C-u>Unite grep -buffer-name=grep -no-quit -auto-preview<CR>
 
 " -----------------------------------------------------------------------
 " neocomplcache from README
