@@ -183,6 +183,7 @@ nnoremap vf :<C-u>VimFilerTab<CR>
 nnoremap ff :<C-u>Unite buffer -buffer-name=buf -no-quit<CR>
 nnoremap fb :<C-u>Unite bookmark -buffer-name=bookmark<CR>
 nnoremap fg :<C-u>Unite grep -buffer-name=grep -no-quit -auto-preview<CR>
+nmap <buffer> <C-j> <Plug>(unite_toggle_auto_preview)
 
 " -----------------------------------------------------------------------
 " neocomplcache from README
