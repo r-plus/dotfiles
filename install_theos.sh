@@ -61,72 +61,26 @@ install_substrate() {
     rm -rf Packages.bz2 $pkg /tmp/Library
 }
 
-install_activator() {
+install_library_from_bigboss() {
     cd /tmp
-    echo "Downloading Activator header and library..."
-    BIGBOSS_REPO="http://apt.thebigboss.org/repofiles/cydia"
+    echo "Downloading $1 /usr directory..."
     curl -s -L "${BIGBOSS_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2" > Packages.bz2
-    pkg_path=$(bzcat Packages.bz2 | grep "debs2.0/libactivator" | awk '{print $2}')
-    pkg=$(basename $pkg_path)
-    curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
-    ar -p $pkg data.tar.gz | tar -zxf - ./usr/include/libactivator/libactivator.h ./usr/lib/libactivator.dylib
-    if [ -d $THEOS/include/libactivator ]; then
-        mv -f ./usr/include/libactivator/libactivator.h $THEOS/include/libactivator/
-    else
-        mv -f ./usr/include/libactivator $THEOS/include
-    fi
-    mv ./usr/lib/libactivator.dylib $THEOS/lib
-    rm -rf usr Packages.bz2 $pkg
-}
-
-install_actionmenu() {
-    cd /tmp
-    echo "Downloading ActionMenu.h..."
-    curl -s -L "${BIGBOSS_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2" > Packages.bz2
-    pkg_path=$(bzcat Packages.bz2 | grep "debs2.0/actionmenu_" | awk '{print $2}')
-    pkg=$(basename $pkg_path)
-    curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
-    ar -p $pkg data.tar.gz | tar -zxf - ./usr/include
-    mv ./usr/include/ActionMenu $THEOS/include/
-    rm -rf usr Packages.bz2 $pkg
-}
-
-install_layersnapshotter() {
-    cd /tmp
-    echo "Downloading LayerSnapShotter..."
-    curl -s -L "${BIGBOSS_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2" > Packages.bz2
-    pkg_path=$(bzcat Packages.bz2 | grep "debs2.0/layersnapshotter" | awk '{print $2}')
+    pkg_path=$(bzcat Packages.bz2 | grep "debs2.0/$1" | awk '{print $2}')
     pkg=$(basename $pkg_path)
     curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
     ar -p $pkg data.tar.gz | tar -zxf - ./usr
-    mv ./usr/include/layersnapshotter.h $THEOS/include/
-    mv ./usr/lib/liblayersnapshotter.dylib $THEOS/lib/
+    cp -a ./usr/ $THEOS/
     rm -rf usr Packages.bz2 $pkg
 }
 
-install_instabanner() {
-    cd /tmp
-    echo "Downloading InstaBanner..."
-    curl -s -L "${BIGBOSS_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2" > Packages.bz2
-    pkg_path=$(bzcat Packages.bz2 | grep "debs2.0/libinstabanner" | awk '{print $2}')
-    pkg=$(basename $pkg_path)
-    curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
-    ar -p $pkg data.tar.gz | tar -zxf - ./usr
-    mv ./usr/include/InstaBanner.h $THEOS/include/
-    mv ./usr/lib/libinstabanner.dylib $THEOS/lib/
-    rm -rf usr Packages.bz2 $pkg
-}
-
-install_applist() {
-    cd /tmp
-    echo "Downloading applist..."
-    curl -s -L "${BIGBOSS_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2" > Packages.bz2
-    pkg_path=$(bzcat Packages.bz2 | grep "debs2.0/applist" | awk '{print $2}')
-    pkg=$(basename $pkg_path)
-    curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
-    ar -p $pkg data.tar.gz | tar -zxf - ./usr
-    mv ./usr/lib/libapplist.dylib $THEOS/lib/
-    rm -rf usr Packages.bz2 $pkg
+re_install_all_libraries() {
+    install_substrate
+    install_library_from_bigboss libactivator
+    install_library_from_bigboss actionmenu_
+    install_library_from_bigboss layersnapshotter
+    install_library_from_bigboss libinstabanner
+    install_library_from_bigboss applist
+    install_library_from_bigboss preferenceloader
 }
 
 substitude_theos_in_dropbox() {
@@ -139,11 +93,7 @@ substitude_theos_in_dropbox() {
 
 if [ $# -eq 0 ]; then
     install_theos
-    install_substrate
-    install_activator
-    install_actionmenu
-    install_layersnapshotter
-    install_instabanner
+    re_install_all_libraries
 else
     for i in $@; do
         $i
