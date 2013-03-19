@@ -197,6 +197,7 @@ function! s:unite_my_settings()"{{{
     " Overwrite settings.
     nmap <buffer> <C-j> <Plug>(unite_toggle_auto_preview)
     nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+    nnoremap <silent><buffer><expr> gr     unite#do_action('grep')
 endfunction"}}}
 
 
