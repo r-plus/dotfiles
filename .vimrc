@@ -186,7 +186,7 @@ let g:yankring_manual_clipboard_check = 0
 let g:vimfiler_edit_action = 'tabopen'
 "let g:unite_enable_start_insert = 1
 nnoremap vv :<C-u>VimFilerTab<CR>
-nnoremap ff :<C-u>Unite buffer -buffer-name=buf -no-quit<CR>
+nnoremap ff :<C-u>Unite buffer file file_mru -buffer-name=buf -no-quit<CR>
 nnoremap fb :<C-u>Unite bookmark -buffer-name=bookmark<CR>
 nnoremap fg :<C-u>Unite grep -buffer-name=grep -no-quit -auto-preview<CR>
 nnoremap fl :<C-u>Unite line -buffer-name=line -no-quit<CR>
