@@ -189,7 +189,7 @@ nnoremap vv :<C-u>VimFilerTab<CR>
 nnoremap ff :<C-u>Unite buffer file file_mru -buffer-name=buf -no-quit<CR>
 nnoremap fb :<C-u>Unite bookmark -buffer-name=bookmark<CR>
 nnoremap fg :<C-u>Unite grep -buffer-name=grep -no-quit -auto-preview<CR>
-nnoremap fl :<C-u>Unite line -buffer-name=line -no-quit<CR>
+nnoremap fl :<C-u>Unite line -buffer-name=line -start-insert -no-quit<CR>
 nnoremap fr :<C-u>UniteResume<CR>
 
 autocmd FileType unite call s:unite_my_settings()
