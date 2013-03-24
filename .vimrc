@@ -113,7 +113,6 @@ autocmd BufReadPost *
 
 "" quickrun for theos tweak
 let g:quickrun_config = {}
-let g:quickrun_config['objcpp'] = {'command': 'make'}
 "augroup TheosTweak
 "  autocmd!
 "  autocmd BufWinEnter,BufNewFile *.xm set filetype=objcpp
