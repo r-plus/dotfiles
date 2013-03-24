@@ -102,6 +102,12 @@ if has('gui_win32')
   set clipboard+=unnamed
   " Minimize shortcut
   nnoremap <M-n> :simalt ~n<CR>
+  " Paste Clipboard mapping
+  nnoremap <M-v> "*P
+  inoremap <M-v> <ESC>"*pa
+  cnoremap <M-v> <C-r>+
+  nnoremap <RightMouse> "*p
+  inoremap <RightMouse> <C-r><C-o>*
 endif
 
 " theos
@@ -180,11 +186,17 @@ let g:vimfiler_edit_action = 'tabopen'
 "let g:unite_enable_start_insert = 1
 nnoremap vv :<C-u>VimFilerTab<CR>
 nnoremap ff :<C-u>Unite buffer -buffer-name=buf -no-quit<CR>
+nnoremap fm :<C-u>Unite file_mru -buffer-name=mru -no-quit<CR>
 nnoremap fb :<C-u>Unite bookmark -buffer-name=bookmark<CR>
+nnoremap fl :<C-u>Unite line -buffer-name=line -start-insert -no-quit<CR>
 nnoremap fg :<C-u>Unite grep -buffer-name=grep -no-quit -auto-preview<CR>
+nnoremap fr :<C-u>UniteResume<CR>
+
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   " Overwrite settings.
+  nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+  nnoremap <silent><buffer><expr> gr     unite#do_action('grep')
 
   nmap <buffer> <ESC>      <Plug>(unite_exit)
   imap <buffer> jj      <Plug>(unite_insert_leave)
