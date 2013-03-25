@@ -192,6 +192,18 @@ nnoremap fl :<C-u>Unite line -buffer-name=line -start-insert -no-quit<CR>
 nnoremap fg :<C-u>Unite grep -buffer-name=grep -no-quit -auto-preview<CR>
 nnoremap fr :<C-u>UniteResume<CR>
 
+if executable('ag')
+    " Use ag in unite grep source.
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nocolor --nogroup --column'
+    let g:unite_source_grep_recursive_opt = ''
+elseif executable('ack-grep')
+    " Use ack in unite grep source.
+    let g:unite_source_grep_command = 'ack-grep'
+    let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+    let g:unite_source_grep_recursive_opt = ''
+endif
+
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   " Overwrite settings.
