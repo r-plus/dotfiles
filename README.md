@@ -41,34 +41,41 @@ Add this line.  `CHARACTER_SET:utf-8`
     curl -o .vim/bundle/vim-ref/autoload/ref/alc.vim -k https://raw.github.com/gist/2762277/c8cf993bec75b819759fad524b7b6b4661d41209/alc.vim
 
 -----
-## for Windows KaoriYa-vim(used Cygwin for make and git)
+## for Windows KaoriYa-vim(used mingw and minsys)
+### First, install mingw, minsys and git.
+http://git-scm.com/    
+http://sourceforge.net/projects/mingw/files/
+
 if you using proxy, set below (bash)
 
     export HTTP_PROXY=http://PROXY_HOSTorIP:PORT
     export HTTPS_PROXY=http://PROXY_HOSTorIP:PORT
-    export FTP_PROXY=http://PROXY_HOSTorIP:PORT
     // or
     git config --global http.proxy http://PROXY_HOSTorIP:PORT
 
+proxy setting for cmd.exe
+    proxycfg -u
+    // or
+    netsh winhttp import proxy source=ie
+
 then clone neobundle and dotfiles. (Required `git` package for cygwin) If you see the certificate error, try `http` or `git` protocol.
 
-    cd "/cygdrive/c/$HOMEPATH"; mkdir -p .vim/bundle
+    cd ; mkdir -p .vim/bundle
     git clone https://github.com/Shougo/neobundle.vim.git .vim/bundle/neobundle.vim
     git clone https://github.com/r-plus/dotfiles.git
 
 and https protocol to replace the git protocol in `.vimrc` (many company blocking git protocol)   
-`/cygdrive/c/$HOMEPATH/_vimrc` is for KaoriYa-vim/gvim, `~/.vimrc` for cygwin's one.
+`$HOMEPATH/_vimrc` is for KaoriYa-vim/gvim, `~/.vimrc` for cygwin's one.
 
     sed -e 's%git://%https://%' dotfiles/.vimrc > _vimrc
 
 install plugins! (Please use correct vim that can be used `git(git.exe)`)
 
-    :let $PATH = $PATH . ';C:\cygwin\bin'
     :NeoBundleInstall
 
 make the vimproc.dll (Required `make` and `gcc` package for cygwin)
 
-    cd .vim/bundle/vimproc; make -f make_cygwin.mak
+    cd .vim/bundle/vimproc; make -f make_mingw32.mak
 
 ### Lynx for Windows
 [Lynx for Win32 - http://lynx-win32-pata.sourceforge.jp/index-ja.html](http://lynx-win32-pata.sourceforge.jp/index-ja.html)
