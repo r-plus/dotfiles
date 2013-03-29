@@ -1,2 +1,17 @@
 " colorscheme setting for Win32
 colorscheme pablo
+
+" hide icon menu.
+set guioptions-=T
+" visual select to copy.
+set guioptions+=a
+
+" font.
+if has ('win32')
+    set guifont=MS_Gothic:h10:cSHIFTJIS
+endif
+
+" width
+set columns=120
+" height
+set lines=40
