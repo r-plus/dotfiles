@@ -68,6 +68,7 @@ and https protocol to replace the git protocol in `.vimrc` (many company blockin
 `$HOMEPATH/_vimrc` is for KaoriYa-vim/gvim, `~/.vimrc` for cygwin's one.
 
     sed -e 's%git://%https://%' dotfiles/.vimrc > _vimrc
+    cp -a dotfiles/_gvimrc _gvimrc
 
 install plugins! (Please use correct vim that can be used `git(git.exe)`)
 
