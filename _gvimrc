@@ -15,3 +15,8 @@ endif
 set columns=120
 " height
 set lines=40
+
+" fix jp-menu
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.vim
