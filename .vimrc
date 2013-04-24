@@ -59,6 +59,8 @@ set smarttab
 
 " backup file
 set nobackup
+"set noswapfile
+set backupcopy=yes
 
 " colorshceme
 colorscheme desert
