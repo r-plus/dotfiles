@@ -60,6 +60,8 @@ set smarttab
 " backup file
 set nobackup
 "set noswapfile
+set directory=~/.vim/swap
+" for preserve i-node
 set backupcopy=yes
 
 " colorshceme

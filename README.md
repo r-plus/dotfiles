@@ -7,6 +7,8 @@
     ln -s dotfiles/.bash_profile .bash_profile
     ln -s ~/dotfiles/.ssh/config ~/.ssh/config
     mkdir -p ~/.vim/bundle
+    mkdir -p ~/.vim/view
+    mkdir -p ~/.vim/swap
     git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
 ### mod remote (for author)
