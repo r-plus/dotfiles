@@ -91,7 +91,11 @@ vnoremap <silent> <Space>K :<C-u>call ref#jump('visual', 'alc')<CR>
 let g:ref_alc_start_linenumber = 43
 " vim-ref for Windows
 if has('gui_win32')
-  let $PATH = $PATH . ';C:\Program Files (x86)\Lynx for Win32'
+  if exists(isdirectory('C:Program Files (x86)\Lynx for Win32'))
+    let $PATH = $PATH . ';C:\Program Files (x86)\Lynx for Win32'
+  else
+    let $PATH = $PATH . ';C:\Program Files\Lynx for Win32'
+  endif
   let g:ref_alc_encoding = 'cp932'
   let g:ref_alc_start_linenumber = 45
 endif
