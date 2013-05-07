@@ -20,3 +20,18 @@ set lines=40
 source $VIMRUNTIME/delmenu.vim
 set langmenu=ja_jp.utf-8
 source $VIMRUNTIME/menu.vim
+
+" gvim win32
+if has('gui_win32')
+    "source $VIMRUNTIME/mswin.vim
+    " Copy-Paste-Cut shortcut key enable and yank to clipboard for Windows
+    set clipboard+=unnamed
+    " Minimize shortcut
+    nnoremap <M-n> :simalt ~n<CR>
+    " Paste Clipboard mapping
+    nnoremap <M-v> "*P
+    inoremap <M-v> <ESC>"*pa
+    cnoremap <M-v> <C-r>+
+    nnoremap <RightMouse> "*p
+    inoremap <RightMouse> <C-r><C-o>*
+endif

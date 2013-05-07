@@ -83,41 +83,9 @@ set autoindent
 set modelines=2
 set modeline
 
-" vim-ref
-nnoremap ,ra :<C-u>Ref alc<Space>
-nnoremap ,ro :<C-u>Ref alc<Space><C-r><C-w><CR>
-nnoremap <silent> <Space>K :<C-u>call ref#jump('normal', 'alc')<CR>
-vnoremap <silent> <Space>K :<C-u>call ref#jump('visual', 'alc')<CR>
-let g:ref_alc_start_linenumber = 43
-" vim-ref for Windows
-if has('gui_win32')
-    if exists(isdirectory('C:Program Files (x86)\Lynx for Win32'))
-        let $PATH = $PATH . ';C:\Program Files (x86)\Lynx for Win32'
-    else
-        let $PATH = $PATH . ';C:\Program Files\Lynx for Win32'
-    endif
-    let g:ref_alc_encoding = 'cp932'
-    let g:ref_alc_start_linenumber = 45
-endif
-
 " auto set paste, nopaste for C-v from clipboard
 "autocmd InsertEnter * set paste
 autocmd InsertLeave * set nopaste
-
-" gvim win32
-if has('gui_win32')
-    "source $VIMRUNTIME/mswin.vim
-    " Copy-Paste-Cut shortcut key enable and yank to clipboard for Windows
-    set clipboard+=unnamed
-    " Minimize shortcut
-    nnoremap <M-n> :simalt ~n<CR>
-    " Paste Clipboard mapping
-    nnoremap <M-v> "*P
-    inoremap <M-v> <ESC>"*pa
-    cnoremap <M-v> <C-r>+
-    nnoremap <RightMouse> "*p
-    inoremap <RightMouse> <C-r><C-o>*
-endif
 
 " theos
 autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x set filetype=objcpp
@@ -125,28 +93,6 @@ autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
             \   exe "normal g`\"" |
             \ endif
-
-"" quickrun for theos tweak
-let g:quickrun_config = {}
-"augroup TheosTweak
-"  autocmd!
-"  autocmd BufWinEnter,BufNewFile *.xm set filetype=objcpp
-"augroup END
-
-" markdown
-autocmd BufNewFile,BufRead *.md,*.markdown set filetype=markdown
-let g:quickrun_config['markdown'] = {
-            \ 'outputter': 'browser',
-            \ 'command': 'pandoc',
-            \ 'exec': ['%c -s -f markdown -t html -o %s:p:r.html %s', 'open %s:p:r.html', 'sleep 1', 'rm %s:p:r.html'],
-            \ 'tempfile': '{tempname()}.md'
-            \ }
-" blogger settings saved to pit.
-"let g:blogger_blogid = ''
-"let g:blogger_email = ''
-"let g:blogger_pass = ''
-let g:blogger_ruby_path = '/usr/local/bin/ruby'
-"let g:blogger_ruby_path = join(split(system('which ruby'), '')[0:-2], "")
 
 " keymap for theos framework
 nnoremap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make install)<CR>
@@ -172,11 +118,6 @@ inoreabbrev <expr> logc 'id tmp = %orig;<CR>NSLog(@"return = %@", tmp);<CR>NSLog
 inoreabbrev <expr> boolc 'BOOL tmp = %orig;<CR>NSLog(@"return = %@", tmp ? @"YES" : @"NO");<CR>return tmp;'
 inoreabbrev <expr> subjcc 'SubjC_set_maximum_depth(0);<CR>SubjC_start();<CR>%orig;<CR>SubjC_end();'
 
-" vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_color_change_percent = 30
-let g:indent_guides_guide_size = 1
-
 " Save fold settings. Copy from http://vim-users.jp/2009/10/hack84/
 autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
 autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
@@ -186,6 +127,54 @@ set viewoptions-=options
 " PEP8 indent
 autocmd FileType python set cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+" -----------------------------------------------------------------------
+"  Plugins
+" -----------------------------------------------------------------------
+
+" vim-ref
+nnoremap ,ra :<C-u>Ref alc<Space>
+nnoremap ,ro :<C-u>Ref alc<Space><C-r><C-w><CR>
+nnoremap <silent> <Space>K :<C-u>call ref#jump('normal', 'alc')<CR>
+vnoremap <silent> <Space>K :<C-u>call ref#jump('visual', 'alc')<CR>
+let g:ref_alc_start_linenumber = 43
+" vim-ref for Windows
+if has('gui_win32')
+    if exists(isdirectory('C:Program Files (x86)\Lynx for Win32'))
+        let $PATH = $PATH . ';C:\Program Files (x86)\Lynx for Win32'
+    else
+        let $PATH = $PATH . ';C:\Program Files\Lynx for Win32'
+    endif
+    let g:ref_alc_encoding = 'cp932'
+    let g:ref_alc_start_linenumber = 45
+endif
+
+"" quickrun for theos tweak
+let g:quickrun_config = {}
+"augroup TheosTweak
+"  autocmd!
+"  autocmd BufWinEnter,BufNewFile *.xm set filetype=objcpp
+"augroup END
+
+" markdown
+autocmd BufNewFile,BufRead *.md,*.markdown set filetype=markdown
+let g:quickrun_config['markdown'] = {
+            \ 'outputter': 'browser',
+            \ 'command': 'pandoc',
+            \ 'exec': ['%c -s -f markdown -t html -o %s:p:r.html %s', 'open %s:p:r.html', 'sleep 1', 'rm %s:p:r.html'],
+            \ 'tempfile': '{tempname()}.md'
+            \ }
+" blogger settings saved to pit.
+"let g:blogger_blogid = ''
+"let g:blogger_email = ''
+"let g:blogger_pass = ''
+let g:blogger_ruby_path = '/usr/local/bin/ruby'
+"let g:blogger_ruby_path = join(split(system('which ruby'), '')[0:-2], "")
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_color_change_percent = 30
+let g:indent_guides_guide_size = 1
 
 " error-fix yankring
 let g:yankring_manual_clipboard_check = 0
