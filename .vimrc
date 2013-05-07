@@ -23,6 +23,7 @@ NeoBundle 'git://github.com/ujihisa/blogger.vim.git'
 NeoBundle 'git://github.com/fkfk/rbpit.vim.git'
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 NeoBundle 'git://github.com/r-plus/EnhCommentify.vim.git'
+NeoBundle 'git://github.com/osyo-manga/vim-anzu.git'
 
 filetype plugin indent on
 
@@ -46,9 +47,6 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
-" search centering
-nmap n nzz
-nmap N Nzz
 
 " tab-space
 set tabstop=4
@@ -131,6 +129,12 @@ autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 " -----------------------------------------------------------------------
 "  Plugins
 " -----------------------------------------------------------------------
+
+" vim-anzu
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
 
 " vim-ref
 nnoremap ,ra :<C-u>Ref alc<Space>
