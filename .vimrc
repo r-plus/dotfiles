@@ -3,8 +3,8 @@ set nocompatible
 filetype plugin indent off
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle/'))
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
@@ -91,13 +91,13 @@ vnoremap <silent> <Space>K :<C-u>call ref#jump('visual', 'alc')<CR>
 let g:ref_alc_start_linenumber = 43
 " vim-ref for Windows
 if has('gui_win32')
-  if exists(isdirectory('C:Program Files (x86)\Lynx for Win32'))
-    let $PATH = $PATH . ';C:\Program Files (x86)\Lynx for Win32'
-  else
-    let $PATH = $PATH . ';C:\Program Files\Lynx for Win32'
-  endif
-  let g:ref_alc_encoding = 'cp932'
-  let g:ref_alc_start_linenumber = 45
+    if exists(isdirectory('C:Program Files (x86)\Lynx for Win32'))
+        let $PATH = $PATH . ';C:\Program Files (x86)\Lynx for Win32'
+    else
+        let $PATH = $PATH . ';C:\Program Files\Lynx for Win32'
+    endif
+    let g:ref_alc_encoding = 'cp932'
+    let g:ref_alc_start_linenumber = 45
 endif
 
 " auto set paste, nopaste for C-v from clipboard
@@ -106,25 +106,25 @@ autocmd InsertLeave * set nopaste
 
 " gvim win32
 if has('gui_win32')
-  "source $VIMRUNTIME/mswin.vim
-  " Copy-Paste-Cut shortcut key enable and yank to clipboard for Windows
-  set clipboard+=unnamed
-  " Minimize shortcut
-  nnoremap <M-n> :simalt ~n<CR>
-  " Paste Clipboard mapping
-  nnoremap <M-v> "*P
-  inoremap <M-v> <ESC>"*pa
-  cnoremap <M-v> <C-r>+
-  nnoremap <RightMouse> "*p
-  inoremap <RightMouse> <C-r><C-o>*
+    "source $VIMRUNTIME/mswin.vim
+    " Copy-Paste-Cut shortcut key enable and yank to clipboard for Windows
+    set clipboard+=unnamed
+    " Minimize shortcut
+    nnoremap <M-n> :simalt ~n<CR>
+    " Paste Clipboard mapping
+    nnoremap <M-v> "*P
+    inoremap <M-v> <ESC>"*pa
+    cnoremap <M-v> <C-r>+
+    nnoremap <RightMouse> "*p
+    inoremap <RightMouse> <C-r><C-o>*
 endif
 
 " theos
 autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x set filetype=objcpp
 autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \   exe "normal g`\"" |
-                        \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal g`\"" |
+            \ endif
 
 "" quickrun for theos tweak
 let g:quickrun_config = {}
@@ -136,11 +136,11 @@ let g:quickrun_config = {}
 " markdown
 autocmd BufNewFile,BufRead *.md,*.markdown set filetype=markdown
 let g:quickrun_config['markdown'] = {
-      \ 'outputter': 'browser',
-      \ 'command': 'pandoc',
-      \ 'exec': ['%c -s -f markdown -t html -o %s:p:r.html %s', 'open %s:p:r.html', 'sleep 1', 'rm %s:p:r.html'],
-      \ 'tempfile': '{tempname()}.md'
-      \ }
+            \ 'outputter': 'browser',
+            \ 'command': 'pandoc',
+            \ 'exec': ['%c -s -f markdown -t html -o %s:p:r.html %s', 'open %s:p:r.html', 'sleep 1', 'rm %s:p:r.html'],
+            \ 'tempfile': '{tempname()}.md'
+            \ }
 " blogger settings saved to pit.
 "let g:blogger_blogid = ''
 "let g:blogger_email = ''
@@ -215,109 +215,109 @@ endif
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
-  " Overwrite settings.
-  nnoremap <silent><buffer><expr> r     unite#do_action('replace')
-  nnoremap <silent><buffer><expr> gr     unite#do_action('grep')
+    " Overwrite settings.
+    nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+    nnoremap <silent><buffer><expr> gr     unite#do_action('grep')
 
-  nmap <buffer> <ESC>      <Plug>(unite_exit)
-  imap <buffer> jj      <Plug>(unite_insert_leave)
-  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+    nmap <buffer> <ESC>      <Plug>(unite_exit)
+    imap <buffer> jj      <Plug>(unite_insert_leave)
+    "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
 
-  imap <buffer><expr> j unite#smart_map('j', '')
-  imap <buffer> <TAB>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
-  imap <buffer> '     <Plug>(unite_quick_match_default_action)
-  nmap <buffer> '     <Plug>(unite_quick_match_default_action)
-  imap <buffer><expr> x
-        \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
-  nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
-  nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-  imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-  imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-  nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-  nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
+    imap <buffer><expr> j unite#smart_map('j', '')
+    imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+    imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+    imap <buffer> '     <Plug>(unite_quick_match_default_action)
+    nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+    imap <buffer><expr> x
+                \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
+    nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
+    nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+    imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+    imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+    nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+    nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
 endfunction"}}}
 
 " -----------------------------------------------------------------------
 " neocomplcache from README
 
-	" Disable AutoComplPop.
-	let g:acp_enableAtStartup = 0
-	" Use neocomplcache.
-	let g:neocomplcache_enable_at_startup = 1
-	let g:neocomplcache_enable_smart_case = 1
-	let g:neocomplcache_enable_camel_case_completion = 1
-	let g:neocomplcache_enable_underbar_completion = 1
-	let g:neocomplcache_min_syntax_length = 3
-	let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-	
-	" Define dictionary.
-	let g:neocomplcache_dictionary_filetype_lists = {
-	    \ 'default' : '',
-	    \ 'vimshell' : $HOME.'/.vimshell_hist',
-	    \ 'scheme' : $HOME.'/.gosh_completions'
-	        \ }
-	
-	" Define keyword.
-	if !exists('g:neocomplcache_keyword_patterns')
-	    let g:neocomplcache_keyword_patterns = {}
-	endif
-	let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-	
-	" Plugin key-mappings.
-	imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-	smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-	inoremap <expr><C-g>     neocomplcache#undo_completion()
-	inoremap <expr><C-l>     neocomplcache#complete_common_string()
-	
-	" SuperTab like snippets behavior.
-	"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-	
-	" Recommended key-mappings.
-	" <CR>: close popup and save indent.
-	inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
-	" <TAB>: completion.
-	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-	" <C-h>, <BS>: close popup and delete backword char.
-	inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-	inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-	inoremap <expr><C-y>  neocomplcache#close_popup()
-	inoremap <expr><C-e>  neocomplcache#cancel_popup()
-	
-	" For cursor moving in insert mode(Not recommended)
-	inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-	inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-	inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-	inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-	
-	" AutoComplPop like behavior.
-	"let g:neocomplcache_enable_auto_select = 1
-	
-	" Shell like behavior(not recommended).
-	"set completeopt+=longest
-	"let g:neocomplcache_enable_auto_select = 1
-	"let g:neocomplcache_disable_auto_complete = 1
-	"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-	"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-	
-	" Enable omni completion.
-	autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-	autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-	autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-	
-	" Enable heavy omni completion.
-	if !exists('g:neocomplcache_omni_patterns')
-	  let g:neocomplcache_omni_patterns = {}
-	endif
-	let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-	"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-	let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-	let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-	let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-	
-	" For snippet_complete marker.
-	if has('conceal')
-	  set conceallevel=2 concealcursor=i
-	endif
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell_hist',
+            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" For cursor moving in insert mode(Not recommended)
+inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+
+" AutoComplPop like behavior.
+"let g:neocomplcache_enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplcache_disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+" For snippet_complete marker.
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
