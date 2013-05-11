@@ -23,7 +23,7 @@ Add `git config --global user.email hogehoge@gmail.com` to `.bashrc`
 ### Vim-Plugins
 
 * Install | :NeoBundleInstall
-* Update | :NeoBundleInstall!
+* Update | :NeoBundleUpdate
 * Remove | :NeoBundleClean
 
 ### vimproc
@@ -56,13 +56,14 @@ if you using proxy, set below (bash)
     git config --global http.proxy http://PROXY_HOSTorIP:PORT
 
 proxy setting for cmd.exe
+
     proxycfg -u
     // or
     netsh winhttp import proxy source=ie
 
 then clone neobundle and dotfiles. (Required `git` package for cygwin) If you see the certificate error, try `http` or `git` protocol.
 
-    cd ; mkdir -p .vim/bundle
+    cd ; mkdir -p .vim/bundle; mkdir -p .vim/swap
     git clone https://github.com/Shougo/neobundle.vim.git .vim/bundle/neobundle.vim
     git clone https://github.com/r-plus/dotfiles.git
 
