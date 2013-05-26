@@ -1,7 +1,8 @@
 "Vrome is GoogleChrome Extention.
 
 " Set your hintkeys instead of the default 0123456789
-set hintkeys=jlkhfsdagwerui
+set useletters=1
+set hintkeys=jlkhfsdagweroi
 
 " long feet scroll
 map j 5j
