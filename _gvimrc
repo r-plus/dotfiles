@@ -1,6 +1,9 @@
 " colorscheme setting for Win32
 colorscheme pablo
 
+" override textwidth=78
+autocmd FileType text setlocal textwidth=0
+
 " hide icon menu.
 set guioptions-=T
 " visual select to copy.
