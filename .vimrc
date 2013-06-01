@@ -107,6 +107,9 @@ nnoremap <silent> <S-Right> :5wincmd ><CR>
 nnoremap <C-TAB> gt
 nnoremap <C-S-TAB> gT
 
+" keymap for insert current file name
+imap <C-F> <C-R>=expand("%")<CR>
+
 " escape safety
 imap <C-@> <C-[>
 
