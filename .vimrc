@@ -110,7 +110,7 @@ nnoremap <C-S-TAB> gT
 " escape safety
 imap <C-@> <C-[>
 
-" comment line creater
+" snippet
 inoreabbrev <expr> dl repeat('/', 80 - col('.'))
 inoreabbrev <expr> logc 'id tmp = %orig;<CR>NSLog(@"return = %@", tmp);<CR>NSLog(@"return class = %@", NSStringFromClass([tmp class]));'
 inoreabbrev <expr> boolc 'BOOL tmp = %orig;<CR>NSLog(@"return = %@", tmp ? @"YES" : @"NO");<CR>return tmp;'
@@ -125,6 +125,9 @@ set viewoptions-=options
 " PEP8 indent
 autocmd FileType python set cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+" automatically reload .vimrc
+autocmd BufWritePost .vimrc source $MYVIMRC
 
 " -----------------------------------------------------------------------
 "  Plugins
