@@ -191,6 +191,7 @@ let g:yankring_manual_clipboard_check = 0
 
 " unite.vim vimproc.vim VimFiler
 let g:vimfiler_edit_action = 'tabopen'
+autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
 "let g:unite_enable_start_insert = 1
 nnoremap vv :<C-u>VimFilerTab<CR>
 nnoremap ff :<C-u>Unite buffer -buffer-name=buf -no-quit<CR>
