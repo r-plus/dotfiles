@@ -44,18 +44,30 @@ NeoBundleLazy 'https://github.com/thinca/vim-quickrun.git', {
 \       'mappings' : ["<Leader>r"]
 \   }
 \}
+NeoBundleLazy 'git://github.com/tyru/open-browser.vim.git', {
+\   'autoload' : {
+\       'mappings' : ["<Leader>r"]
+\   }
+\}
 NeoBundleLazy 'git://github.com/fkfk/rbpit.vim.git', {
 \   'autoload' : {
-\       'commands' : ["w blogger:create"]
+\       'filetypes' : ["markdown"]
+\   }
+\}
+NeoBundleLazy 'git://github.com/kana/vim-metarw.git', {
+\   'autoload' : {
+\       'filetypes' : ["markdown"]
+\   }
+\}
+NeoBundleLazy 'git://github.com/ujihisa/blogger.vim.git', {
+\   'autoload' : {
+\       'filetypes' : ["markdown"]
 \   }
 \}
 NeoBundleLazy 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 NeoBundle 'git://github.com/vim-scripts/YankRing.vim.git'
-NeoBundle 'git://github.com/tyru/open-browser.vim.git'
-NeoBundle 'git://github.com/kana/vim-metarw.git'
-NeoBundle 'git://github.com/ujihisa/blogger.vim.git'
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 NeoBundle 'git://github.com/r-plus/EnhCommentify.vim.git'
 NeoBundle 'git://github.com/osyo-manga/vim-anzu.git'
