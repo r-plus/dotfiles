@@ -65,7 +65,14 @@ NeoBundleLazy 'ujihisa/blogger.vim', {
 \       'filetypes' : ["markdown"]
 \   }
 \}
-NeoBundleLazy 'Shougo/vimproc'
+NeoBundleLazy 'Shougo/vimproc', {
+\   'build' : {
+\       'windows' : 'make -f make_mingw32.mak',
+\       'cygwin' : 'make -f make_cygwin.mak',
+\       'mac' : 'make -f make_mac.mak',
+\       'unix' : 'make -f make_unix.mak'
+\   }
+\}
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/YankRing.vim'
