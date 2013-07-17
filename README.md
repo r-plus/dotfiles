@@ -77,7 +77,7 @@ install plugins! (Please use correct vim that can be used `git(git.exe)`)
 
     :NeoBundleInstall
 
-make the vimproc.dll (Required `make` and `gcc` package for cygwin)
+make the vimproc.dll (You should use `MinGW Shell`(not `Git Bash` or `cmd.exe`))
 
     cd .vim/bundle/vimproc; make -f make_mingw32.mak
 
