@@ -3,74 +3,75 @@ set nocompatible
 filetype plugin indent off
 
 if has('vim_starting')
+    let g:neobundle#types#git#default_protocol = has('gui_win32') ? 'https' : 'git'
     set runtimepath+=~/.vim/bundle/neobundle.vim/
     call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-NeoBundleLazy 'https://github.com/Shougo/unite.vim.git', {
+NeoBundleLazy 'Shougo/unite.vim', {
 \   'autoload' : {
 \       'commands' : ["Unite"]
 \   }
 \}
-NeoBundleLazy 'https://github.com/Shougo/vimfiler.git', {
+NeoBundleLazy 'Shougo/vimfiler', {
 \   'depends' : ["Shougo/unite.vim"],
 \   'autoload' : {
 \       'commands' : ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
 \   }
 \}
-NeoBundleLazy 'https://github.com/thinca/vim-ref.git', {
+NeoBundleLazy 'thinca/vim-ref', {
 \   'autoload' : {
 \       'commands' : ["Ref"]
 \   }
 \}
-NeoBundleLazy 'https://github.com/h1mesuke/vim-alignta.git', {
+NeoBundleLazy 'h1mesuke/vim-alignta', {
 \   'autoload' : {
 \       'commands' : ["Align", "Alignta"]
 \   }
 \}
-NeoBundleLazy 'https://github.com/Shougo/vimshell.git', {
+NeoBundleLazy 'Shougo/vimshell', {
 \   'depends' : ["Shougo/vimproc"],
 \   'autoload' : {
 \       'commands' : ["VimShell"]
 \   }
 \}
-NeoBundleLazy 'https://github.com/thinca/vim-qfreplace.git', {
+NeoBundleLazy 'thinca/vim-qfreplace', {
 \   'autoload' : {
 \       'filetypes' : ['unite', 'quickfix']
 \   }
 \}
-NeoBundleLazy 'https://github.com/thinca/vim-quickrun.git', {
+NeoBundleLazy 'thinca/vim-quickrun', {
 \   'autoload' : {
 \       'mappings' : ["<Leader>r"]
 \   }
 \}
-NeoBundleLazy 'git://github.com/tyru/open-browser.vim.git', {
+NeoBundleLazy 'tyru/open-browser.vim', {
 \   'autoload' : {
 \       'mappings' : ["<Leader>r"]
 \   }
 \}
-NeoBundleLazy 'git://github.com/fkfk/rbpit.vim.git', {
+NeoBundleLazy 'fkfk/rbpit.vim', {
 \   'autoload' : {
 \       'filetypes' : ["markdown"]
 \   }
 \}
-NeoBundleLazy 'git://github.com/kana/vim-metarw.git', {
+NeoBundleLazy 'kana/vim-metarw', {
 \   'autoload' : {
 \       'filetypes' : ["markdown"]
 \   }
 \}
-NeoBundleLazy 'git://github.com/ujihisa/blogger.vim.git', {
+NeoBundleLazy 'ujihisa/blogger.vim', {
 \   'autoload' : {
 \       'filetypes' : ["markdown"]
 \   }
 \}
-NeoBundleLazy 'git://github.com/Shougo/vimproc.git'
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
-NeoBundle 'git://github.com/vim-scripts/YankRing.vim.git'
-NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
-NeoBundle 'git://github.com/r-plus/EnhCommentify.vim.git'
-NeoBundle 'git://github.com/osyo-manga/vim-anzu.git'
+NeoBundleLazy 'Shougo/vimproc'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'r-plus/EnhCommentify.vim'
+NeoBundle 'osyo-manga/vim-anzu'
 
 filetype plugin indent on
 
