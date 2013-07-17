@@ -96,7 +96,7 @@ if [ $# -eq 0 ]; then
     re_install_all_libraries
 else
     for i in $@; do
-        $i
+        install_library_from_bigboss $i
     done
 fi
 
