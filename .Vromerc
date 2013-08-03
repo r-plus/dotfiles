@@ -12,6 +12,9 @@ map k 5k
 unmap <M-f>
 unmap <C-f>
 
+" use default printout shortcut
+unmap <C-p>
+
 " remove current tab
 map d dc
 unmap dm
