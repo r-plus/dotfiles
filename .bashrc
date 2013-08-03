@@ -9,7 +9,12 @@ alias mp="make package"
 alias mi="make install"
 alias mc="make clean"
 alias rd="rm *.deb"
+alias v="vagrant"
 
 # theos
 export THEOS_DEVICE_IP=i4
 
+# rbenv PATH
+if [ -d ~/.rbenv ]; then
+    export PATH=~/.rbenv/shims:$PATH
+fi
