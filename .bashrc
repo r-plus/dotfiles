@@ -9,7 +9,9 @@ alias mp="make package"
 alias mi="make install"
 alias mc="make clean"
 alias rd="rm *.deb"
-alias v="vagrant"
+alias vu="vagrant up"
+alias vh="vagrant halt"
+alias vs="vagrant ssh"
 
 # theos
 export THEOS_DEVICE_IP=i4
