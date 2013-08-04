@@ -180,10 +180,6 @@ autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview
 " Don't save options.
 set viewoptions-=options
 
-" PEP8 indent
-autocmd FileType python set cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
-
 " automatically reload .vimrc
 autocmd BufWritePost .vimrc source $MYVIMRC
 
