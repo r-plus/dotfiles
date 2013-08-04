@@ -2,13 +2,15 @@
 
     cd ~
     git clone git://github.com/r-plus/dotfiles.git
-    ln -s dotfiles/.vimrc .vimrc
-    ln -s dotfiles/.bashrc .bashrc
-    ln -s dotfiles/.bash_profile .bash_profile
+    ln -s ~/dotfiles/.vimrc .vimrc
+    ln -s ~/dotfiles/.bashrc .bashrc
+    ln -s ~/dotfiles/.bash_profile .bash_profile
     ln -s ~/dotfiles/.ssh/config ~/.ssh/config
     mkdir -p ~/.vim/bundle
     mkdir -p ~/.vim/view
     mkdir -p ~/.vim/swap
+    mkdir -p ~/.vim/after
+    ln -s ~/dotfiles/.vim/after/ftplugin ~/.vim/after/ftplugin
     git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
 ### mod remote (for author)
