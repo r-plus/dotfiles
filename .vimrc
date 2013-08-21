@@ -76,7 +76,8 @@ NeoBundleLazy 'Shougo/vimproc', {
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'bling/vim-airline'
+"NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 
@@ -95,6 +96,8 @@ set wildmode=list:longest,full
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 "let g:Powerline_symbols = 'fancy'
+"let g:airline_powerline_fonts=1
+let g:airline_theme='simple'
 
 " search
 set ignorecase
@@ -254,6 +257,7 @@ nnoremap fg :<C-u>Unite grep -buffer-name=grep -no-quit -auto-preview<CR>
 nnoremap fr :<C-u>UniteResume<CR>
 let bundle = neobundle#get('unite.vim')
 function! bundle.hooks.on_source(bundle)
+    let g:unite_force_overwrite_statusline = 0
     let g:vimfiler_edit_action = 'tabopen'
     autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
     autocmd FileType unite call unite#custom_default_action('file', 'tabopen')
