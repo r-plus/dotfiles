@@ -80,6 +80,7 @@ NeoBundle 'bling/vim-airline'
 "NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
@@ -93,11 +94,19 @@ set title
 set wildmenu
 set wildmode=list:longest,full
 " vim-powerline recommended
+set t_Co=256
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 "let g:Powerline_symbols = 'fancy'
-"let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=1
 let g:airline_theme='simple'
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline#extensions#branch#symbol = '⭠'
+let g:airline#extensions#readonly#symbol = '⭤'
+let g:airline_linecolumn_prefix = '⭡'
 
 " search
 set ignorecase
