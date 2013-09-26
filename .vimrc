@@ -76,11 +76,11 @@ NeoBundleLazy 'Shougo/vimproc', {
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'itchyny/lightline.vim'
+"NeoBundle 'bling/vim-airline'
 "NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
-NeoBundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
