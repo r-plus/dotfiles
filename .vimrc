@@ -174,6 +174,9 @@ nnoremap <silent> <S-Right> :5wincmd ><CR>
 nnoremap <C-TAB> gt
 nnoremap <C-S-TAB> gT
 
+" tab open vimrc (7.4 or later)
+nnoremap <F5> :tabe ~/vimfiles/vimrc<CR>
+
 " keymap for insert current file name
 imap <C-F> <C-R>=expand("%")<CR>
 
@@ -192,8 +195,8 @@ autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview
 " Don't save options.
 set viewoptions-=options
 
-" automatically reload .vimrc
-autocmd BufWritePost .vimrc source $MYVIMRC
+" automatically reload vimrc
+autocmd BufWritePost vimrc source $MYVIMRC
 
 " -----------------------------------------------------------------------
 "  Plugins
