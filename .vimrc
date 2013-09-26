@@ -177,6 +177,9 @@ nnoremap <C-S-TAB> gT
 " tab open vimrc (7.4 or later)
 nnoremap <F5> :tabe ~/vimfiles/vimrc<CR>
 
+" align for textile table macro
+xnoremap <silent> \| :Alignta \|<CR>
+
 " keymap for insert current file name
 imap <C-F> <C-R>=expand("%")<CR>
 
