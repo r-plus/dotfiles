@@ -76,11 +76,11 @@ NeoBundleLazy 'Shougo/vimproc', {
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'itchyny/lightline.vim'
+"NeoBundle 'bling/vim-airline'
 "NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
-NeoBundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
@@ -174,6 +174,12 @@ nnoremap <silent> <S-Right> :5wincmd ><CR>
 nnoremap <C-TAB> gt
 nnoremap <C-S-TAB> gT
 
+" tab open vimrc (7.4 or later)
+nnoremap <F5> :tabe ~/vimfiles/vimrc<CR>
+
+" align for textile table macro
+xnoremap <silent> \| :Alignta \|<CR>
+
 " keymap for insert current file name
 imap <C-F> <C-R>=expand("%")<CR>
 
@@ -192,8 +198,8 @@ autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview
 " Don't save options.
 set viewoptions-=options
 
-" automatically reload .vimrc
-autocmd BufWritePost .vimrc source $MYVIMRC
+" automatically reload vimrc
+autocmd BufWritePost vimrc source $MYVIMRC
 
 " -----------------------------------------------------------------------
 "  Plugins
