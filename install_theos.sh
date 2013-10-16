@@ -5,17 +5,21 @@ THEOS=${THEOS_INSTALL_DIR}/theos
 BIGBOSS_REPO="http://apt.thebigboss.org/repofiles/cydia"
 SUBSTRATE_REPO="http://apt.saurik.com"
 
+if $TRAVIS; then
+    THEOS_INSTALL_DIR=$(pwd)
+fi
+
 # initial theos install directory check
 if [ ! -d "$THEOS_INSTALL_DIR" ]; then
     echo "making $THEOS_INSTALL_DIR"
     sudo mkdir -p $THEOS_INSTALL_DIR
-    sudo chown $USER $THEOS_INSTALL_DIR
 fi
 
 install_theos() {
     # clone theos.git
     cd $THEOS_INSTALL_DIR
-    git clone git://github.com/DHowett/theos.git
+    sudo git clone git://github.com/DHowett/theos.git
+    sudo chown $USER $THEOS
 
     # clone iphoneheaders.git
     cd $THEOS
