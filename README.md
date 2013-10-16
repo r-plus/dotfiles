@@ -1,19 +1,21 @@
 # dotfiles
 
+### Setup for OS X
+
     cd ~
     git clone git://github.com/r-plus/dotfiles.git
-    ln -s ~/dotfiles/.vimrc .vimrc
-    ln -s ~/dotfiles/.bashrc .bashrc
-    ln -s ~/dotfiles/.bash_profile .bash_profile
-    ln -s ~/dotfiles/.ssh/config ~/.ssh/config
     mkdir -p ~/.vim/bundle
     mkdir -p ~/.vim/view
     mkdir -p ~/.vim/swap
     mkdir -p ~/.vim/after
+    ln -s ~/dotfiles/vimrc ~/.vimrc
+    ln -s ~/dotfiles/.bashrc .bashrc
+    ln -s ~/dotfiles/.bash_profile .bash_profile
+    ln -s ~/dotfiles/.ssh/config ~/.ssh/config
     ln -s ~/dotfiles/.vim/after/ftplugin ~/.vim/after/ftplugin
     git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
-### mod remote (for author)
+### modify remote repository (for author)
 
     cd ~/dotfiles
     git remote rm origin
@@ -27,9 +29,6 @@ Add `git config --global user.email hogehoge@gmail.com` to `.bashrc`
 * Install | :NeoBundleInstall
 * Update | :NeoBundleUpdate
 * Remove | :NeoBundleClean
-
-### vimproc
-`cd ~/.vim/bundle/vimproc/; make -f ~/.vim/bundle/vimproc/make_mac.mak`
 
 ### lynx setup for Lion
 
@@ -50,38 +49,38 @@ Add this line.  `CHARACTER_SET:utf-8`
 http://git-scm.com/    
 http://sourceforge.net/projects/mingw/files/
 
-if you using proxy, set below (bash)
+if you using proxy, set below (git bash)
 
     export HTTP_PROXY=http://PROXY_HOSTorIP:PORT
     export HTTPS_PROXY=http://PROXY_HOSTorIP:PORT
     // or
-    git config --global http.proxy http://PROXY_HOSTorIP:PORT
+    git config --global http.proxy <PROXY_HOST or IP-Address>:<PORT>
 
 proxy setting for cmd.exe
 
     proxycfg -u
-    // or
+    // or below for Windows 7 or later
     netsh winhttp import proxy source=ie
 
-then clone neobundle and dotfiles. (Required `git` package for cygwin) If you see the certificate error, try `http` or `git` protocol.
+then clone neobundle and dotfiles.
 
-    cd ; mkdir -p .vim/bundle; mkdir -p .vim/swap
+    cd
+    mkdir -p .vim/bundle
+    mkdir -p .vim/swap
+    mkdir -p .vim/after
+    mkdir -p vimfiles
     git clone https://github.com/Shougo/neobundle.vim.git .vim/bundle/neobundle.vim
     git clone https://github.com/r-plus/dotfiles.git
 
-and https protocol to replace the git protocol in `.vimrc` (many company blocking git protocol)   
-`$HOMEPATH/_vimrc` is for KaoriYa-vim/gvim, `~/.vimrc` for cygwin's one.
+copy rc files and ftplugins
 
-    ln -s dotfiles/.vimrc _vimrc
-    ln -s dotfiles/_gvimrc _gvimrc
+    cp ~/dotfiles/vimrc ~/vimfiles/vimrc
+    cp ~/dotfiles/gvimrc ~/vimfiles/gvimrc
+    cp -a ~/dotfiles/after/* ~/.vim/after/
 
 install plugins! (Please use correct vim that can be used `git(git.exe)`)
 
     :NeoBundleInstall
-
-make the vimproc.dll (You should use `MinGW Shell`(not `Git Bash` or `cmd.exe`))
-
-    cd .vim/bundle/vimproc; make -f make_mingw32.mak
 
 ### Lynx for Windows
 [Lynx for Win32 - http://lynx-win32-pata.sourceforge.jp/index-ja.html](http://lynx-win32-pata.sourceforge.jp/index-ja.html)
