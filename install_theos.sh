@@ -44,7 +44,7 @@ install_theos() {
 
     # get ldid for Mac OS X
     cd $THEOS/bin
-    curl -O http://dl.dropbox.com/u/3157793/ldid
+    curl -O https://networkpx.googlecode.com/files/ldid
     chmod a+x ldid
 
     # get dpkg for Mac OS X
