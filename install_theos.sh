@@ -5,8 +5,9 @@ THEOS=${THEOS_INSTALL_DIR}/theos
 BIGBOSS_REPO="http://apt.thebigboss.org/repofiles/cydia"
 SUBSTRATE_REPO="http://apt.saurik.com"
 
-if $TRAVIS; then
+if [ $TRAVIS ]; then
     THEOS_INSTALL_DIR=$(pwd)
+    THEOS=${THEOS_INSTALL_DIR}/theos
 fi
 
 # initial theos install directory check
@@ -19,14 +20,14 @@ install_theos() {
     # clone theos.git
     cd $THEOS_INSTALL_DIR
     sudo git clone git://github.com/DHowett/theos.git
-    sudo chown $USER $THEOS
+    sudo chown -R $USER $THEOS
 
     # clone iphoneheaders.git
     cd $THEOS
     mv include include.bak
     git clone git://github.com/rpetrich/iphoneheaders.git include
-    for FILE in include.bak/*.h; do mv $FILE include/; done
-    rmdir include.bak/
+    cp -a include.bak/* include
+    rm -fr include.bak
 
     # get IOSurfaceAPI.h
     find /System -name "IOSurfaceAPI.h" 2>/dev/null | xargs -J % cp % $THEOS/include/IOSurface/
