@@ -85,6 +85,11 @@ install plugins! (Please use correct vim that can be used `git(git.exe)`)
 ### Lynx for Windows
 [Lynx for Win32 - http://lynx-win32-pata.sourceforge.jp/index-ja.html](http://lynx-win32-pata.sourceforge.jp/index-ja.html)
 
+#### Lynx via proxy
+You must set proxy in `lynx.cfg`
+
+    http_proxy:http://PROXY_SERVER:PORT/
+
 ### vimdiff for Windows
 * Download diff `Binaries` and `Dependencies` from [DiffUtils for Windows](http://gnuwin32.sourceforge.net/packages/diffutils.htm)
 * Put dlls and exes to vim directory.
