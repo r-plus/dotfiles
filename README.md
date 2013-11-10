@@ -39,9 +39,9 @@ Add this line.  `CHARACTER_SET:utf-8`
 
 ### get vim-ref ref file.
 
-    wget --no-check-certificate https://raw.github.com/gist/2762277/c8cf993bec75b819759fad524b7b6b4661d41209/alc.vim .vim/bundle/vim-ref/autoload/ref/alc.vim
+    wget --no-check-certificate https://gist.github.com/r-plus/2762277/raw/c8cf993bec75b819759fad524b7b6b4661d41209/alc.vim .vim/bundle/vim-ref/autoload/ref/alc.vim
     // or
-    curl -o .vim/bundle/vim-ref/autoload/ref/alc.vim -k https://raw.github.com/gist/2762277/c8cf993bec75b819759fad524b7b6b4661d41209/alc.vim
+    curl -o .vim/bundle/vim-ref/autoload/ref/alc.vim -k https://gist.github.com/r-plus/2762277/raw/c8cf993bec75b819759fad524b7b6b4661d41209/alc.vim
 
 -----
 ## for Windows KaoriYa-vim(used mingw and minsys)
@@ -84,6 +84,11 @@ install plugins! (Please use correct vim that can be used `git(git.exe)`)
 
 ### Lynx for Windows
 [Lynx for Win32 - http://lynx-win32-pata.sourceforge.jp/index-ja.html](http://lynx-win32-pata.sourceforge.jp/index-ja.html)
+
+#### Lynx via proxy
+You must set proxy in `lynx.cfg`
+
+    http_proxy:http://PROXY_SERVER:PORT/
 
 ### vimdiff for Windows
 * Download diff `Binaries` and `Dependencies` from [DiffUtils for Windows](http://gnuwin32.sourceforge.net/packages/diffutils.htm)
