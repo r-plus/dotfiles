@@ -25,7 +25,7 @@ install_theos() {
     # clone iphoneheaders.git
     cd $THEOS
     mv include include.bak
-    git clone git://github.com/rpetrich/iphoneheaders.git include
+    git clone git://github.com/r-plus/iphoneheaders.git include
     cp -a include.bak/* include
     rm -fr include.bak
 
