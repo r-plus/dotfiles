@@ -171,6 +171,9 @@ nnoremap <silent> <S-Down>  :5wincmd +<CR>
 nnoremap <silent> <S-Left>  :5wincmd <<CR>
 nnoremap <silent> <S-Right> :5wincmd ><CR>
 
+" substitute the word under the cursor
+nnoremap sub :%s/<C-r><C-w>//cg<Left><Left><Left>
+
 " keymap for tab move
 nnoremap <C-TAB> gt
 nnoremap <C-S-TAB> gT
