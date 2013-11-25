@@ -131,7 +131,9 @@ set directory=~/.vim/swap
 set backupcopy=yes
 
 " colorshceme
-colorscheme desert
+if has(! 'gui_running')
+    colorscheme desert
+endif
 
 " foldmethod
 "set foldmethod=indent
