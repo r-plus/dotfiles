@@ -4,6 +4,9 @@ colorscheme pablo
 " override textwidth=78
 autocmd FileType text setlocal textwidth=0
 
+" tab label. <tab number> and <buffer filename>
+set guitablabel=%N\ %t
+
 " hide icon menu.
 set guioptions-=T
 " visual select to copy.
