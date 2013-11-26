@@ -131,7 +131,9 @@ set directory=~/.vim/swap
 set backupcopy=yes
 
 " colorshceme
-colorscheme desert
+if has(! 'gui_running')
+    colorscheme desert
+endif
 
 " foldmethod
 "set foldmethod=indent
@@ -170,6 +172,9 @@ nnoremap <silent> <S-Up>    :5wincmd -<CR>
 nnoremap <silent> <S-Down>  :5wincmd +<CR>
 nnoremap <silent> <S-Left>  :5wincmd <<CR>
 nnoremap <silent> <S-Right> :5wincmd ><CR>
+
+" substitute the word under the cursor
+nnoremap sub :%s/<C-r><C-w>//cg<Left><Left><Left>
 
 " keymap for tab move
 nnoremap <C-TAB> gt
