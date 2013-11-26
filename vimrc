@@ -131,7 +131,7 @@ set directory=~/.vim/swap
 set backupcopy=yes
 
 " colorshceme
-if has(! 'gui_running')
+if !has('gui_running')
     colorscheme desert
 endif
 
