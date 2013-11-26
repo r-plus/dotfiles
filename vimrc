@@ -5,8 +5,8 @@ filetype plugin indent off
 if has('vim_starting')
     let g:neobundle#types#git#default_protocol = has('gui_win32') ? 'https' : 'git'
     set runtimepath+=~/.vim/bundle/neobundle.vim/
-    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleLazy 'Shougo/unite.vim', {
 \   'autoload' : {
@@ -151,16 +151,30 @@ set autoindent
 set modelines=2
 set modeline
 
-" auto set paste, nopaste for C-v from clipboard
-"autocmd InsertEnter * set paste
-autocmd InsertLeave * set nopaste
+augroup MyAutoCommands
+    autocmd!
 
-" theos
-autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x,*.xi,*.xmi set filetype=objcpp
-autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal g`\"" |
-            \ endif
+    " auto set paste, nopaste for C-v from clipboard
+    "autocmd InsertEnter * set paste
+    autocmd InsertLeave * set nopaste
+
+    " Save fold settings. Copy from http://vim-users.jp/2009/10/hack84/
+    autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
+    autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
+
+    " automatically reload vimrc
+    autocmd BufWritePost vimrc nested source $MYVIMRC
+
+    " markdown
+    autocmd BufNewFile,BufRead *.md,*.markdown set filetype=markdown
+
+    " theos
+    autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x,*.xi,*.xmi set filetype=objcpp
+    autocmd BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \   exe "normal g`\"" |
+                \ endif
+augroup end
 
 " keymap for theos framework
 nnoremap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make install)<CR>
@@ -202,14 +216,8 @@ inoreabbrev <expr> logc 'id tmp = %orig;<CR>NSLog(@"return = %@", tmp);<CR>NSLog
 inoreabbrev <expr> boolc 'BOOL tmp = %orig;<CR>NSLog(@"return = %@", tmp ? @"YES" : @"NO");<CR>return tmp;'
 inoreabbrev <expr> subjcc 'SubjC_set_maximum_depth(0);<CR>SubjC_start();<CR>%orig;<CR>SubjC_end();'
 
-" Save fold settings. Copy from http://vim-users.jp/2009/10/hack84/
-autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
-autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
 " Don't save options.
 set viewoptions-=options
-
-" automatically reload vimrc
-autocmd BufWritePost vimrc source $MYVIMRC
 
 " -----------------------------------------------------------------------
 "  Plugins
@@ -249,8 +257,6 @@ let g:quickrun_config = {}
 "  autocmd BufWinEnter,BufNewFile *.xm set filetype=objcpp
 "augroup END
 
-" markdown
-autocmd BufNewFile,BufRead *.md,*.markdown set filetype=markdown
 let g:quickrun_config['markdown'] = {
             \ 'outputter': 'browser',
             \ 'command': 'pandoc',
