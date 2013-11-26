@@ -1,6 +1,7 @@
 tap 'phinze/cask'
 brew 'autoconf'
 brew 'automake'
+brew 'appledoc'
 brew 'bash'
 brew 'brew-cask'
 brew 'bsdiff'
