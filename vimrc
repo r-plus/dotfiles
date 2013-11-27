@@ -46,26 +46,6 @@ NeoBundleLazy 'thinca/vim-quickrun', {
 \       'mappings' : ["<Leader>r"]
 \   }
 \}
-NeoBundleLazy 'tyru/open-browser.vim', {
-\   'autoload' : {
-\       'mappings' : ["<Leader>r"]
-\   }
-\}
-NeoBundleLazy 'fkfk/rbpit.vim', {
-\   'autoload' : {
-\       'filetypes' : ["markdown"]
-\   }
-\}
-NeoBundleLazy 'kana/vim-metarw', {
-\   'autoload' : {
-\       'filetypes' : ["markdown"]
-\   }
-\}
-NeoBundleLazy 'ujihisa/blogger.vim', {
-\   'autoload' : {
-\       'filetypes' : ["markdown"]
-\   }
-\}
 NeoBundleLazy 'Shougo/vimproc', {
 \   'build' : {
 \       'windows' : 'make -f make_mingw32.mak',
@@ -83,6 +63,28 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'kana/vim-smartinput'
+if has('mac')
+    NeoBundleLazy 'ujihisa/blogger.vim', {
+                \   'autoload' : {
+                \       'filetypes' : ["markdown"]
+                \   }
+                \}
+    NeoBundleLazy 'tyru/open-browser.vim', {
+                \   'autoload' : {
+                \       'mappings' : ["<Leader>r"]
+                \   }
+                \}
+    NeoBundleLazy 'fkfk/rbpit.vim', {
+                \   'autoload' : {
+                \       'filetypes' : ["markdown"]
+                \   }
+                \}
+    NeoBundleLazy 'kana/vim-metarw', {
+                \   'autoload' : {
+                \       'filetypes' : ["markdown"]
+                \   }
+                \}
+endif
 
 filetype plugin indent on
 
