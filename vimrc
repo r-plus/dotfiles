@@ -3,57 +3,57 @@ set nocompatible
 filetype plugin indent off
 
 if has('vim_starting')
-    let g:neobundle#types#git#default_protocol = has('gui_win32') ? 'https' : 'git'
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  let g:neobundle#types#git#default_protocol = has('gui_win32') ? 'https' : 'git'
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundleLazy 'Shougo/unite.vim', {
-\   'autoload' : {
-\       'commands' : ["Unite"]
-\   }
-\}
+      \   'autoload' : {
+      \       'commands' : ["Unite"]
+      \   }
+      \}
 NeoBundleLazy 'Shougo/vimfiler', {
-\   'depends' : ["Shougo/unite.vim"],
-\   'autoload' : {
-\       'commands' : ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
-\   }
-\}
+      \   'depends' : ["Shougo/unite.vim"],
+      \   'autoload' : {
+      \       'commands' : ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
+      \   }
+      \}
 NeoBundleLazy 'thinca/vim-ref', {
-\   'autoload' : {
-\       'commands' : ["Ref"]
-\   }
-\}
+      \   'autoload' : {
+      \       'commands' : ["Ref"]
+      \   }
+      \}
 NeoBundleLazy 'h1mesuke/vim-alignta', {
-\   'autoload' : {
-\       'commands' : ["Align", "Alignta"]
-\   }
-\}
+      \   'autoload' : {
+      \       'commands' : ["Align", "Alignta"]
+      \   }
+      \}
 NeoBundleLazy 'Shougo/vimshell', {
-\   'depends' : ["Shougo/vimproc"],
-\   'autoload' : {
-\       'commands' : ["VimShell"]
-\   }
-\}
+      \   'depends' : ["Shougo/vimproc"],
+      \   'autoload' : {
+      \       'commands' : ["VimShell"]
+      \   }
+      \}
 NeoBundleLazy 'thinca/vim-qfreplace', {
-\   'autoload' : {
-\       'filetypes' : ['unite', 'quickfix']
-\   }
-\}
+      \   'autoload' : {
+      \       'filetypes' : ['unite', 'quickfix']
+      \   }
+      \}
 NeoBundleLazy 'thinca/vim-quickrun', {
-\   'autoload' : {
-\       'mappings' : ["<Leader>r"]
-\   }
-\}
+      \   'autoload' : {
+      \       'mappings' : ["<Leader>r"]
+      \   }
+      \}
 NeoBundleLazy 'Shougo/vimproc', {
-\   'build' : {
-\       'windows' : 'make -f make_mingw32.mak',
-\       'cygwin' : 'make -f make_cygwin.mak',
-\       'mac' : 'make -f make_mac.mak',
-\       'unix' : 'make -f make_unix.mak'
-\   }
-\}
+      \   'build' : {
+      \       'windows' : 'make -f make_mingw32.mak',
+      \       'cygwin' : 'make -f make_cygwin.mak',
+      \       'mac' : 'make -f make_mac.mak',
+      \       'unix' : 'make -f make_unix.mak'
+      \   }
+      \}
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/YankRing.vim'
@@ -64,26 +64,26 @@ NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'kana/vim-smartinput'
 if has('mac')
-    NeoBundleLazy 'ujihisa/blogger.vim', {
-                \   'autoload' : {
-                \       'filetypes' : ["markdown"]
-                \   }
-                \}
-    NeoBundleLazy 'tyru/open-browser.vim', {
-                \   'autoload' : {
-                \       'mappings' : ["<Leader>r"]
-                \   }
-                \}
-    NeoBundleLazy 'fkfk/rbpit.vim', {
-                \   'autoload' : {
-                \       'filetypes' : ["markdown"]
-                \   }
-                \}
-    NeoBundleLazy 'kana/vim-metarw', {
-                \   'autoload' : {
-                \       'filetypes' : ["markdown"]
-                \   }
-                \}
+  NeoBundleLazy 'ujihisa/blogger.vim', {
+        \   'autoload' : {
+        \       'filetypes' : ["markdown"]
+        \   }
+        \}
+  NeoBundleLazy 'tyru/open-browser.vim', {
+        \   'autoload' : {
+        \       'mappings' : ["<Leader>r"]
+        \   }
+        \}
+  NeoBundleLazy 'fkfk/rbpit.vim', {
+        \   'autoload' : {
+        \       'filetypes' : ["markdown"]
+        \   }
+        \}
+  NeoBundleLazy 'kana/vim-metarw', {
+        \   'autoload' : {
+        \       'filetypes' : ["markdown"]
+        \   }
+        \}
 endif
 
 filetype plugin indent on
@@ -135,7 +135,7 @@ set backupcopy=yes
 
 " colorshceme
 if !has('gui_running')
-    colorscheme desert
+  colorscheme desert
 endif
 
 " foldmethod
@@ -154,29 +154,28 @@ set autoindent
 set modelines=2
 set modeline
 
+" Don't save options.
+set viewoptions-=options
+
 augroup MyAutoCommands
-    autocmd!
+  autocmd!
 
-    " auto set paste, nopaste for C-v from clipboard
-    "autocmd InsertEnter * set paste
-    autocmd InsertLeave * set nopaste
+  " auto set paste, nopaste for C-v from clipboard
+  "autocmd InsertEnter * set paste
+  autocmd InsertLeave * set nopaste
 
-    " Save fold settings. Copy from http://vim-users.jp/2009/10/hack84/
-    autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
-    autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
+  " Save fold settings. Copy from http://vim-users.jp/2009/10/hack84/
+  autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
+  autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
 
-    " automatically reload vimrc
-    autocmd BufWritePost vimrc nested source $MYVIMRC
+  " automatically reload vimrc
+  autocmd BufWritePost vimrc nested source $MYVIMRC
 
-    " markdown
-    autocmd BufNewFile,BufRead *.md,*.markdown set filetype=markdown
+  " markdown
+  autocmd BufNewFile,BufRead *.md,*.markdown set filetype=markdown
 
-    " theos
-    autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x,*.xi,*.xmi set filetype=objcpp
-    autocmd BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \   exe "normal g`\"" |
-                \ endif
+  " theos
+  autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x,*.xi,*.xmi set filetype=objcpp
 augroup end
 
 " keymap for theos framework
@@ -215,9 +214,6 @@ inoreabbrev <expr> logc 'id tmp = %orig;<CR>NSLog(@"return = %@", tmp);<CR>NSLog
 inoreabbrev <expr> boolc 'BOOL tmp = %orig;<CR>NSLog(@"return = %@", tmp ? @"YES" : @"NO");<CR>return tmp;'
 inoreabbrev <expr> subjcc 'SubjC_set_maximum_depth(0);<CR>SubjC_start();<CR>%orig;<CR>SubjC_end();'
 
-" Don't save options.
-set viewoptions-=options
-
 " -----------------------------------------------------------------------
 "  Plugins
 " -----------------------------------------------------------------------
@@ -250,19 +246,15 @@ if neobundle#tap('vim-ref')
   call neobundle#untap()
 endif
 
-"" quickrun for theos tweak
+" quickrun for theos tweak
 let g:quickrun_config = {}
-"augroup TheosTweak
-"  autocmd!
-"  autocmd BufWinEnter,BufNewFile *.xm set filetype=objcpp
-"augroup END
-
 let g:quickrun_config['markdown'] = {
-            \ 'outputter': 'browser',
-            \ 'command': 'pandoc',
-            \ 'exec': ['%c -s -f markdown -t html -o %s:p:r.html %s', 'open %s:p:r.html', 'sleep 1', 'rm %s:p:r.html'],
-            \ 'tempfile': '{tempname()}.md'
-            \ }
+      \ 'outputter': 'browser',
+      \ 'command': 'pandoc',
+      \ 'exec': ['%c -s -f markdown -t html -o %s:p:r.html %s', 'open %s:p:r.html', 'sleep 1', 'rm %s:p:r.html'],
+      \ 'tempfile': '{tempname()}.md'
+      \ }
+
 " blogger settings saved to pit.
 "let g:blogger_blogid = ''
 "let g:blogger_email = ''
@@ -355,14 +347,14 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+      \ 'default' : '',
+      \ 'vimshell' : $HOME.'/.vimshell_hist',
+      \ 'scheme' : $HOME.'/.gosh_completions'
+      \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
