@@ -67,8 +67,7 @@ then clone neobundle and dotfiles.
     cd
     mkdir -p .vim/bundle
     mkdir -p .vim/swap
-    mkdir -p .vim/after
-    mkdir -p vimfiles
+    mkdir -p vimfiles/after
     git clone https://github.com/Shougo/neobundle.vim.git .vim/bundle/neobundle.vim
     git clone https://github.com/r-plus/dotfiles.git
 
@@ -76,7 +75,7 @@ copy rc files and ftplugins
 
     cp ~/dotfiles/vimrc ~/vimfiles/vimrc
     cp ~/dotfiles/gvimrc ~/vimfiles/gvimrc
-    cp -a ~/dotfiles/after/* ~/.vim/after/
+    cp -a ~/dotfiles/after/* ~/vimfiles/after/
 
 install plugins! (Please use correct vim that can be used `git(git.exe)`)
 
