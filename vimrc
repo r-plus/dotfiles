@@ -8,6 +8,7 @@ if has('vim_starting')
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundleLazy 'Shougo/unite.vim', {
 \   'autoload' : {
 \       'commands' : ["Unite"]
