@@ -233,21 +233,22 @@ nnoremap ,ra :<C-u>Ref alc<Space>
 nnoremap ,ro :<C-u>Ref alc<Space><C-r><C-w><CR>
 nnoremap <silent> <Space>K :<C-u>call ref#jump('normal', 'alc')<CR>
 vnoremap <silent> <Space>K :<C-u>call ref#jump('visual', 'alc')<CR>
-let bundle = neobundle#get('vim-ref')
-function! bundle.hooks.on_source(bundle)
+if neobundle#tap('vim-ref')
+  function! neobundle#tapped.hooks.on_source(bundle)
     let g:ref_alc_start_linenumber = 43
     " vim-ref for Windows
     if has('gui_win32')
-        if exists(isdirectory('C:Program Files (x86)\Lynx for Win32'))
-            let $PATH = $PATH . ';C:\Program Files (x86)\Lynx for Win32'
-        else
-            let $PATH = $PATH . ';C:\Program Files\Lynx for Win32'
-        endif
-        let g:ref_alc_encoding = 'cp932'
-        let g:ref_alc_start_linenumber = 45
+      if exists(isdirectory('C:Program Files (x86)\Lynx for Win32'))
+        let $PATH = $PATH . ';C:\Program Files (x86)\Lynx for Win32'
+      else
+        let $PATH = $PATH . ';C:\Program Files\Lynx for Win32'
+      endif
+      let g:ref_alc_encoding = 'cp932'
+      let g:ref_alc_start_linenumber = 45
     endif
-endfunction
-unlet bundle
+  endfunction
+  call neobundle#untap()
+endif
 
 "" quickrun for theos tweak
 let g:quickrun_config = {}
@@ -285,58 +286,60 @@ nnoremap fb :<C-u>Unite bookmark -buffer-name=bookmark<CR>
 nnoremap fl :<C-u>Unite line -buffer-name=line -start-insert -no-quit<CR>
 nnoremap fg :<C-u>Unite grep -buffer-name=grep -no-quit -auto-preview<CR>
 nnoremap fr :<C-u>UniteResume<CR>
-let bundle = neobundle#get('unite.vim')
-function! bundle.hooks.on_source(bundle)
+if neobundle#tap('unite.vim')
+  function! neobundle#tapped.hooks.on_source(bundle)
     let g:unite_force_overwrite_statusline = 0
     let g:vimfiler_edit_action = 'tabopen'
     autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
     autocmd FileType unite call unite#custom_default_action('file', 'tabopen')
     "let g:unite_enable_start_insert = 1
     if executable('ag')
-        " Use ag in unite grep source.
-        let g:unite_source_grep_command = 'ag'
-        let g:unite_source_grep_default_opts = '--nocolor --nogroup --column'
-        let g:unite_source_grep_recursive_opt = ''
+      " Use ag in unite grep source.
+      let g:unite_source_grep_command = 'ag'
+      let g:unite_source_grep_default_opts = '--nocolor --nogroup --column'
+      let g:unite_source_grep_recursive_opt = ''
     elseif executable('ack-grep')
-        " Use ack in unite grep source.
-        let g:unite_source_grep_command = 'ack-grep'
-        let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
-        let g:unite_source_grep_recursive_opt = ''
+      " Use ack in unite grep source.
+      let g:unite_source_grep_command = 'ack-grep'
+      let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+      let g:unite_source_grep_recursive_opt = ''
     endif
     autocmd FileType unite call s:unite_my_settings()
     function! s:unite_my_settings()"{{{
-        " Overwrite settings.
-        nnoremap <silent><buffer><expr> r     unite#do_action('replace')
-        nnoremap <silent><buffer><expr> gr     unite#do_action('grep')
+      " Overwrite settings.
+      nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+      nnoremap <silent><buffer><expr> gr     unite#do_action('grep')
 
-        nmap <buffer> <ESC>      <Plug>(unite_exit)
-        imap <buffer> jj      <Plug>(unite_insert_leave)
-        "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+      nmap <buffer> <ESC>      <Plug>(unite_exit)
+      imap <buffer> jj      <Plug>(unite_insert_leave)
+      "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
 
-        imap <buffer><expr> j unite#smart_map('j', '')
-        imap <buffer> <TAB>   <Plug>(unite_select_next_line)
-        imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
-        imap <buffer> '     <Plug>(unite_quick_match_default_action)
-        nmap <buffer> '     <Plug>(unite_quick_match_default_action)
-        imap <buffer><expr> x
-                    \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
-        nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
-        nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-        imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
-        imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-        nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-        nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
+      imap <buffer><expr> j unite#smart_map('j', '')
+      imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+      imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+      imap <buffer> '     <Plug>(unite_quick_match_default_action)
+      nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+      imap <buffer><expr> x
+            \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
+      nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
+      nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+      imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+      imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+      nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+      nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
     endfunction"}}}
-endfunction
-unlet bundle
+  endfunction
+  call neobundle#untap()
+endif
 
-let bundle = neobundle#get('vim-smartinput')
-function! bundle.hooks.on_source(bundle)
+if neobundle#tap('vim-smartinput')
+  function! neobundle#tapped.hooks.on_source(bundle)
     call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)',
-                \ '<Enter>',
-                \ '<Enter>')
-endfunction
-unlet bundle
+          \ '<Enter>',
+          \ '<Enter>')
+  endfunction
+  call neobundle#untap()
+endif
 
 " neocomplete from README
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
