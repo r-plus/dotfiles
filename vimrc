@@ -197,12 +197,8 @@ nnoremap sub :%s/<C-r><C-w>//cg<Left><Left><Left>
 nnoremap <C-TAB> gt
 nnoremap <C-S-TAB> gT
 
-" tab open vimrc (7.4 or later)
-if has('gui_win32')
-    nnoremap <F5> :tabe ~/vimfiles/vimrc<CR>
-else
-    nnoremap <F5> :tabe ~/.vim/vimrc<CR>
-endif
+" tab open vimrc
+nnoremap <F5> :tabe $MYVIMRC<CR>
 
 " align for textile table macro
 xnoremap <silent> \| :Alignta \|<CR>
