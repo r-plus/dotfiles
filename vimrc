@@ -63,6 +63,11 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'kana/vim-smartinput'
+NeoBundleLazy 'osyo-manga/vim-over', {
+      \   'autoload' : {
+      \       'commands' : ["OverCommandLine"]
+      \   }
+      \}
 if has('mac')
   NeoBundleLazy 'ujihisa/blogger.vim', {
         \   'autoload' : {
@@ -189,9 +194,6 @@ nnoremap <silent> <S-Down>  :5wincmd +<CR>
 nnoremap <silent> <S-Left>  :5wincmd <<CR>
 nnoremap <silent> <S-Right> :5wincmd ><CR>
 
-" substitute the word under the cursor
-nnoremap sub :%s/<C-r><C-w>//cg<Left><Left><Left>
-
 " keymap for tab move
 nnoremap <C-TAB> gt
 nnoremap <C-S-TAB> gT
@@ -223,6 +225,9 @@ nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
+
+" vim-over
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 
 " vim-ref
 nnoremap ,ra :<C-u>Ref alc<Space>
