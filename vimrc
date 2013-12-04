@@ -251,8 +251,13 @@ if neobundle#tap('vim-ref')
   call neobundle#untap()
 endif
 
-" quickrun for theos tweak
+" quickrun
 let g:quickrun_config = {}
+let g:quickrun_config['objcpp'] = {
+      \     'command': 'clang',
+      \     'exec': ['%c %s -o %s:p:r -framework Foundation', '%s:p:r %a', 'rm -f %s:p:r'],
+      \     'tempfile': '{tempname()}.mm',
+      \ }
 let g:quickrun_config['markdown'] = {
       \ 'outputter': 'browser',
       \ 'command': 'pandoc',
