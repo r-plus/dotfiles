@@ -227,7 +227,7 @@ nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 
 " vim-over
-nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//cg<Left><Left><Left>
 
 " vim-ref
 nnoremap ,ra :<C-u>Ref alc<Space>
