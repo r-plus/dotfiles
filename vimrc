@@ -144,7 +144,7 @@ if !has('gui_running')
 endif
 
 " foldmethod
-"set foldmethod=indent
+set foldmethod=marker
 
 " decimal increment
 setlocal nf=
