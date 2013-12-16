@@ -63,6 +63,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'kana/vim-smartinput'
+NeoBundle 'mhinz/vim-signify'
 NeoBundleLazy 'osyo-manga/vim-over', {
       \   'autoload' : {
       \       'commands' : ["OverCommandLine"]
@@ -106,16 +107,6 @@ set wildmode=list:longest,full
 set t_Co=256
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
-"let g:Powerline_symbols = 'fancy'
-let g:airline_powerline_fonts=1
-let g:airline_theme='simple'
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline#extensions#branch#symbol = '⭠'
-let g:airline#extensions#readonly#symbol = '⭤'
-let g:airline_linecolumn_prefix = '⭡'
 
 " search
 set ignorecase
@@ -183,6 +174,7 @@ augroup MyAutoCommands
   autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x,*.xi,*.xmi set filetype=objcpp
 augroup end
 
+" mappings {{{
 " keymap for theos framework
 nnoremap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make install)<CR>
 nnoremap ,v $xo{<CR>%log;<CR>%orig;<CR>}<Esc>
@@ -215,21 +207,28 @@ inoreabbrev <expr> dl repeat('/', 80 - col('.'))
 inoreabbrev <expr> logc 'id tmp = %orig;<CR>NSLog(@"return = %@", tmp);<CR>NSLog(@"return class = %@", NSStringFromClass([tmp class]));'
 inoreabbrev <expr> boolc 'BOOL tmp = %orig;<CR>NSLog(@"return = %@", tmp ? @"YES" : @"NO");<CR>return tmp;'
 inoreabbrev <expr> subjcc 'SubjC_set_maximum_depth(0);<CR>SubjC_start();<CR>%orig;<CR>SubjC_end();'
+" }}}
 
 " -----------------------------------------------------------------------
 "  Plugins
 " -----------------------------------------------------------------------
 
-" vim-anzu
+" vim-signify {{{
+let g:signify_vcs_list = ['git']
+let g:signify_line_highlight = 1
+" }}}
+
+" vim-anzu {{{
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
+" }}}
 
 " vim-over
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//cg<Left><Left><Left>
 
-" vim-ref
+" vim-ref {{{
 nnoremap ,ra :<C-u>Ref alc<Space>
 nnoremap ,ro :<C-u>Ref alc<Space><C-r><C-w><CR>
 nnoremap <silent> <Space>K :<C-u>call ref#jump('normal', 'alc')<CR>
@@ -250,8 +249,9 @@ if neobundle#tap('vim-ref')
   endfunction
   call neobundle#untap()
 endif
+" }}}
 
-" quickrun
+" quickrun {{{
 let g:quickrun_config = {}
 let g:quickrun_config['objcpp'] = {
       \     'command': 'clang',
@@ -264,23 +264,26 @@ let g:quickrun_config['markdown'] = {
       \ 'exec': ['%c -s -f markdown -t html -o %s:p:r.html %s', 'open %s:p:r.html', 'sleep 1', 'rm %s:p:r.html'],
       \ 'tempfile': '{tempname()}.md'
       \ }
+" }}}
 
-" blogger settings saved to pit.
+" blogger settings saved to pit. {{{
 "let g:blogger_blogid = ''
 "let g:blogger_email = ''
 "let g:blogger_pass = ''
 let g:blogger_ruby_path = '/usr/local/bin/ruby'
 "let g:blogger_ruby_path = join(split(system('which ruby'), '')[0:-2], "")
+" }}}
 
-" vim-indent-guides
+" vim-indent-guides {{{
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
+" }}}
 
 " error-fix yankring
 let g:yankring_manual_clipboard_check = 0
 
-" unite.vim vimproc.vim VimFiler
+" unite.vim vimproc.vim VimFiler {{{
 nnoremap vv :<C-u>VimFilerTab<CR>
 nnoremap ff :<C-u>Unite buffer -buffer-name=buf -no-quit<CR>
 nnoremap fm :<C-u>Unite file_mru -buffer-name=mru -no-quit<CR>
@@ -333,7 +336,9 @@ if neobundle#tap('unite.vim')
   endfunction
   call neobundle#untap()
 endif
+" }}}
 
+" vim-smartinput {{{
 if neobundle#tap('vim-smartinput')
   function! neobundle#tapped.hooks.on_source(bundle)
     call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)',
@@ -342,8 +347,9 @@ if neobundle#tap('vim-smartinput')
   endfunction
   call neobundle#untap()
 endif
+" }}}
 
-" neocomplete from README
+" neocomplete from README {{{
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -428,3 +434,4 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" }}}
