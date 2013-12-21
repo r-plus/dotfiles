@@ -63,13 +63,13 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'kana/vim-smartinput'
-NeoBundle 'mhinz/vim-signify'
 NeoBundleLazy 'osyo-manga/vim-over', {
       \   'autoload' : {
       \       'commands' : ["OverCommandLine"]
       \   }
       \}
 if has('mac')
+  NeoBundle 'mhinz/vim-signify'
   NeoBundleLazy 'ujihisa/blogger.vim', {
         \   'autoload' : {
         \       'filetypes' : ["markdown"]
@@ -417,11 +417,14 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup NeoCompleteGroup
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
