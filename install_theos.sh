@@ -62,7 +62,7 @@ install_substrate() {
     pkg_path=$(bzcat Packages.bz2 | grep "debs/mobilesubstrate" | awk '{print $2}')
     pkg=$(basename $pkg_path)
     curl -s -L "${SUBSTRATE_REPO}/${pkg_path}" > $pkg
-    ar -p $pkg data.tar.gz | tar -zxf - ./Library/Frameworks/CydiaSubstrate.framework
+    ar -p $pkg data.tar.lzma | tar -Jxf - ./Library/Frameworks/CydiaSubstrate.framework
     mv ./Library/Frameworks/CydiaSubstrate.framework/Headers/CydiaSubstrate.h $THEOS/include/substrate.h
     mv ./Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate  $THEOS/lib/libsubstrate.dylib
     rm -rf Packages.bz2 $pkg /tmp/Library
