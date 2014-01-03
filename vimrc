@@ -57,12 +57,12 @@ NeoBundleLazy 'Shougo/vimproc', {
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'itchyny/lightline.vim'
-"NeoBundle 'bling/vim-airline'
+"NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'bling/vim-airline'
 "NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'r-plus/EnhCommentify.vim'
 NeoBundle 'osyo-manga/vim-anzu'
-NeoBundle 'kana/vim-smartinput'
+"NeoBundle 'kana/vim-smartinput'
 NeoBundleLazy 'osyo-manga/vim-over', {
       \   'autoload' : {
       \       'commands' : ["OverCommandLine"]
@@ -380,13 +380,13 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-imap <expr> <CR> neocomplete#smart_close_popup() . "\<Plug>(smartinput_CR)"
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"  return neocomplete#smart_close_popup() . "\<CR>"
-"  " For no inserting <CR> key.
-"  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-"endfunction
+"imap <expr> <CR> neocomplete#smart_close_popup() . "\<Plug>(smartinput_CR)"
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#smart_close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
