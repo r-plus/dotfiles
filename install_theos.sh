@@ -58,26 +58,32 @@ install_theos() {
 install_substrate() {
     cd /tmp
     echo "Downloading substrate header and library..."
-    curl -s -L "${SUBSTRATE_REPO}/dists/tangelo-3.7/main/binary-iphoneos-arm/Packages.bz2" > Packages.bz2
-    pkg_path=$(bzcat Packages.bz2 | grep "debs/mobilesubstrate" | awk '{print $2}')
+    if [ -z "$(find TelesphoreoPackages.bz2 -mmin -60)" ]; then
+        rm -f TelesphoreoPackages.bz2
+        curl -s -L "${SUBSTRATE_REPO}/dists/tangelo-3.7/main/binary-iphoneos-arm/Packages.bz2" > TelesphoreoPackages.bz2
+    fi
+    pkg_path=$(bzcat TelesphoreoPackages.bz2 | grep "debs/mobilesubstrate" | awk '{print $2}')
     pkg=$(basename $pkg_path)
     curl -s -L "${SUBSTRATE_REPO}/${pkg_path}" > $pkg
     ar -p $pkg data.tar.lzma | tar -Jxf - ./Library/Frameworks/CydiaSubstrate.framework
     mv ./Library/Frameworks/CydiaSubstrate.framework/Headers/CydiaSubstrate.h $THEOS/include/substrate.h
     mv ./Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate  $THEOS/lib/libsubstrate.dylib
-    rm -rf Packages.bz2 $pkg /tmp/Library
+    rm -rf $pkg /tmp/Library
 }
 
 install_library_from_bigboss() {
     cd /tmp
     echo "Downloading $1 /usr directory..."
-    curl -s -L "${BIGBOSS_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2" > Packages.bz2
-    pkg_path=$(bzcat Packages.bz2 | grep "debs2.0/$1" | awk '{print $2}')
+    if [ -z "$(find BigBossPackages.bz2 -mmin -60)" ]; then
+        rm -f BigBossPackages.bz2
+        curl -s -L "${BIGBOSS_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2" > BigBossPackages.bz2
+    fi
+    pkg_path=$(bzcat BigBossPackages.bz2 | grep "debs2.0/$1" | awk '{print $2}')
     pkg=$(basename $pkg_path)
     curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
     ar -p $pkg data.tar.gz | tar -zxf - ./usr
     cp -a ./usr/ $THEOS/
-    rm -rf usr Packages.bz2 $pkg
+    rm -rf usr $pkg
 }
 
 re_install_all_libraries() {
