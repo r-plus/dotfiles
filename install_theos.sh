@@ -16,6 +16,29 @@ if [ ! -d "$THEOS_INSTALL_DIR" ]; then
     sudo mkdir -p $THEOS_INSTALL_DIR
 fi
 
+install_from_telesphoreo() {
+    cd /tmp
+    echo "Downloading substrate header and library..."
+    if [ -z "$(find TelesphoreoPackages.bz2 -mmin -60)" ]; then
+        rm -f TelesphoreoPackages.bz2
+        curl -s -L "${SUBSTRATE_REPO}/dists/tangelo-3.7/main/binary-iphoneos-arm/Packages.bz2" > TelesphoreoPackages.bz2
+    fi
+    pkg_path=$(bzcat TelesphoreoPackages.bz2 | grep "debs/$1" | awk '{print $2}')
+    pkg=$(basename $pkg_path)
+    curl -s -L "${SUBSTRATE_REPO}/${pkg_path}" > $pkg
+    if [ "$1" == "mobilesubstrate" ]; then
+        ar -p $pkg data.tar.lzma | tar -Jxf - ./Library/Frameworks/CydiaSubstrate.framework
+        mv ./Library/Frameworks/CydiaSubstrate.framework/Headers/CydiaSubstrate.h $THEOS/include/substrate.h
+        mv ./Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate  $THEOS/lib/libsubstrate.dylib
+        rm -rf $pkg /tmp/Library
+    else if [ "$1" == "ldid" ]; then
+        ar -p $pkg data.tar.gz | tar -zxvf- --strip-components 2 ./usr/bin/ldid
+        mv bin/ldid $THEOS/bin
+        rmdir bin
+        rm -f $pkg
+    fi
+}
+
 install_theos() {
     # clone theos.git
     cd $THEOS_INSTALL_DIR
@@ -42,10 +65,12 @@ install_theos() {
     cd $THEOS/templates/
     git clone git://github.com/orikad/theos-nic-templates.git
 
-    # get ldid for Mac OS X
-    cd $THEOS/bin
-    curl -O https://networkpx.googlecode.com/files/ldid
-    chmod a+x ldid
+    # get ldid (Packages list is not latest for ldid)
+    #install_from_telesphoreo ldid
+    cd $THEOS
+    curl -s -L http://apt.saurik.com/debs/ldid_1:1.1.2_iphoneos-arm.deb > ldid.deb
+    ar -p ldid.deb data.tar.gz | tar -zxvf- --strip-components 2 ./usr/bin/ldid
+    rm ldid.deb
 
     # get dpkg for Mac OS X
     # `brew install dpkg`
@@ -53,22 +78,6 @@ install_theos() {
         echo "Should install dpkg"
         exit 1
     fi
-}
-
-install_substrate() {
-    cd /tmp
-    echo "Downloading substrate header and library..."
-    if [ -z "$(find TelesphoreoPackages.bz2 -mmin -60)" ]; then
-        rm -f TelesphoreoPackages.bz2
-        curl -s -L "${SUBSTRATE_REPO}/dists/tangelo-3.7/main/binary-iphoneos-arm/Packages.bz2" > TelesphoreoPackages.bz2
-    fi
-    pkg_path=$(bzcat TelesphoreoPackages.bz2 | grep "debs/mobilesubstrate" | awk '{print $2}')
-    pkg=$(basename $pkg_path)
-    curl -s -L "${SUBSTRATE_REPO}/${pkg_path}" > $pkg
-    ar -p $pkg data.tar.lzma | tar -Jxf - ./Library/Frameworks/CydiaSubstrate.framework
-    mv ./Library/Frameworks/CydiaSubstrate.framework/Headers/CydiaSubstrate.h $THEOS/include/substrate.h
-    mv ./Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate  $THEOS/lib/libsubstrate.dylib
-    rm -rf $pkg /tmp/Library
 }
 
 install_library_from_bigboss() {
@@ -87,7 +96,7 @@ install_library_from_bigboss() {
 }
 
 re_install_all_libraries() {
-    install_substrate
+    install_from_telesphoreo mobilesubstrate
     install_library_from_bigboss libactivator
     install_library_from_bigboss actionmenu_
     install_library_from_bigboss layersnapshotter
