@@ -4,6 +4,9 @@
 set useletters=1
 set hintkeys=jlkhfsdagweroi
 
+" Don't follow new tab
+set follow_new_tab=0
+
 " long feet scroll
 map j 5j
 map k 5k
