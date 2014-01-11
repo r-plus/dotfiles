@@ -5,7 +5,7 @@ THEOS=${THEOS_INSTALL_DIR}/theos
 BIGBOSS_REPO="http://apt.thebigboss.org/repofiles/cydia"
 SUBSTRATE_REPO="http://apt.saurik.com"
 
-if [ "$TRAVIS" = "true" -o "$CI" = "ture" ]; then
+if [ "$(pwd | grep travis)" ]; then
     echo "This is travis."
     THEOS_INSTALL_DIR=$(pwd)
     THEOS=${THEOS_INSTALL_DIR}/theos
@@ -123,8 +123,5 @@ else
     done
 fi
 
-cd $THEOS_INSTALL_DIR
-echo $(pwd)
-echo $(ls)
 echo "Done."
 # vim: set ts=4 sw=4 sts=4 expandtab:
