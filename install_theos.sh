@@ -122,6 +122,7 @@ else
     done
 fi
 
+cd $THEOS_INSTALL_DIR
 echo $(pwd)
 echo $(ls)
 echo "Done."
