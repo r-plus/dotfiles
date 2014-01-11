@@ -5,7 +5,7 @@ THEOS=${THEOS_INSTALL_DIR}/theos
 BIGBOSS_REPO="http://apt.thebigboss.org/repofiles/cydia"
 SUBSTRATE_REPO="http://apt.saurik.com"
 
-if [ $TRAVIS ]; then
+if [ "$TRAVIS" = "true" -o "$CI" = "ture" ]; then
     echo "This is travis."
     THEOS_INSTALL_DIR=$(pwd)
     THEOS=${THEOS_INSTALL_DIR}/theos
