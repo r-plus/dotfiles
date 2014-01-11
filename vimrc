@@ -70,6 +70,7 @@ NeoBundleLazy 'osyo-manga/vim-over', {
       \}
 if has('mac')
   NeoBundle 'mhinz/vim-signify'
+  NeoBundle 'tpope/vim-fugitive'
   NeoBundleLazy 'ujihisa/blogger.vim', {
         \   'autoload' : {
         \       'filetypes' : ["markdown"]
