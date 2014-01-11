@@ -122,5 +122,7 @@ else
     done
 fi
 
+# back to project root for travis CI
+cd $THEOS_INSTALL_DIR
 echo "Done."
 # vim: set ts=4 sw=4 sts=4 expandtab:
