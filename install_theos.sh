@@ -31,7 +31,7 @@ install_from_telesphoreo() {
         mv ./Library/Frameworks/CydiaSubstrate.framework/Headers/CydiaSubstrate.h $THEOS/include/substrate.h
         mv ./Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate  $THEOS/lib/libsubstrate.dylib
         rm -rf $pkg /tmp/Library
-    else if [ "$1" == "ldid" ]; then
+    elif [ "$1" == "ldid" ]; then
         ar -p $pkg data.tar.gz | tar -zxvf- --strip-components 2 ./usr/bin/ldid
         mv bin/ldid $THEOS/bin
         rmdir bin
