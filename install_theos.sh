@@ -66,6 +66,16 @@ install_theos() {
     cd $THEOS/templates/
     git clone git://github.com/orikad/theos-nic-templates.git
 
+    # get flipswitch nic template
+    cd /tmp
+    git clone git://github.com/a3tweaks/Flipswitch.git
+    cd "Flipswitch/NIC Template"
+    # re-create workaround https://github.com/a3tweaks/Flipswitch/issues/7
+    rm *.tar
+    tar cf iphone_flipswitch_switch.nic.tar -C flipswitch_switch.nic .
+    mkdir -p $THEOS/templates/iphone_flipswitch/
+    cp iphone_flipswitch_switch.nic.tar $THEOS/templates/iphone_flipswitch/
+
     # get ldid (Packages list is not latest for ldid)
     #install_from_telesphoreo ldid
     cd $THEOS
