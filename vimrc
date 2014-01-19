@@ -181,6 +181,9 @@ nnoremap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make instal
 nnoremap ,v $xo{<CR>%log;<CR>%orig;<CR>}<Esc>
 nnoremap ,r $xo{<CR>%log;<CR>return %orig;<CR>}<Esc>
 
+" keymap for window mover
+nnoremap <TAB> <C-w>w<CR>
+
 " keymap for window resize
 nnoremap <silent> <S-Up>    :5wincmd -<CR>
 nnoremap <silent> <S-Down>  :5wincmd +<CR>
