@@ -1,6 +1,7 @@
 # alias
 alias gs="git status"
 alias gd='git diff'
+alias gl='git log --graph --decorate --oneline'
 alias grep="grep --color=auto"
 alias ll="ls -l"
 alias ls="ls -aFG"
@@ -19,7 +20,6 @@ export THEOS_DEVICE_IP=i4s; mi;
 export THEOS_DEVICE_IP=i4; mi;
 export THEOS_DEVICE_IP=mini2; mi;
 export THEOS_DEVICE_IP=ipad3; mi;
-export THEOS_DEVICE_IP=ipad2; mi;
 export THEOS_DEVICE_IP=ipad1; mi;
 "
 
