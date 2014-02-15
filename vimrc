@@ -211,6 +211,8 @@ inoreabbrev <expr> dl repeat('/', 80 - col('.'))
 inoreabbrev <expr> logc 'id tmp = %orig;<CR>NSLog(@"return = %@", tmp);<CR>NSLog(@"return class = %@", NSStringFromClass([tmp class]));'
 inoreabbrev <expr> boolc 'BOOL tmp = %orig;<CR>NSLog(@"return = %@", tmp ? @"YES" : @"NO");<CR>return tmp;'
 inoreabbrev <expr> subjcc 'SubjC_set_maximum_depth(0);<CR>SubjC_start();<CR>%orig;<CR>SubjC_end();'
+inoreabbrev <expr> fou '#import <Foundation/Foundation.h><CR>'
+inoreabbrev <expr> tanalyze 'CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();<CR>CFAbsoluteTime end = CFAbsoluteTimeGetCurrent();<CR>NSLog(@"time = %f", end - start);'
 " }}}
 
 " -----------------------------------------------------------------------
