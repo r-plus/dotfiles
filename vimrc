@@ -71,6 +71,7 @@ NeoBundleLazy 'osyo-manga/vim-over', {
 if has('mac')
   NeoBundle 'mhinz/vim-signify'
   NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'rhysd/migemo-search.vim'
   NeoBundleLazy 'ujihisa/blogger.vim', {
         \   'autoload' : {
         \       'filetypes' : ["markdown"]
@@ -251,6 +252,17 @@ if neobundle#tap('vim-ref')
       endif
       let g:ref_alc_encoding = 'cp932'
       let g:ref_alc_start_linenumber = 45
+    endif
+  endfunction
+  call neobundle#untap()
+endif
+" }}}
+
+" migemo-search {{{
+if neobundle#tap('migemo-search.vim')
+  function! neobundle#tapped.hooks.on_source(bundle)
+    if executable('cmigemo')
+      cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
     endif
   endfunction
   call neobundle#untap()
