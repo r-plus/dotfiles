@@ -155,9 +155,15 @@ set modeline
 " Don't save options.
 set viewoptions-=options
 
+scriptencoding utf-8
+
 augroup MyAutoCommands
   autocmd!
-
+  
+  " highlight http://vim-users.jp/2009/07/hack40/
+  autocmd VimEnter,Colorscheme * highlight IdeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
+  autocmd VimEnter,WinEnter,BufRead * match IdeographicSpace /　/
+  
   " auto set paste, nopaste for C-v from clipboard
   "autocmd InsertEnter * set paste
   autocmd InsertLeave * set nopaste
