@@ -319,6 +319,7 @@ if neobundle#tap('unite.vim')
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:unite_force_overwrite_statusline = 0
     let g:vimfiler_edit_action = 'tabopen'
+    let g:vimfiler_enable_auto_cd = 1
     autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
     autocmd FileType unite call unite#custom_default_action('file', 'tabopen')
     "let g:unite_enable_start_insert = 1
