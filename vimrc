@@ -9,7 +9,9 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundleLazy 'Shougo/neomru.vim'
 NeoBundleLazy 'Shougo/unite.vim', {
+      \   'depends' : ["Shougo/neomru.vim"],
       \   'autoload' : {
       \       'commands' : ["Unite"]
       \   }
