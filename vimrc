@@ -74,24 +74,9 @@ if has('mac')
   NeoBundle 'mhinz/vim-signify'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'rhysd/migemo-search.vim'
-  NeoBundleLazy 'ujihisa/blogger.vim', {
-        \   'autoload' : {
-        \       'filetypes' : ["markdown"]
-        \   }
-        \}
   NeoBundleLazy 'tyru/open-browser.vim', {
         \   'autoload' : {
         \       'mappings' : ["<Leader>r"]
-        \   }
-        \}
-  NeoBundleLazy 'fkfk/rbpit.vim', {
-        \   'autoload' : {
-        \       'filetypes' : ["markdown"]
-        \   }
-        \}
-  NeoBundleLazy 'kana/vim-metarw', {
-        \   'autoload' : {
-        \       'filetypes' : ["markdown"]
         \   }
         \}
 endif
