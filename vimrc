@@ -309,11 +309,10 @@ let g:yankring_manual_clipboard_check = 0
 
 " unite.vim vimproc.vim VimFiler {{{
 nnoremap vv :<C-u>VimFilerTab<CR>
-nnoremap ff :<C-u>Unite buffer -buffer-name=buf -no-quit<CR>
 nnoremap fm :<C-u>Unite file_mru -buffer-name=mru -no-quit<CR>
 nnoremap fb :<C-u>Unite bookmark -buffer-name=bookmark<CR>
-nnoremap fl :<C-u>Unite line -buffer-name=line -start-insert -no-quit<CR>
 nnoremap fg :<C-u>Unite grep -buffer-name=grep -no-quit -auto-preview<CR>
+nnoremap fc :<C-u>Unite grep:% -buffer-name=grep -no-quit -auto-preview<CR>
 nnoremap fr :<C-u>UniteResume<CR>
 if neobundle#tap('unite.vim')
   function! neobundle#tapped.hooks.on_source(bundle)
