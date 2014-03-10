@@ -89,6 +89,9 @@ You must set proxy in `lynx.cfg`
 
     http_proxy:http://PROXY_SERVER:PORT/
 
+#### the_platinum_searcher
+[get pt binary from github](https://github.com/monochromegane/the_platinum_searcher#user)
+
 ### vimdiff for Windows
 * Download diff `Binaries` and `Dependencies` from [DiffUtils for Windows](http://gnuwin32.sourceforge.net/packages/diffutils.htm)
 * Put dlls and exes to vim directory.
