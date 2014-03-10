@@ -190,6 +190,10 @@ nnoremap <silent> <S-Right> :5wincmd ><CR>
 nnoremap <C-TAB> gt
 nnoremap <C-S-TAB> gT
 
+" lines wrap downward/upward as default
+nnoremap j gj
+nnoremap k gk
+
 " tab open vimrc
 nnoremap <F5> :tabe $MYVIMRC<CR>
 
