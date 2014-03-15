@@ -12,7 +12,7 @@ combine_armv6()
         armv6_object="$Xcode4/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/4.0/lib/darwin/libclang_rt.ios.a"
     elif [ "$1" = "dylib1.o" ]; then
         # Supposition: contain only one sdk.
-        cd $Xcode/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS*.sdk
+        cd $Xcode/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS*.sdk/usr/lib
         armv6_object="$Xcode4/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/dylib1.o"
     else
         echo "Not support"
