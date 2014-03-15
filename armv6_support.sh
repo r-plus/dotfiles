@@ -2,6 +2,7 @@
 
 Xcode='/Applications/Xcode.app'
 Xcode4='/Applications/Xcode4.4.1.app'
+# Xcode 4.4.1 download from https://developer.apple.com/downloads/index.action?q=xcode%204.4.1
 
 ### libclang_rt.ios.a
 # Supposition: contain only one clang version.
