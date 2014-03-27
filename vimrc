@@ -7,6 +7,7 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
+let g:neobundle#default_options._ = { 'verbose' : 1, 'focus' : 1 }
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundleLazy 'Shougo/neomru.vim'
