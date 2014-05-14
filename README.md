@@ -65,10 +65,10 @@ proxy setting for cmd.exe
 then clone neobundle and dotfiles.
 
     cd
-    mkdir -p .vim/bundle
-    mkdir -p .vim/swap
+    mkdir -p vimfiles/bundle
+    mkdir -p vimfiles/swap
     mkdir -p vimfiles/after
-    git clone https://github.com/Shougo/neobundle.vim.git .vim/bundle/neobundle.vim
+    git clone https://github.com/Shougo/neobundle.vim.git vimfiles/bundle/neobundle.vim
     git clone https://github.com/r-plus/dotfiles.git
 
 copy rc files and ftplugins
