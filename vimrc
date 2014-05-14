@@ -66,6 +66,7 @@ NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle 'bling/vim-airline'
 "NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'r-plus/EnhCommentify.vim'
+NeoBundle 'PProvost/vim-ps1'
 NeoBundle 'osyo-manga/vim-anzu'
 "NeoBundle 'kana/vim-smartinput'
 NeoBundleLazy 'osyo-manga/vim-over', {
@@ -149,11 +150,11 @@ scriptencoding utf-8
 
 augroup MyAutoCommands
   autocmd!
-  
+
   " highlight http://vim-users.jp/2009/07/hack40/
   autocmd VimEnter,Colorscheme,BufRead * highlight IdeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
   autocmd VimEnter,WinEnter,BufRead * match IdeographicSpace /　/
-  
+
   " auto set paste, nopaste for C-v from clipboard
   "autocmd InsertEnter * set paste
   autocmd InsertLeave * set nopaste
@@ -327,6 +328,7 @@ if neobundle#tap('unite.vim')
       let g:unite_source_grep_command = 'pt'
       let g:unite_source_grep_default_opts = '--nogroup --nocolor'
       let g:unite_source_grep_recursive_opt = ''
+      let g:unite_source_grep_encoding = 'utf-8'
     elseif executable('ack-grep')
       " Use ack in unite grep source.
       let g:unite_source_grep_command = 'ack-grep'
