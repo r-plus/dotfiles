@@ -74,6 +74,11 @@ NeoBundleLazy 'osyo-manga/vim-over', {
       \       'commands' : ["OverCommandLine"]
       \   }
       \}
+NeoBundleLazy 'deris/vim-rengbang', {
+      \   'autoload' : {
+      \       'commands' : ["RengBang"]
+      \   }
+      \}
 if has('mac')
   NeoBundle 'mhinz/vim-signify'
   NeoBundle 'tpope/vim-fugitive'
