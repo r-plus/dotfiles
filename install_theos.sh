@@ -97,7 +97,8 @@ install_library_from_bigboss() {
     pkg_path=$(bzcat BigBossPackages.bz2 | grep "debs2.0/$1" | awk '{print $2}')
     pkg=$(basename $pkg_path)
     curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
-    ar -p $pkg data.tar.gz | tar -zxf - ./usr
+    data=$(ar -t $pkg | grep data.tar)
+    ar -p $pkg $data | tar -zxf - ./usr
     cp -a ./usr/ $THEOS/
     rm -rf usr $pkg
 }
@@ -111,6 +112,7 @@ re_install_all_libraries() {
     install_library_from_bigboss applist
     install_library_from_bigboss preferenceloader
     install_library_from_bigboss com.a3tweaks.flipswitch
+    install_library_from_bigboss libobjcipc
 }
 
 substitude_theos_in_dropbox() {
