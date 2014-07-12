@@ -56,7 +56,7 @@ install_theos() {
     # get IOSurfaceAPI.h
     cd $THEOS/include/IOSurface
     find /System -name "IOSurfaceAPI.h" 2>/dev/null | xargs -J % cp % $THEOS/include/IOSurface/
-    sed -i .orig -e 's/xpc_object_t/id/g' IOSurfaceAPI.h
+    sed -i .orig -e 's/xpc_object_t/id/g' -e 's/XPC_RETURNS_RETAINED//' IOSurfaceAPI.h
 
     # clone CaptainHook.git
     cd $THEOS/include/
