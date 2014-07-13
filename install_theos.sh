@@ -70,6 +70,7 @@ install_theos() {
     cd /tmp
     git clone git://github.com/a3tweaks/Flipswitch.git
     cd "Flipswitch/NIC Template"
+    mkdir -p $THEOS/templates/iphone_flipswitch
     cp iphone_flipswitch_switch.nic.tar $THEOS/templates/iphone_flipswitch/
 
     # get ldid (Packages list is not latest for ldid)
