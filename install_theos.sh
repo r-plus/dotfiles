@@ -86,6 +86,13 @@ install_theos() {
         echo "Should install dpkg"
         exit 1
     fi
+
+    # get libobjcipc headers.
+    mkdir -p $THEOS/include/objcipc
+    cd /tmp
+    git clone git://github.com/a1anyip/libobjcipc.git
+    cd libobjcipc
+    cp  *.h $THEOS/include/objcipc/
 }
 
 install_library_from_bigboss() {
