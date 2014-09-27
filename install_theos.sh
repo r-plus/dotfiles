@@ -93,6 +93,13 @@ install_theos() {
     git clone git://github.com/a1anyip/libobjcipc.git
     cd libobjcipc
     cp  *.h $THEOS/include/objcipc/
+
+    # get libstatusbar headers.
+    mkdir -p $THEOS/include/libstatusbar
+    cd /tmp
+    git clone git://github.com/phoenix3200/libstatusbar.git
+    cd libstatusbar
+    cp  *.h $THEOS/include/libstatusbar/
 }
 
 install_library_from_bigboss() {
@@ -115,8 +122,6 @@ re_install_all_libraries() {
     install_from_telesphoreo mobilesubstrate
     install_library_from_bigboss libactivator
     install_library_from_bigboss actionmenu_
-    install_library_from_bigboss layersnapshotter
-    install_library_from_bigboss libinstabanner
     install_library_from_bigboss applist
     install_library_from_bigboss preferenceloader
     install_library_from_bigboss com.a3tweaks.flipswitch
