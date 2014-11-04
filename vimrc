@@ -6,7 +6,7 @@ if has('vim_starting')
   let g:neobundle#types#git#default_protocol = has('gui_win32') ? 'https' : 'git'
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 let g:neobundle#default_options._ = { 'verbose' : 1, 'focus' : 1 }
 
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -90,6 +90,7 @@ if has('mac')
         \}
 endif
 
+call neobundle#end()
 filetype plugin indent on
 
 " -----------------------------------------------------------------------
