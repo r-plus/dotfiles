@@ -230,6 +230,7 @@ inoreabbrev <expr> tanalyze 'CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();<
 " vim-signify {{{
 let g:signify_vcs_list = ['git']
 let g:signify_line_highlight = 1
+nnoremap <Leader>gt :<C-u>SignifyToggle<CR>
 " }}}
 
 " vim-anzu {{{
