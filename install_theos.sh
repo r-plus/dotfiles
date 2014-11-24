@@ -139,6 +139,8 @@ substitude_theos_in_dropbox() {
 if [ $# -eq 0 ]; then
     install_theos
     re_install_all_libraries
+elif [ "$1" = "dropbox" ]; then
+    substitude_theos_in_dropbox
 else
     for i in $@; do
         install_library_from_bigboss $i
