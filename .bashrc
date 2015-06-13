@@ -13,7 +13,9 @@ alias rd="rm *.deb"
 alias vu="vagrant up"
 alias vh="vagrant halt"
 alias vs="vagrant ssh"
+alias be="bundle exec"
 alias miall="
+export THEOS_DEVICE_IP=i6; mi;
 export THEOS_DEVICE_IP=i5s; mi;
 export THEOS_DEVICE_IP=i5; mi;
 export THEOS_DEVICE_IP=i4s; mi;
@@ -24,7 +26,7 @@ export THEOS_DEVICE_IP=ipad1; mi;
 "
 
 # theos
-export THEOS_DEVICE_IP=i4
+export THEOS_DEVICE_IP=i6
 
 # rbenv PATH
 if [ -d ~/.rbenv ]; then
