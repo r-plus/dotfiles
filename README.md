@@ -9,10 +9,11 @@
     mkdir -p ~/.vim/swap
     mkdir -p ~/.vim/after
     ln -s ~/dotfiles/vimrc ~/.vimrc
-    ln -s ~/dotfiles/.bashrc .bashrc
-    ln -s ~/dotfiles/.bash_profile .bash_profile
+    ln -s ~/dotfiles/.bashrc ~/.bashrc
+    ln -s ~/dotfiles/.bash_profile ~/.bash_profile
     ln -s ~/dotfiles/.ssh/config ~/.ssh/config
     ln -s ~/dotfiles/.vim/after/ftplugin ~/.vim/after/ftplugin
+    ln -s ~/dotfiles/.lynxrc ~/.lynxrc
     git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
 ### modify remote repository (for author)
@@ -29,13 +30,6 @@ Add `git config --global user.email hogehoge@gmail.com` to `.bashrc`
 * Install | :NeoBundleInstall
 * Update | :NeoBundleUpdate
 * Remove | :NeoBundleClean
-
-### lynx setup for Lion
-
-    /opt/local/etc/lynx.cfg (MacPorts)
-    /usr/local/etc/lynx.cfg (homebrew)
-
-Add this line.  `CHARACTER_SET:utf-8` 
 
 ### get vim-ref ref file.
 
