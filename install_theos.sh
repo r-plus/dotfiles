@@ -19,8 +19,8 @@ fi
 
 install_from_telesphoreo() {
     cd /tmp
-    echo "Downloading substrate header and library..."
-    if [ -z "$(find TelesphoreoPackages.bz2 -mmin -60)" ]; then
+    echo "Downloading $1 header and library..."
+    if [ -z "$(find TelesphoreoPackages.bz2 -mmin -60 > /dev/null 2>&1)" ]; then
         rm -f TelesphoreoPackages.bz2
         curl -s -L "${SUBSTRATE_REPO}/dists/tangelo-3.7/main/binary-iphoneos-arm/Packages.bz2" > TelesphoreoPackages.bz2
     fi
@@ -73,12 +73,13 @@ install_theos() {
     mkdir -p $THEOS/templates/iphone_flipswitch
     cp iphone_flipswitch_switch.nic.tar $THEOS/templates/iphone_flipswitch/
 
-    # get ldid (Packages list is not latest for ldid)
-    #install_from_telesphoreo ldid
-    cd $THEOS
-    curl -s -L http://apt.saurik.com/debs/ldid_1:1.1.2_iphoneos-arm.deb > ldid.deb
-    ar -p ldid.deb data.tar.gz | tar -zxvf- --strip-components 2 ./usr/bin/ldid
-    rm ldid.deb
+    # get ldid
+    install_from_telesphoreo ldid
+    # use below if packages list is not latest.
+    #cd $THEOS
+    #curl -s -L http://apt.saurik.com/debs/ldid_1:1.1.2_iphoneos-arm.deb > ldid.deb
+    #ar -p ldid.deb data.tar.gz | tar -zxvf- --strip-components 2 ./usr/bin/ldid
+    #rm ldid.deb
 
     # get dpkg for Mac OS X
     # `brew install dpkg`
@@ -105,7 +106,7 @@ install_theos() {
 install_library_from_bigboss() {
     cd /tmp
     echo "Downloading $1 /usr directory..."
-    if [ -z "$(find BigBossPackages.bz2 -mmin -60)" ]; then
+    if [ -z "$(find BigBossPackages.bz2 -mmin -60 > /dev/null 2>&1)" ]; then
         rm -f BigBossPackages.bz2
         curl -s -L "${BIGBOSS_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2" > BigBossPackages.bz2
     fi
@@ -141,6 +142,8 @@ if [ $# -eq 0 ]; then
     re_install_all_libraries
 elif [ "$1" = "dropbox" ]; then
     substitude_theos_in_dropbox
+elif [ "$1" = "mobilesubstrate" -o "$1" = "ldid" ]; then
+    install_from_telesphoreo $1
 else
     for i in $@; do
         install_library_from_bigboss $i
