@@ -73,13 +73,14 @@ install_theos() {
     mkdir -p $THEOS/templates/iphone_flipswitch
     cp iphone_flipswitch_switch.nic.tar $THEOS/templates/iphone_flipswitch/
 
-    # get ldid
-    install_from_telesphoreo ldid
+    # get ldid.
+    # ldid deb only contain armv6 single arch binary since 1:1.2.0.
+    #install_from_telesphoreo ldid
     # use below if packages list is not latest.
-    #cd $THEOS
-    #curl -s -L http://apt.saurik.com/debs/ldid_1:1.1.2_iphoneos-arm.deb > ldid.deb
-    #ar -p ldid.deb data.tar.gz | tar -zxvf- --strip-components 2 ./usr/bin/ldid
-    #rm ldid.deb
+    cd $THEOS
+    curl -s -L http://apt.saurik.com/debs/ldid_1:1.1.2_iphoneos-arm.deb > ldid.deb
+    ar -p ldid.deb data.tar.gz | tar -zxvf- --strip-components 2 ./usr/bin/ldid
+    rm ldid.deb
 
     # get dpkg for Mac OS X
     # `brew install dpkg`
