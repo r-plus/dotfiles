@@ -26,6 +26,7 @@ export THEOS_DEVICE_IP=ipad1; mi;
 "
 
 # theos
+export THEOS=/opt/theos
 export THEOS_DEVICE_IP=i6
 
 # rbenv PATH
