@@ -1,5 +1,5 @@
 " colorscheme setting for Win32
-colorscheme pablo
+colorscheme darkblue
 
 " override textwidth=78
 autocmd FileType text setlocal textwidth=0
