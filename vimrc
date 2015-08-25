@@ -126,6 +126,8 @@ set smarttab
 set nobackup
 "set noswapfile
 set directory=~/.vim/swap
+set viewdir=~/.vim/view
+set undodir=~/.vim/undo
 " for preserve i-node
 set backupcopy=yes
 
