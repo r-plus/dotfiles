@@ -51,10 +51,11 @@ NeoBundleLazy 'thinca/vim-quickrun', {
       \}
 NeoBundleLazy 'Shougo/vimproc', {
       \   'build' : {
-      \       'windows' : 'make -f make_mingw32.mak',
+      \       'windows' : 'tools\\update-dll-mingw',
       \       'cygwin' : 'make -f make_cygwin.mak',
       \       'mac' : 'make -f make_mac.mak',
-      \       'unix' : 'make -f make_unix.mak'
+      \       'linux' : 'make',
+      \       'unix' : 'gmake',
       \   }
       \}
 NeoBundle 'Shougo/neocomplete.vim'
