@@ -155,6 +155,9 @@ set modeline
 " Don't save options.
 set viewoptions-=options
 
+" backspace behavior
+set backspace=indent,eol,start
+
 scriptencoding utf-8
 
 augroup MyAutoCommands
