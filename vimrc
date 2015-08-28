@@ -103,6 +103,8 @@ set showcmd
 set title
 set wildmenu
 set wildmode=list:longest,full
+set cmdheight=2
+set ambiwidth=double
 " vim-powerline recommended
 set t_Co=256
 set laststatus=2   " Always show the statusline
@@ -114,6 +116,7 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
+set wrapscan
 
 " tab-space
 set tabstop=4
