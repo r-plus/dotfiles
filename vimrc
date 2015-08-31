@@ -81,6 +81,7 @@ NeoBundleLazy 'deris/vim-rengbang', {
       \   }
       \}
 if has('mac')
+  NeoBundle 'davidhalter/jedi-vim'
   NeoBundle 'mhinz/vim-signify'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'rhysd/migemo-search.vim'
