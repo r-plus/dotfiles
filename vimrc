@@ -83,7 +83,7 @@ NeoBundleLazy 'deris/vim-rengbang', {
 if has('mac')
   NeoBundle 'davidhalter/jedi-vim'
   NeoBundle 'mhinz/vim-signify'
-  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'tpope/vim-fugitive', { 'augroup' : 'fugitive'}
   NeoBundle 'rhysd/migemo-search.vim'
   NeoBundleLazy 'tyru/open-browser.vim', {
         \   'autoload' : {
