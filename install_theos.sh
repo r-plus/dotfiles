@@ -120,6 +120,22 @@ install_library_from_bigboss() {
     rm -rf usr $pkg
 }
 
+install_inspectivec() {
+    cd /tmp
+    echo "Downloading Inspective-C /usr directory..."
+    if [ -z "$(find DavidPackages.bz2 -mmin -60 > /dev/null 2>&1)" ]; then
+        rm -f DavidPackages.bz2
+        curl -s -L "http://apt.golddavid.com/Packages.bz2" > DavidPackages.bz2
+    fi
+    pkg_path=$(bzcat DavidPackages.bz2 | grep "debs2.0/$1" | awk '{print $2}')
+    pkg=$(basename $pkg_path)
+    curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
+    data=$(ar -t $pkg | grep data.tar)
+    ar -p $pkg $data | tar -zxf - ./usr
+    cp -a ./usr/ $THEOS/
+    rm -rf usr $pkg
+}
+
 re_install_all_libraries() {
     install_from_telesphoreo mobilesubstrate
     install_library_from_bigboss libactivator
