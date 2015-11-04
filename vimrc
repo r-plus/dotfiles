@@ -329,8 +329,11 @@ nnoremap fr :<C-u>UniteResume<CR>
 if neobundle#tap('unite.vim')
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:unite_force_overwrite_statusline = 0
-    let g:vimfiler_edit_action = 'tabopen'
-    let g:vimfiler_enable_auto_cd = 1
+    call vimfiler#custom#profile('default', 'context', {
+    \   'safe' : 0,
+    \   'auto_cd' : 1,
+    \   'edit_action' : 'tabopen',
+    \ })
     autocmd FileType vimfiler call unite#custom_default_action('directory', 'cd')
     autocmd FileType unite call unite#custom_default_action('file', 'tabopen')
     "let g:unite_enable_start_insert = 1
