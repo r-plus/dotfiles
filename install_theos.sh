@@ -24,7 +24,7 @@ install_from_telesphoreo() {
         rm -f TelesphoreoPackages.bz2
         curl -s -L "${SUBSTRATE_REPO}/dists/tangelo-3.7/main/binary-iphoneos-arm/Packages.bz2" > TelesphoreoPackages.bz2
     fi
-    pkg_path=$(bzcat TelesphoreoPackages.bz2 | grep "debs/$1" | awk '{print $2}')
+    pkg_path=$(bzcat TelesphoreoPackages.bz2 | grep "debs/$1" | awk '{print $2}' | sort -n | tail -1)
     pkg=$(basename $pkg_path)
     curl -s -L "${SUBSTRATE_REPO}/${pkg_path}" > $pkg
     if [ "$1" == "mobilesubstrate" ]; then
@@ -43,15 +43,15 @@ install_from_telesphoreo() {
 install_theos() {
     # clone theos.git
     cd $THEOS_INSTALL_DIR
-    sudo git clone git://github.com/DHowett/theos.git
+    sudo git clone --recursive git://github.com/r-plus/theos.git
     sudo chown -R $USER $THEOS
 
     # clone iphoneheaders.git
-    cd $THEOS
-    mv include include.bak
-    git clone git://github.com/r-plus/iphoneheaders.git include
-    cp -a include.bak/* include
-    rm -fr include.bak
+    ##cd $THEOS
+    ##mv include include.bak
+    ##git clone git://github.com/r-plus/iphoneheaders.git include
+    ##cp -a include.bak/* include
+    ##rm -fr include.bak
 
     # get IOSurfaceAPI.h
     cd $THEOS/include/IOSurface
