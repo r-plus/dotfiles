@@ -122,18 +122,20 @@ install_library_from_bigboss() {
 
 install_inspectivec() {
     cd /tmp
+    DAVID_REPO="http://apt.golddavid.com"
     echo "Downloading Inspective-C /usr directory..."
     if [ -z "$(find DavidPackages.bz2 -mmin -60 > /dev/null 2>&1)" ]; then
         rm -f DavidPackages.bz2
-        curl -s -L "http://apt.golddavid.com/Packages.bz2" > DavidPackages.bz2
+        curl -s -L "${DAVID_REPO}/Packages.bz2" > DavidPackages.bz2
     fi
-    pkg_path=$(bzcat DavidPackages.bz2 | grep "debs2.0/$1" | awk '{print $2}')
+    pkg_path=$(bzcat DavidPackages.bz2 | grep "debs/com.golddavid.inspectivec" | awk '{print $2}' | sort -n | tail -1)
     pkg=$(basename $pkg_path)
-    curl -s -L "${BIGBOSS_REPO}/${pkg_path}" > $pkg
+    curl -s -L "${DAVID_REPO}/${pkg_path}" > $pkg
     data=$(ar -t $pkg | grep data.tar)
     ar -p $pkg $data | tar -zxf - ./usr
     cp -a ./usr/ $THEOS/
     rm -rf usr $pkg
+    curl -s -L "https://raw.githubusercontent.com/DavidGoldman/InspectiveC/master/InspectiveC.h" > $THEOS/include/InspectiveC.h
 }
 
 re_install_all_libraries() {
@@ -144,6 +146,7 @@ re_install_all_libraries() {
     install_library_from_bigboss preferenceloader
     install_library_from_bigboss com.a3tweaks.flipswitch
     install_library_from_bigboss libobjcipc
+    install_inspectivec
 }
 
 substitude_theos_in_dropbox() {
