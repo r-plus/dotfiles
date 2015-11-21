@@ -43,13 +43,13 @@ install_from_telesphoreo() {
 install_theos() {
     # clone theos.git
     cd $THEOS_INSTALL_DIR
-    sudo git clone --recursive git://github.com/r-plus/theos.git
+    sudo git clone --recursive https://github.com/r-plus/theos.git
     sudo chown -R $USER $THEOS
 
     # clone iphoneheaders.git
     ##cd $THEOS
     ##mv include include.bak
-    ##git clone git://github.com/r-plus/iphoneheaders.git include
+    ##git clone https://github.com/r-plus/iphoneheaders.git include
     ##cp -a include.bak/* include
     ##rm -fr include.bak
 
@@ -60,15 +60,15 @@ install_theos() {
 
     # clone CaptainHook.git
     cd $THEOS/include/
-    git clone git://github.com/rpetrich/CaptainHook.git
+    git clone https://github.com/rpetrich/CaptainHook.git
 
     # clone theos-nic-templates.git
     cd $THEOS/templates/
-    git clone git://github.com/orikad/theos-nic-templates.git
+    git clone https://github.com/orikad/theos-nic-templates.git
 
     # get flipswitch nic template
     cd /tmp
-    git clone git://github.com/a3tweaks/Flipswitch.git
+    git clone https://github.com/a3tweaks/Flipswitch.git
     cd "Flipswitch/NIC Template"
     mkdir -p $THEOS/templates/iphone_flipswitch
     cp iphone_flipswitch_switch.nic.tar $THEOS/templates/iphone_flipswitch/
@@ -92,14 +92,14 @@ install_theos() {
     # get libobjcipc headers.
     mkdir -p $THEOS/include/objcipc
     cd /tmp
-    git clone git://github.com/a1anyip/libobjcipc.git
+    git clone https://github.com/a1anyip/libobjcipc.git
     cd libobjcipc
     cp  *.h $THEOS/include/objcipc/
 
     # get libstatusbar headers.
     mkdir -p $THEOS/include/libstatusbar
     cd /tmp
-    git clone git://github.com/phoenix3200/libstatusbar.git
+    git clone https://github.com/phoenix3200/libstatusbar.git
     cd libstatusbar
     cp  *.h $THEOS/include/libstatusbar/
 }
