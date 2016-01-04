@@ -4,6 +4,9 @@
 set useletters=1
 set hintkeys=jlkhfsdagweroi
 
+" Disable Vrome in those sites, Multiple URLs can be separated with ,
+set disablesites=mail.google.com
+
 " Don't follow new tab
 set follow_new_tab=0
 
