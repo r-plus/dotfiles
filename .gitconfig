@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+	name = r-plus
+	email = anasthasia.r@gmail.com
+[core]
+	editor = vim
+[push]
+	default = simple
+[alias]
+	co = checkout
+	b = branch

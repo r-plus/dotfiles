@@ -14,6 +14,7 @@
     ln -s ~/dotfiles/.ssh/config ~/.ssh/config
     ln -s ~/dotfiles/.vim/after/ftplugin ~/.vim/after/ftplugin
     ln -s ~/dotfiles/.lynxrc ~/.lynxrc
+    ln -s ~/dotfiles/.gitconfig ~/.gitconfig
     git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
 ### modify remote repository (for author)
@@ -21,9 +22,6 @@
     cd ~/dotfiles
     git remote rm origin
     git remote add origin git@github.com:r-plus/dotfiles.git
-
-### Add mail address for github identity
-Add `git config --global user.email hogehoge@gmail.com` to `.bashrc`
 
 ### Vim-Plugins
 
