@@ -80,6 +80,7 @@ NeoBundleLazy 'deris/vim-rengbang', {
       \   }
       \}
 if has('mac')
+  NeoBundle 'toyamarinyon/vim-swift'
   NeoBundle 'davidhalter/jedi-vim'
   NeoBundle 'mhinz/vim-signify'
   NeoBundle 'tpope/vim-fugitive', { 'augroup' : 'fugitive'}
