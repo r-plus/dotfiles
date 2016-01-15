@@ -33,3 +33,30 @@ export THEOS_DEVICE_IP=i6s
 if [ -d ~/.rbenv ]; then
     export PATH=~/.rbenv/shims:$PATH
 fi
+
+function git_rebase_remote() {
+# ex. $1: master $2: local
+    if [ $# -lt 2 ]; then
+        echo "must have 2 args"
+        return
+    fi
+    git co $1
+    git pull
+    git co $2
+    git rebase $1
+}
+
+function git_push_remote() {
+# ex. $1: master $2: local
+    if [ $# -lt 2 ]; then
+        echo "must have 2 args"
+        return
+    fi
+    git co $1
+    git rebase $2
+    git push
+    git co $2
+}
+
+alias grr="git_rebase_remote"
+alias gpr="git_push_remote"
