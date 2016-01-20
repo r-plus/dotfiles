@@ -201,6 +201,9 @@ nnoremap ,r $xo{<CR>%log;<CR>return %orig;<CR>}<Esc>
 " keymap for window mover
 nnoremap <TAB> <C-w>w<CR>
 
+" for US keylayout.
+nnoremap <silent> ; :
+
 " keymap for window resize
 nnoremap <silent> <S-Up>    :5wincmd -<CR>
 nnoremap <silent> <S-Down>  :5wincmd +<CR>
@@ -226,6 +229,7 @@ imap <C-F> <C-R>=expand("%")<CR>
 
 " escape safety
 imap <C-@> <C-[>
+imap <C-]> <C-[>
 
 " snippet
 inoreabbrev <expr> dl repeat('/', 80 - col('.'))
