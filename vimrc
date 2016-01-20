@@ -187,6 +187,9 @@ augroup MyAutoCommands
 
   " theos
   autocmd BufNewFile,BufRead *.h,*.m,*.mm,*.xm,*.x,*.xi,*.xmi set filetype=objcpp
+
+  " dont hide double-quote on json file
+  autocmd FileType json setl conceallevel=0
 augroup end
 
 " mappings {{{
