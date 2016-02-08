@@ -68,3 +68,8 @@ function git_push_remote() {
 
 alias grr="git_rebase_remote"
 alias gpr="git_push_remote"
+
+# source un tracked file.
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi
