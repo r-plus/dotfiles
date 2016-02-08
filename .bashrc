@@ -1,3 +1,4 @@
+HISTSIZE=50000
 # alias
 alias gs="git status"
 alias gd='git diff'
