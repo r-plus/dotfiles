@@ -81,6 +81,7 @@ NeoBundleLazy 'deris/vim-rengbang', {
       \   }
       \}
 if has('mac')
+  NeoBundle 'elzr/vim-json'
   NeoBundle 'toyamarinyon/vim-swift'
   NeoBundle 'davidhalter/jedi-vim'
   NeoBundle 'mhinz/vim-signify'
