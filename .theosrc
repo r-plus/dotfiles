@@ -1,0 +1,2 @@
+export ARCHS = armv7 arm64
+STRIP=0
