@@ -2,6 +2,7 @@
 [user]
 	name = r-plus
 	email = anasthasia.r@gmail.com
+	signingkey = C168BD52
 [core]
 	editor = vim
 [push]
@@ -13,3 +14,7 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2

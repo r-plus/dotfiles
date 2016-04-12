@@ -36,6 +36,14 @@ if [ -d ~/.rbenv ]; then
     export PATH=~/.rbenv/shims:$PATH
 fi
 
+# gpg
+if [ -n $(type -P gpg-agent) ]; then
+    pgrep -q gpg-agent || eval $(gpg-agent --daemon --write-env-file ${HOME}/.gpg-agent-info)
+    [ -f ${HOME}/.gpg-agent-info ] && source ${HOME}/.gpg-agent-info
+    export GPG_AGENT_INFO
+    export GPG_TTY=`tty`
+fi
+
 # homebrew git
 if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     . /usr/local/etc/bash_completion.d/git-prompt.sh
