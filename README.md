@@ -16,6 +16,7 @@
     ln -s ~/dotfiles/.lynxrc ~/.lynxrc
     ln -s ~/dotfiles/.gitconfig ~/.gitconfig
     git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+    ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 
 ### modify remote repository (for author)
 
