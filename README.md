@@ -36,6 +36,10 @@
     // or
     curl -o .vim/bundle/vim-ref/autoload/ref/alc.vim -k https://gist.github.com/r-plus/2762277/raw/c8cf993bec75b819759fad524b7b6b4661d41209/alc.vim
 
+### iTerm2
+
+`defaults write com.googlecode.iterm2 OptimumTabWidth -int 2000`
+
 -----
 ## for Windows KaoriYa-vim(used mingw and minsys)
 ### First, install mingw, minsys and git.
