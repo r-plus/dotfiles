@@ -51,6 +51,11 @@ if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     export PS1='\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 fi
 
+# homebrew eb completion
+if [ -f /usr/local/etc/bash_completion.d/eb_completion.bash ]; then
+    . /usr/local/etc/bash_completion.d/eb_completion.bash
+fi
+
 function git_rebase_remote() {
 # ex. $1: master $2: local
     if [ $# -lt 2 ]; then
@@ -78,7 +83,20 @@ function git_push_remote() {
 alias grr="git_rebase_remote"
 alias gpr="git_push_remote"
 
+# nvm
+export NVM_DIR="~/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# aws cli
+complete -C '/usr/local/bin/aws_completer' aws
+
+# iTerm2 tab title
+if [ $ITERM_SESSION_ID ]; then
+  export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
+fi
+
 # source un tracked file.
 if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
+
