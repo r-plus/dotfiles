@@ -223,6 +223,9 @@ nnoremap k gk
 " tab open vimrc
 nnoremap <F5> :tabe $MYVIMRC<CR>
 
+" toggle highlight search
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
 " align for textile table macro
 xnoremap <silent> \| :Alignta \|<CR>
 
