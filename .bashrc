@@ -87,7 +87,7 @@ alias gpr="git_push_remote"
 
 # nvm
 export NVM_DIR="${HOME}/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -n $(type -P brew) ] && [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
 
 # aws cli
 complete -C '/usr/local/bin/aws_completer' aws
