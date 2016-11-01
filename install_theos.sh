@@ -17,7 +17,7 @@ if [ ! -d "$THEOS_INSTALL_DIR" ]; then
     sudo mkdir -p $THEOS_INSTALL_DIR
 fi
 
-install_from_telesphoreo() {
+function install_from_telesphoreo() {
     cd /tmp
     echo "Downloading $1 header and library..."
     if [ -z "$(find TelesphoreoPackages.bz2 -mmin -60 > /dev/null 2>&1)" ]; then
@@ -40,7 +40,7 @@ install_from_telesphoreo() {
     fi
 }
 
-install_theos() {
+function install_theos() {
     # clone theos.git
     cd $THEOS_INSTALL_DIR
     sudo git clone --recursive https://github.com/r-plus/theos.git
@@ -104,7 +104,7 @@ install_theos() {
     cp  *.h $THEOS/include/libstatusbar/
 }
 
-install_library_from_bigboss() {
+function install_library_from_bigboss() {
     cd /tmp
     echo "Downloading $1 /usr directory..."
     if [ -z "$(find BigBossPackages.bz2 -mmin -60 > /dev/null 2>&1)" ]; then
@@ -120,7 +120,7 @@ install_library_from_bigboss() {
     rm -rf usr $pkg
 }
 
-install_inspectivec() {
+function install_inspectivec() {
     cd /tmp
     DAVID_REPO="http://apt.golddavid.com"
     echo "Downloading Inspective-C /usr directory..."
@@ -138,7 +138,7 @@ install_inspectivec() {
     curl -s -L "https://raw.githubusercontent.com/DavidGoldman/InspectiveC/master/InspectiveC.h" > $THEOS/include/InspectiveC.h
 }
 
-re_install_all_libraries() {
+function re_install_all_libraries() {
     install_from_telesphoreo mobilesubstrate
     install_library_from_bigboss libactivator
     install_library_from_bigboss actionmenu_
@@ -149,7 +149,7 @@ re_install_all_libraries() {
     install_inspectivec
 }
 
-substitude_theos_in_dropbox() {
+function substitude_theos_in_dropbox() {
     for i in $(find ~/Dropbox -name "theos" -type d); do
         TWEAK_DIR=$(dirname $i)
         rm -fr $i
