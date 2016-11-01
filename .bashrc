@@ -51,6 +51,7 @@ if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     . /usr/local/etc/bash_completion.d/git-prompt.sh
     . /usr/local/etc/bash_completion.d/git-completion.bash
     export PS1='\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+    export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 fi
 
 # homebrew eb completion
