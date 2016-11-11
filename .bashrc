@@ -54,10 +54,19 @@ if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 fi
 
-# homebrew eb completion
-if [ -f /usr/local/etc/bash_completion.d/eb_completion.bash ]; then
-    . /usr/local/etc/bash_completion.d/eb_completion.bash
-fi
+function completion_source() {
+    if [ -f "$1" ]; then
+        . "$1"
+    fi
+}
+
+# homebrew bash completion
+completion_source /usr/local/etc/bash_completion.d/ag.bashcomp.sh
+completion_source /usr/local/etc/bash_completion.d/aws_bash_completer
+completion_source /usr/local/etc/bash_completion.d/brew
+completion_source /usr/local/etc/bash_completion.d/carthage
+completion_source /usr/local/etc/bash_completion.d/eb_completion.bash
+completion_source /usr/local/etc/bash_completion.d/nvm
 
 function git_rebase_remote() {
 # ex. $1: master $2: local
