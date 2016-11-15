@@ -2,33 +2,30 @@
 
 ### Setup for OS X
 
-    cd ~
-    git clone git://github.com/r-plus/dotfiles.git
-    mkdir -p ~/.vim/bundle
-    mkdir -p ~/.vim/view
-    mkdir -p ~/.vim/swap
-    mkdir -p ~/.vim/after
-    ln -s ~/dotfiles/vimrc ~/.vimrc
-    ln -s ~/dotfiles/.bashrc ~/.bashrc
-    ln -s ~/dotfiles/.bash_profile ~/.bash_profile
-    ln -s ~/dotfiles/.ssh/config ~/.ssh/config
-    ln -s ~/dotfiles/.vim/after/ftplugin ~/.vim/after/ftplugin
-    ln -s ~/dotfiles/.lynxrc ~/.lynxrc
-    ln -s ~/dotfiles/.gitconfig ~/.gitconfig
-    git clone git://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
-    ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
-
-### modify remote repository (for author)
-
-    cd ~/dotfiles
-    git remote rm origin
-    git remote add origin git@github.com:r-plus/dotfiles.git
+```bash
+cd ~
+git clone git://github.com/r-plus/dotfiles.git
+mkdir -p ~/.vim/bundle
+mkdir -p ~/.vim/view
+mkdir -p ~/.vim/swap
+mkdir -p ~/.vim/after
+ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/dotfiles/.bashrc ~/.bashrc
+ln -s ~/dotfiles/.bash_profile ~/.bash_profile
+ln -s ~/dotfiles/.ssh/config ~/.ssh/config
+ln -s ~/dotfiles/.vim/after/ftplugin ~/.vim/after/ftplugin
+ln -s ~/dotfiles/.lynxrc ~/.lynxrc
+ln -s ~/dotfiles/.gitconfig ~/.gitconfig
+mkdir -p ~/.cache/dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+```
 
 ### Vim-Plugins
 
-* Install | :NeoBundleInstall
-* Update | :NeoBundleUpdate
-* Remove | :NeoBundleClean
+* Install | :call dein#install()
+* Update | :call dein#update()
 
 ### get vim-ref ref file.
 
