@@ -43,7 +43,7 @@ function install_from_telesphoreo() {
 function install_theos() {
     # clone theos.git
     cd $THEOS_INSTALL_DIR
-    sudo git clone --recursive https://github.com/r-plus/theos.git
+    sudo git clone --recursive -b pure-objc-flag https://github.com/r-plus/theos.git
     sudo chown -R $USER $THEOS
 
     # clone iphoneheaders.git
@@ -51,12 +51,13 @@ function install_theos() {
     mv include include.bak
     ln -s ../iphoneheaders include
     cd $THEOS_INSTALL_DIR
-    git clone --recursive https://github.com/r-plus/iphoneheaders.git
+    sudo git clone --recursive https://github.com/r-plus/iphoneheaders.git
+    sudo chown -R $USER iphoneheaders
 
     # get IOSurfaceAPI.h
     cd $THEOS/include/IOSurface
     cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOSurface.framework/Versions/A/Headers/IOSurfaceAPI.h $THEOS/include/IOSurface/
-    sed -i .orig -e 's/xpc_object_t/id/g' -e 's/XPC_RETURNS_RETAINED//' -e 'IOSFC_SWIFT_NAME(IOSurfaceRef)' -e 'IOSFC_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_10_11, __IPHONE_3_0, __IPHONE_9_0)' IOSurfaceAPI.h
+    sed -i .orig -e 's/xpc_object_t/id/g' -e 's/XPC_RETURNS_RETAINED//' -e 's/IOSFC_SWIFT_NAME(IOSurfaceRef)//g' -e 's/IOSFC_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_10_11, __IPHONE_3_0, __IPHONE_9_0)//g' IOSurfaceAPI.h
 
     # clone theos-nic-templates.git
     cd $THEOS/templates/
@@ -68,6 +69,11 @@ function install_theos() {
     cd "Flipswitch/NIC Template"
     mkdir -p $THEOS/templates/iphone_flipswitch
     cp iphone_flipswitch_switch.nic.tar $THEOS/templates/iphone_flipswitch/
+
+    # get full sdks.
+    cd $THEOS
+    rm -fr sdks
+    git clone https://github.com/theos/sdks.git
 
     # get ldid.
     # `brew install ldid`
