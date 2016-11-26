@@ -16,6 +16,7 @@ ln -s ~/dotfiles/.ssh/config ~/.ssh/config
 ln -s ~/dotfiles/.vim/after/ftplugin ~/.vim/after/ftplugin
 ln -s ~/dotfiles/.lynxrc ~/.lynxrc
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/dotfiles/.gemrc ~/.gemrc
 mkdir -p ~/.cache/dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
