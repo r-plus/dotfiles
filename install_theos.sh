@@ -47,20 +47,16 @@ function install_theos() {
     sudo chown -R $USER $THEOS
 
     # clone iphoneheaders.git
-    ##cd $THEOS
-    ##mv include include.bak
-    ##git clone https://github.com/r-plus/iphoneheaders.git include
-    ##cp -a include.bak/* include
-    ##rm -fr include.bak
+    cd $THEOS
+    mv include include.bak
+    ln -s ../iphoneheaders include
+    cd $THEOS_INSTALL_DIR
+    git clone --recursive https://github.com/r-plus/iphoneheaders.git
 
     # get IOSurfaceAPI.h
     cd $THEOS/include/IOSurface
-    find /System -name "IOSurfaceAPI.h" 2>/dev/null | xargs -J % cp % $THEOS/include/IOSurface/
-    sed -i .orig -e 's/xpc_object_t/id/g' -e 's/XPC_RETURNS_RETAINED//' IOSurfaceAPI.h
-
-    # clone CaptainHook.git
-    cd $THEOS/include/
-    git clone https://github.com/rpetrich/CaptainHook.git
+    cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOSurface.framework/Versions/A/Headers/IOSurfaceAPI.h $THEOS/include/IOSurface/
+    sed -i .orig -e 's/xpc_object_t/id/g' -e 's/XPC_RETURNS_RETAINED//' -e 'IOSFC_SWIFT_NAME(IOSurfaceRef)' -e 'IOSFC_AVAILABLE_BUT_DEPRECATED(__MAC_10_6, __MAC_10_11, __IPHONE_3_0, __IPHONE_9_0)' IOSurfaceAPI.h
 
     # clone theos-nic-templates.git
     cd $THEOS/templates/
@@ -74,13 +70,11 @@ function install_theos() {
     cp iphone_flipswitch_switch.nic.tar $THEOS/templates/iphone_flipswitch/
 
     # get ldid.
-    # ldid deb only contain armv6 single arch binary since 1:1.2.0.
-    #install_from_telesphoreo ldid
-    # use below if packages list is not latest.
-    cd $THEOS
-    curl -s -L http://apt.saurik.com/debs/ldid_1:1.1.2_iphoneos-arm.deb > ldid.deb
-    ar -p ldid.deb data.tar.gz | tar -zxvf- --strip-components 2 ./usr/bin/ldid
-    rm ldid.deb
+    # `brew install ldid`
+    if [ -z $(type -P ldid) ]; then
+        echo "Should install ldid"
+        exit 1
+    fi
 
     # get dpkg for Mac OS X
     # `brew install dpkg`
