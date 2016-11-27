@@ -2,5 +2,5 @@ export ARCHS=armv7 arm64
 #export STRIP=0
 # PrivateFrameworks tbd files/binaries removed since Xcode 7.3.
 # so download iOS 9.2 sdk from https://jbdevs.org/sdks/ then extract to $(THEOS)/sdks/
-export SDKVERSION = 9.3
-export SYSROOT = $(THEOS)/sdks/iPhoneOS9.3.sdk
+export SDKVERSION = 9.2
+export SYSROOT = $(THEOS)/sdks/iPhoneOS9.2.sdk

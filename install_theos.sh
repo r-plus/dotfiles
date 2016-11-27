@@ -75,6 +75,10 @@ function install_theos() {
     rm -fr sdks
     git clone https://github.com/theos/sdks.git
 
+    # get 9.2 sdk
+    cd $THEOS/sdks
+    curl -sL 'https://sdks.website/dl/iPhoneOS9.2.sdk.tbz2' | tar xj
+
     # get ldid.
     # `brew install ldid`
     if [ -z $(type -P ldid) ]; then
