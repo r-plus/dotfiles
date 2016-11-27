@@ -146,9 +146,9 @@ function re_install_all_libraries() {
     install_from_telesphoreo mobilesubstrate
     install_library_from_bigboss libactivator
     install_library_from_bigboss actionmenu_
-    install_library_from_bigboss applist
-    install_library_from_bigboss preferenceloader
-    install_library_from_bigboss com.a3tweaks.flipswitch
+#    install_library_from_bigboss applist
+#    install_library_from_bigboss preferenceloader
+#    install_library_from_bigboss com.a3tweaks.flipswitch
     install_library_from_bigboss libobjcipc
     install_inspectivec
 }
