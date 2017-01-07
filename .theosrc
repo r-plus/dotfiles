@@ -4,3 +4,5 @@ export ARCHS=armv7 arm64
 # so download iOS 9.2 sdk from https://jbdevs.org/sdks/ then extract to $(THEOS)/sdks/
 export SDKVERSION = 9.2
 export SYSROOT = $(THEOS)/sdks/iPhoneOS9.2.sdk
+# export SDKVERSION = 10.1
+# export SYSROOT = $(THEOS)/sdks/iPhoneOS10.1.sdk
