@@ -64,9 +64,10 @@ repo = 'PProvost/vim-ps1'
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'
 hook_add = '''
-  let g:signify_vcs_list = ['git']
-  let g:signify_line_highlight = 1
-  nnoremap <Leader>gt :<C-u>SignifyToggle<CR>
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  nmap * <Plug>(anzu-star-with-echo)
+  nmap # <Plug>(anzu-sharp-with-echo)
 '''
 
 [[plugins]]
