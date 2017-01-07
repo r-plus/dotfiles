@@ -18,6 +18,7 @@ alias vh="vagrant halt"
 alias vs="vagrant ssh"
 alias be="bundle exec"
 alias b="brew"
+alias less="less -R"
 alias vimsjis='vim -c ":e ++enc=cp932"'
 alias miall="
 export THEOS_DEVICE_IP=i6; mi;
