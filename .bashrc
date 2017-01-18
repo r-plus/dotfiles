@@ -114,3 +114,5 @@ if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
 
+# fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
