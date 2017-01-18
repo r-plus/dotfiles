@@ -64,7 +64,6 @@ function completion_source() {
 }
 
 # homebrew bash completion
-completion_source /usr/local/etc/bash_completion.d/ag.bashcomp.sh
 completion_source /usr/local/etc/bash_completion.d/aws_bash_completer
 completion_source /usr/local/etc/bash_completion.d/brew
 completion_source /usr/local/etc/bash_completion.d/carthage
