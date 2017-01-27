@@ -69,6 +69,7 @@ completion_source /usr/local/etc/bash_completion.d/brew
 completion_source /usr/local/etc/bash_completion.d/carthage
 completion_source /usr/local/etc/bash_completion.d/eb_completion.bash
 completion_source /usr/local/etc/bash_completion.d/nvm
+completion_source /usr/local/etc/bash_completion.d/bundler
 
 function git_rebase_remote() {
 # ex. $1: master $2: local
