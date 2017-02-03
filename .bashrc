@@ -49,11 +49,17 @@ fi
 #    export GPG_TTY=`tty`
 #fi
 
+function isZsh() {
+    [ $(basename $SHELL) = 'zsh' ] && echo 'true'
+}
+
 # homebrew git
 if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     . /usr/local/etc/bash_completion.d/git-prompt.sh
-    . /usr/local/etc/bash_completion.d/git-completion.bash
-    export PS1='\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+    if [ -z "$(isZsh)" ]; then
+        . /usr/local/etc/bash_completion.d/git-completion.bash
+        export PS1='\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+    fi
     export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 fi
 
@@ -64,10 +70,13 @@ function completion_source() {
 }
 
 # homebrew bash completion
-completion_source /usr/local/etc/bash_completion.d/aws_bash_completer
-completion_source /usr/local/etc/bash_completion.d/brew
-completion_source /usr/local/etc/bash_completion.d/carthage
-completion_source /usr/local/etc/bash_completion.d/eb_completion.bash
+if [ -n "$(isZsh)" ]; then
+    completion_source /usr/local/bin/aws_zsh_completer.sh
+else
+    completion_source /usr/local/etc/bash_completion.d/aws_bash_completer
+    completion_source /usr/local/etc/bash_completion.d/brew
+    completion_source /usr/local/etc/bash_completion.d/carthage
+fi
 completion_source /usr/local/etc/bash_completion.d/nvm
 completion_source /usr/local/etc/bash_completion.d/bundler
 
@@ -100,7 +109,7 @@ alias gpr="git_push_remote"
 
 # nvm
 export NVM_DIR="${HOME}/.nvm"
-[ -n $(type -P brew) ] && [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
+[ -n $(which brew) ] && [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
 
 # aws cli
 complete -C '/usr/local/bin/aws_completer' aws
