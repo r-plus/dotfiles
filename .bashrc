@@ -126,3 +126,6 @@ fi
 
 # fastlane
 export PATH="$HOME/.fastlane/bin:$PATH"
+
+# project npm binary
+export PATH=$PATH:./node_modules/.bin
