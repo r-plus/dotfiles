@@ -44,6 +44,10 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-pushd true
 fi
 
+# M-f and M-b style.
+autoload -Uz select-word-style
+select-word-style bash
+
 # colorized directory completion.
 export LS_COLORS='di=01;36'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
