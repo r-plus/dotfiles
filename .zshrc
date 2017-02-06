@@ -7,21 +7,21 @@ SAVEHIST=50000
 bindkey -e
 
 # options.
-setopt share_history
-setopt auto_param_slash
-setopt mark_dirs
-setopt list_types
+setopt prompt_subst
 setopt magic_equal_subst
+setopt mark_dirs
+setopt auto_param_slash
 setopt auto_menu
-setopt extended_history
-setopt append_history
-setopt PROMPT_SUBST
 setopt auto_list
 setopt auto_param_keys
+setopt list_types
 setopt no_beep
 setopt hist_ignore_dups
 setopt hist_reduce_blanks
 setopt hist_no_store
+setopt extended_history
+setopt share_history
+setopt append_history
 
 # completion.
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
