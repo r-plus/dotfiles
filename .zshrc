@@ -66,7 +66,9 @@ source ~/.bashrc
 ## Ctrl-r replacement. {{{
 function peco-select-history() {
     local tac
-    if which tac > /dev/null; then
+    if which gtac > /dev/null; then
+        tac="gtac"
+    elif which tac > /dev/null; then
         tac="tac"
     else
         tac="tail -r"
