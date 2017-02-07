@@ -62,6 +62,12 @@ PROMPT='%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(__git_ps1 " (%s)")%{$reset_
 # load bashrc.
 source ~/.bashrc
 
+# iTerm tab title.
+precmd() {
+  # sets the tab title to current dir
+  echo -ne "\e]1;${PWD##*/}\a"
+}
+
 # custom functions.
 ## Ctrl-r replacement. {{{
 function peco-select-history() {
