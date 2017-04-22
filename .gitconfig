@@ -19,7 +19,7 @@
 [gpg]
 	program = /usr/local/bin/gpg2
 [diff]
-    compactionHeuristic = true
+	compactionHeuristic = true
 [pager]
 	diff = diff-highlight | less
 	show = diff-highlight | less
