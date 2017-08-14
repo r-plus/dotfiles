@@ -18,7 +18,7 @@
 [commit]
 	gpgsign = true
 [gpg]
-	program = /usr/local/bin/gpg2
+	program = /usr/local/bin/gpg
 [diff]
 	compactionHeuristic = true
 [pager]
