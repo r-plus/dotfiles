@@ -4,7 +4,6 @@ module.exports = {
         "node": true,
         "es6": true
     },
-    "installedESLint": true,
     "plugins": [
         "standard",
     ],

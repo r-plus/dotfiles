@@ -76,9 +76,9 @@ else
     completion_source /usr/local/etc/bash_completion.d/aws_bash_completer
     completion_source /usr/local/etc/bash_completion.d/brew
     completion_source /usr/local/etc/bash_completion.d/carthage
+    completion_source /usr/local/etc/bash_completion.d/bundler
 fi
 completion_source /usr/local/etc/bash_completion.d/nvm
-completion_source /usr/local/etc/bash_completion.d/bundler
 
 function git_rebase_remote() {
 # ex. $1: master $2: local
@@ -110,9 +110,6 @@ alias gpr="git_push_remote"
 # nvm
 export NVM_DIR="${HOME}/.nvm"
 [ -n $(which brew) ] && [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
-
-# aws cli
-complete -C '/usr/local/bin/aws_completer' aws
 
 # iTerm2 tab title
 if [ $ITERM_SESSION_ID ]; then
