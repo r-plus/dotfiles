@@ -56,7 +56,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # horizon movable completion.
 zstyle ':completion:*:default' menu select=2
 
-
 # custom prompt.
 PROMPT='%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(__git_ps1 " (%s)")%{$reset_color%}$ '
 
@@ -69,9 +68,12 @@ precmd() {
   echo -ne "\e]1;${PWD##*/}\a"
 }
 
+# fzf
+export FZF_DEFAULT_OPTS="--reverse --border --inline-info --height=40"
+
 # custom functions.
 ## Ctrl-r replacement. {{{
-function peco-select-history() {
+function fuzzy-select-history() {
     local tac
     if which gtac > /dev/null; then
         tac="gtac"
@@ -82,22 +84,24 @@ function peco-select-history() {
     fi
     BUFFER=$(history -n 1 | \
         eval $tac | \
-        peco --query "$LBUFFER")
+        fzf --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
-zle -N peco-select-history
-bindkey '^r' peco-select-history
+zle -N fuzzy-select-history
+bindkey '^r' fuzzy-select-history
 ## }}}
 ## history cd. {{{
-function peco-cdr () {
-    local selected_dir=$(cdr -l | awk '{ for (i=2; i<NF; i++) { printf("%s%s", $i, OFS) } print $NF }' | peco)
+function fuzzy-cdr () {
+    local selected_dir=$(cdr -l | awk '{ for (i=2; i<NF; i++) { printf("%s%s", $i, OFS) } print $NF }' | fzf)
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
     fi
     zle clear-screen
 }
-zle -N peco-cdr
-bindkey '^@' peco-cdr
+zle -N fuzzy-cdr
+bindkey '^@' fuzzy-cdr
 ## }}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
