@@ -116,6 +116,9 @@ augroup MyAutoCommands
 
   " dont hide double-quote on json file
   autocmd FileType json setl conceallevel=0
+
+  " yaml
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 augroup end
 
 " mappings {{{
