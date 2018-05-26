@@ -27,3 +27,5 @@
 	log = diff-highlight | less
 [interactive]
 	diffFilter = diff-highlight
+[url "https://github.com"]
+	insteadOf = ssh://git@github.com
