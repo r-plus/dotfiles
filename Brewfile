@@ -57,14 +57,18 @@ brew 'yq'
 brew 'zsh'
 brew 'zsh-completions'
 
+cask 'cmd-eikana'
 cask 'bitbar'
 cask 'docker'
 cask 'dropbox'
+cask 'firefox'
 cask 'github'
 cask 'google-chrome'
 cask 'google-japanese-ime'
 cask 'iterm2'
 cask 'visual-studio-code'
+cask 'realm-studio'
+cask 'sketch'
 
 mas 'CloudApp', id: 417602904
 mas 'Skitch', id: 425955336
