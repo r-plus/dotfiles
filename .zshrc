@@ -84,7 +84,7 @@ function fuzzy-select-history() {
     fi
     BUFFER=$(history -n 1 | \
         eval $tac | \
-        fzf --query "$LBUFFER")
+        peco --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
@@ -93,7 +93,7 @@ bindkey '^r' fuzzy-select-history
 ## }}}
 ## history cd. {{{
 function fuzzy-cdr () {
-    local selected_dir=$(cdr -l | awk '{ for (i=2; i<NF; i++) { printf("%s%s", $i, OFS) } print $NF }' | fzf)
+    local selected_dir=$(cdr -l | awk '{ for (i=2; i<NF; i++) { printf("%s%s", $i, OFS) } print $NF }' | peco)
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
