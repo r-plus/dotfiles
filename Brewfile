@@ -59,6 +59,7 @@ brew 'zsh-completions'
 
 cask 'bitbar'
 cask 'docker'
+cask 'dropbox'
 cask 'github'
 cask 'google-chrome'
 cask 'google-japanese-ime'
