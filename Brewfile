@@ -18,7 +18,6 @@ brew 'gnupg'
 brew 'gnupg2'
 brew 'gnutls'
 brew 'go'
-brew 'gpg-agent'
 brew 'graphite2'
 brew 'highlight'
 brew 'httping'
@@ -33,7 +32,6 @@ brew 'neovim'
 brew 'nkf'
 brew 'nvm'
 brew 'open-completion'
-brew 'open-usp-tukubai'
 brew 'packer'
 brew 'peco'
 brew 'python3'
@@ -56,6 +54,7 @@ brew 'yarn'
 brew 'yq'
 brew 'zsh'
 brew 'zsh-completions'
+brew 'zsh-autosuggestions'
 
 cask 'cmd-eikana'
 cask 'bitbar'
@@ -73,7 +72,6 @@ cask 'sketch'
 mas 'CloudApp', id: 417602904
 mas 'Skitch', id: 425955336
 mas 'The Unarchiver', id: 425424353
-mas 'Dash', id: 449589707
 mas 'Slack', id: 803453959
 mas 'Microsoft Remote Desktop', id: 1295203466 
 mas 'Sip', id: 507257563
