@@ -19,6 +19,9 @@ ln -s ~/dotfiles/.lynxrc ~/.lynxrc
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/.gemrc ~/.gemrc
 ln -s ~/dotfiles/.theosrc ~/.theosrc
+ln -s ~/dotfiles/.eslintrc.js ~/.eslintrc.js
+ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/.zshrc ~/.zshrc
 mkdir -p ~/.cache/dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
