@@ -31,6 +31,8 @@ export THEOS_DEVICE_IP=mini2; mi;
 export THEOS_DEVICE_IP=ipad3; mi;
 export THEOS_DEVICE_IP=ipad1; mi;
 "
+# to avoid error when python is installed from homebrew, use macOS preinstalled python.
+alias swift='PATH="/usr/bin:$PATH" swift'
 
 # theos
 export THEOS=/opt/theos
