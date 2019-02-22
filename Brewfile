@@ -1,77 +1,93 @@
 cask_args appdir: '/Applications'
-tap 'caskroom/cask'
-
-brew 'ansible'
-brew 'arping'
-brew 'awscli'
-brew 'bash'
-brew 'bundler-completion'
-brew 'carthage'
-brew 'coreutils'
-brew 'docker'
-brew 'ffmpeg'
-brew 'findutils'
-brew 'gawk'
-brew 'git'
-brew 'gnu-sed'
-brew 'gnupg'
-brew 'gnupg2'
-brew 'gnutls'
-brew 'go'
-brew 'graphite2'
-brew 'highlight'
-brew 'httping'
-brew 'hub'
-brew 'ipcalc'
-brew 'jq'
-brew 'lua'
-brew 'luajit'
-brew 'lynx'
-brew 'mas'
-brew 'neovim'
-brew 'nkf'
-brew 'nvm'
-brew 'open-completion'
-brew 'packer'
-brew 'peco'
-brew 'python3'
-brew 'rbenv'
-brew 'readline'
-brew 'ruby'
-brew 'ruby-build'
-brew 'ssh-copy-id'
-brew 'swiftgen'
-brew 'swiftlint'
-brew 'tcptraceroute'
-brew 'the_silver_searcher'
-brew 'tmux'
-brew 'vim'
-brew 'watch'
-brew 'wget'
-brew 'xctool'
-brew 'xz'
-brew 'yarn'
-brew 'yq'
-brew 'zsh'
-brew 'zsh-completions'
-brew 'zsh-autosuggestions'
-
-cask 'cmd-eikana'
-cask 'bitbar'
-cask 'docker'
-cask 'dropbox'
-cask 'firefox'
-cask 'github'
-cask 'google-chrome'
-cask 'google-japanese-ime'
-cask 'iterm2'
-cask 'visual-studio-code'
-cask 'realm-studio'
-cask 'sketch'
-
-mas 'CloudApp', id: 417602904
-mas 'Skitch', id: 425955336
-mas 'The Unarchiver', id: 425424353
-mas 'Slack', id: 803453959
-mas 'Microsoft Remote Desktop', id: 1295203466 
-mas 'Sip', id: 507257563
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "papiron/shelltool"
+tap "sanemat/font"
+brew "ansible"
+brew "arping"
+brew "awscli"
+brew "bash"
+brew "bundler-completion"
+brew "glib"
+brew "carthage"
+brew "coreutils"
+brew "docker", link: false
+brew "findutils"
+brew "graphite2"
+brew "fontforge"
+brew "gawk"
+brew "git"
+brew "git-lfs"
+brew "gnu-sed"
+brew "gnutls"
+brew "gnupg"
+brew "go"
+brew "lua"
+brew "highlight"
+brew "httping"
+brew "hub"
+brew "ipcalc"
+brew "jq"
+brew "luajit"
+brew "lynx"
+brew "mas"
+brew "mogenerator"
+brew "neovim"
+brew "nkf"
+brew "node"
+brew "nvm"
+brew "open-completion"
+brew "peco"
+brew "postgresql"
+brew "ruby-build"
+brew "rbenv"
+brew "ruby", link: true
+brew "ssh-copy-id"
+brew "swiftgen"
+brew "swiftlint"
+brew "tcptraceroute"
+brew "the_silver_searcher"
+brew "tmux"
+brew "vim"
+brew "watch"
+brew "wget"
+brew "xctool"
+brew "yarn"
+brew "yq"
+brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "heroku/brew/heroku"
+brew "papiron/shelltool/open-usp-tukubai"
+brew "sanemat/font/ricty"
+cask "betterzip"
+cask "bitbar"
+cask "cmd-eikana"
+cask "docker"
+cask "dropbox"
+cask "github"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "iterm2"
+cask "provisionql"
+cask "qlcolorcode"
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "qlstephen"
+cask "qlvideo"
+cask "quicklook-json"
+cask "quicklookase"
+cask "realm-studio"
+cask "sketch"
+cask "suspicious-package"
+cask "visual-studio-code"
+cask "webpquicklook"
+mas "CloudApp", id: 417602904
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Sip", id: 507257563
+mas "Skitch", id: 425955336
+mas "Slack", id: 803453959
+mas "The Unarchiver", id: 425424353
