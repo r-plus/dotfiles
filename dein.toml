@@ -320,3 +320,8 @@ hook_post_source = '''
   endif
 '''
 
+[[plugins]]
+repo = 'dalance/vseq.vim'
+hook_add = '''
+  vmap <C-r> <Plug>(vseq-incr-dec)
+'''
