@@ -1,0 +1,1 @@
+bind diff T !git tag -l --contains %(commit)

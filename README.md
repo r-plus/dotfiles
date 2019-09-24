@@ -22,6 +22,7 @@ ln -s ~/dotfiles/.theosrc ~/.theosrc
 ln -s ~/dotfiles/.eslintrc.js ~/.eslintrc.js
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.tigrc ~/.tigrc
 mkdir -p ~/.cache/dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
