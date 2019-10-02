@@ -1,1 +1,7 @@
+# to show affected versions
 bind diff T !git tag -l --contains %(commit)
+
+# vim like key binding
+bind generic <C-F> move-page-down
+bind generic <C-B> move-page-up
+bind blame G move-last-line
