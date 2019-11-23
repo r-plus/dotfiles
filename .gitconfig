@@ -29,3 +29,5 @@
 	diffFilter = diff-highlight
 [url "https://github.com"]
 	insteadOf = ssh://git@github.com
+[ghq]
+	root = ~/go/src
