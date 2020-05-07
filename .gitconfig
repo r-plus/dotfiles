@@ -10,6 +10,7 @@
 [alias]
 	co = checkout
 	b = branch
+	p = pull
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
