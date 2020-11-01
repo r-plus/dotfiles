@@ -32,3 +32,5 @@
 	insteadOf = ssh://git@github.com
 [ghq]
 	root = ~/go/src
+[pull]
+	rebase = true
