@@ -128,3 +128,6 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 
 # project npm binary
 export PATH=./node_modules/.bin:$PATH
+
+# lesspipe
+[ -x /usr/local/bin/lesspipe.sh ] && export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
