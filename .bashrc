@@ -4,6 +4,7 @@ alias ga="git commit --amend"
 alias gs="git status"
 alias gd='git diff'
 alias gl='git log --graph --decorate --oneline'
+alias tb='tig blame'
 alias grep="grep --color=auto"
 alias ll="ls -l"
 alias ls="ls -aFG"
