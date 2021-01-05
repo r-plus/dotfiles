@@ -10,6 +10,7 @@ mkdir -p ~/.vim/view
 mkdir -p ~/.vim/swap
 mkdir -p ~/.vim/after
 mkdir -p ~/.cache/shell
+mkdir -p ~/.config/karabiner
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
@@ -23,6 +24,7 @@ ln -s ~/dotfiles/.eslintrc.js ~/.eslintrc.js
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.tigrc ~/.tigrc
+ln -s ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 mkdir -p ~/.cache/dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
