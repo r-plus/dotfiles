@@ -44,6 +44,10 @@ if [ -d ~/.rbenv ]; then
     export PATH=~/.rbenv/shims:$PATH
 fi
 
+#homebrew PATH
+export PATH=/opt/homebrew/bin:$PATH
+BrewPath=$(brew --prefix)
+
 # gpg
 #if [ -n $(type -P gpg-agent) ]; then
 #    pgrep -q gpg-agent || eval $(gpg-agent --daemon --allow-preset-passphrase --write-env-file ${HOME}/.gpg-agent-info)
@@ -57,13 +61,13 @@ function isZsh() {
 }
 
 # homebrew git
-if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-    . /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -f ${BrewPath}/etc/bash_completion.d/git-completion.bash ]; then
+    . ${BrewPath}/etc/bash_completion.d/git-prompt.sh
     if [ -z "$(isZsh)" ]; then
-        . /usr/local/etc/bash_completion.d/git-completion.bash
+        . ${BrewPath}/etc/bash_completion.d/git-completion.bash
         export PS1='\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
     fi
-    export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+    export PATH=$PATH:${BrewPath}/share/git-core/contrib/diff-highlight
 fi
 
 function completion_source() {
@@ -74,14 +78,14 @@ function completion_source() {
 
 # homebrew bash completion
 if [ -n "$(isZsh)" ]; then
-    completion_source /usr/local/bin/aws_zsh_completer.sh
+    completion_source ${BrewPath}/bin/aws_zsh_completer.sh
 else
-    completion_source /usr/local/etc/bash_completion.d/aws_bash_completer
-    completion_source /usr/local/etc/bash_completion.d/brew
-    completion_source /usr/local/etc/bash_completion.d/carthage
-    completion_source /usr/local/etc/bash_completion.d/bundler
+    completion_source ${BrewPath}/etc/bash_completion.d/aws_bash_completer
+    completion_source ${BrewPath}/etc/bash_completion.d/brew
+    completion_source ${BrewPath}/etc/bash_completion.d/carthage
+    completion_source ${BrewPath}/etc/bash_completion.d/bundler
 fi
-completion_source /usr/local/etc/bash_completion.d/nvm
+completion_source ${BrewPath}/etc/bash_completion.d/nvm
 
 function git_rebase_remote() {
 # ex. $1: master $2: local
@@ -131,4 +135,4 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH=./node_modules/.bin:$PATH
 
 # lesspipe
-[ -x /usr/local/bin/lesspipe.sh ] && export LESSOPEN="|/usr/local/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
+[ -x ${BrewPath}/bin/lesspipe.sh ] && export LESSOPEN="|${BrewPath}/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1

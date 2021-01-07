@@ -1,3 +1,6 @@
+# load bashrc.
+source ~/.bashrc
+
 # hisotry.
 HISTFILE=~/.zsh_history
 HISTSIZE=50000
@@ -25,7 +28,7 @@ setopt append_history
 
 # completion.
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=($(brew --prefix)/share/zsh-completions $fpath)
 autoload -Uz compinit
 compinit
 
@@ -57,10 +60,10 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:default' menu select=2
 
 # custom prompt.
-PROMPT='%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(__git_ps1 " (%s)")%{$reset_color%}$ '
-
-# load bashrc.
-source ~/.bashrc
+#
+if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
+    PROMPT='%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(__git_ps1 " (%s)")%{$reset_color%}$ '
+fi
 
 # iTerm tab title.
 precmd() {
@@ -104,5 +107,5 @@ zle -N fuzzy-cdr
 bindkey '^@' fuzzy-cdr
 ## }}}
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
