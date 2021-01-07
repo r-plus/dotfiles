@@ -28,7 +28,7 @@ ln -s ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 mkdir -p ~/.cache/dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
-ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+rm ./installer.sh
 ```
 
 ### Vim-Plugins
