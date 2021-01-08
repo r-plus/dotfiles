@@ -1,6 +1,10 @@
 # load bashrc.
 source ~/.bashrc
 
+# use macOS built-in zsh because brew installed zsh will not universal binary.
+alias a64='exec arch -arch arm64e /bin/zsh'
+alias x64='exec arch -arch x86_64 /bin/zsh'
+
 # hisotry.
 HISTFILE=~/.zsh_history
 HISTSIZE=50000
