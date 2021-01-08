@@ -1,4 +1,9 @@
 HISTSIZE=50000
+
+# homebrew PATH
+export PATH=/opt/homebrew/bin:$PATH
+BrewPath=$(brew --prefix)
+
 # alias
 alias ga="git commit --amend"
 alias gs="git status"
@@ -8,12 +13,16 @@ alias tb='tig blame'
 alias grep="grep --color=auto"
 alias ll="ls -l"
 alias ls="ls -aFG"
-alias m="make"
-alias md="make do"
-alias mp="make package"
-alias mi="make install"
-alias mc="make clean && make clean FINALPACKAGE=1"
-alias mcp="make clean-packages"
+if which gmake > /dev/null; then
+    alias m="gmake"
+else
+    alias m="make"
+fi
+alias md="m do"
+alias mp="m package"
+alias mi="m install"
+alias mc="m clean && m clean FINALPACKAGE=1"
+alias mcp="m clean-packages"
 alias rd="rm *.deb"
 alias vu="vagrant up"
 alias vh="vagrant halt"
@@ -43,10 +52,6 @@ export THEOS_DEVICE_IP=i6s
 if [ -d ~/.rbenv ]; then
     export PATH=~/.rbenv/shims:$PATH
 fi
-
-#homebrew PATH
-export PATH=/opt/homebrew/bin:$PATH
-BrewPath=$(brew --prefix)
 
 # gpg
 #if [ -n $(type -P gpg-agent) ]; then
