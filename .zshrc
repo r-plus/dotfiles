@@ -66,7 +66,7 @@ zstyle ':completion:*:default' menu select=2
 # custom prompt.
 #
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
-    PROMPT='%{$fg[cyan]%}%~%{$reset_color%}%{$fg[red]%}$(__git_ps1 " (%s)")%{$reset_color%}$ '
+    PROMPT='%{$fg[cyan]%}%~%{$reset_color%} %{$fg[green]%}$(uname -m)%{$fg[red]%}$(__git_ps1 " (%s)")%{$reset_color%}$ '
 fi
 
 # iTerm tab title.
