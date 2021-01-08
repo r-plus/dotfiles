@@ -98,6 +98,72 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Ctrl+[を押したときに、英数キーも送信する（vim用） (rev 2)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "keyboard_types": [
+                                            "ansi",
+                                            "iso"
+                                        ],
+                                        "type": "keyboard_type_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "japanese_eisuu"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "keyboard_types": [
+                                            "jis"
+                                        ],
+                                        "type": "keyboard_type_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "japanese_eisuu"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },

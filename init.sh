@@ -20,7 +20,8 @@ ln -s ~/dotfiles/.eslintrc.js ~/.eslintrc.js
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.tigrc ~/.tigrc
-ln -s ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
+# https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
+ln -s ~/dotfiles/karabiner ~/.config/karabiner
 mkdir -p ~/.cache/dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein

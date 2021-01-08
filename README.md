@@ -1,6 +1,6 @@
 # dotfiles
 
-### Setup for OS X
+### Setup for macOS
 
 ```bash
 make init
@@ -10,10 +10,6 @@ make init
 
 * Install | :call dein#install()
 * Update | :call dein#update()
-
-### iTerm2
-
-`defaults write com.googlecode.iterm2 OptimumTabWidth -int 2000`
 
 -----
 ## for Windows KaoriYa-vim(used mingw and minsys)
