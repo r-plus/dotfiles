@@ -30,3 +30,8 @@ rm ./installer.sh
 # Xcode
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 defaults write com.googlecode.iterm2 OptimumTabWidth -int 2000
+
+# deoplete
+if which pip3; then
+    pip3 install --user pynvim
+fi
