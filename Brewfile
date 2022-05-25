@@ -73,14 +73,17 @@ brew "zsh-completions"
 brew "heroku/brew/heroku"
 brew "sanemat/font/ricty"
 cask "1password"
+cask "altserver"
 cask "bettertouchtool"
 cask "betterzip"
 cask "dash"
+cask "disk-inventory-x"
 cask "docker"
 cask "dropbox"
 cask "github"
 cask "google-chrome"
 cask "google-japanese-ime"
+cask "ios-app-signer"
 cask "iterm2"
 cask "karabiner-elements"
 cask "keycastr"
@@ -93,11 +96,13 @@ cask "qlstephen"
 cask "qlvideo"
 cask "quicklook-json"
 cask "quicklookase"
-cask "sketch"
+cask "sf-symbols"
 cask "swiftbar"
 cask "visual-studio-code"
 cask "webpquicklook"
 mas "CloudApp", id: 417602904
 mas "Skitch", id: 425955336
 mas "Slack", id: 803453959
+mas "Vimari", id: 1480933944
 mas "The Unarchiver", id: 425424353
+mas "Twitter", id: 1482454543
