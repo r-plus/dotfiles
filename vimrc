@@ -125,7 +125,7 @@ augroup end
 
 " mappings {{{
 " keymap for theos framework
-nnoremap <Space>m :update<CR> :!make; [ $? -eq 0 ] && (make package; make install)<CR>
+nnoremap <Space>m :update<CR> :!gmake; [ $? -eq 0 ] && (gmake package; gmake install)<CR>
 nnoremap ,v 0f)l"vye$xo{<CR>DLog(@"<Esc>"vpa");<CR>%orig;<CR>}<Esc>
 nnoremap ,r 0f)l"vye$xo{<CR>id tmp = %orig;<CR>DLog(@"<Esc>"vpa %@", tmp);<CR>return tmp;<CR>}<Esc>
 
