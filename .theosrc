@@ -1,5 +1,6 @@
 # export ARCHS=armv7 arm64 arm64e
-export _THEOS_PLATFORM_DPKG_DEB = dpkg-deb
+# export _THEOS_PLATFORM_DPKG_DEB = dpkg-deb
+export THEOS_PLATFORM_DEB_COMPRESSION_TYPE = gzip
 #export STRIP=0
 # PrivateFrameworks tbd files/binaries removed since Xcode 7.3.
 # so download iOS 9.2 sdk from https://jbdevs.org/sdks/ then extract to $(THEOS)/sdks/
@@ -7,3 +8,5 @@ export _THEOS_PLATFORM_DPKG_DEB = dpkg-deb
 # export SYSROOT = $(THEOS)/sdks/iPhoneOS9.2.sdk
 # export SDKVERSION = 10.1
 # export SYSROOT = $(THEOS)/sdks/iPhoneOS10.1.sdk
+X11.THEOS_PLATFORM_SDK_ROOT = /Applications/Xcode_117.app/Contents/Developer
+#TARGET_LIPO = /usr/local/bin/plipo
