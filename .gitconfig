@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = r-plus
-	email = anasthasia.r@gmail.com
+	email = r-plus@users.noreply.github.com
 	signingkey = 9FB5D5CC
 [core]
 	editor = vim
@@ -19,7 +19,7 @@
 [commit]
 	gpgsign = true
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /opt/homebrew/bin/gpg
 [diff]
 	compactionHeuristic = true
 [pager]

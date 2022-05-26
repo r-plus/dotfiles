@@ -21,15 +21,17 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.tigrc ~/.tigrc
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
+rm -fr ~/dotfiles/karabiner
 ln -s ~/dotfiles/karabiner ~/.config/karabiner
+# dein
 mkdir -p ~/.cache/dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
 rm ./installer.sh
 
-# Xcode
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 defaults write com.googlecode.iterm2 OptimumTabWidth -int 2000
+defaults write com.apple.Finder AppleShowAllFiles true
 
 # deoplete
 if which pip3; then
