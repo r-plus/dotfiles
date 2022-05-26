@@ -101,8 +101,10 @@ cask "swiftbar"
 cask "visual-studio-code"
 cask "webpquicklook"
 mas "CloudApp", id: 417602904
+mas "DevCleaner", id: 1388020431
 mas "Skitch", id: 425955336
 mas "Slack", id: 803453959
 mas "Vimari", id: 1480933944
+mas "Tunacan", id: 1594063111
 mas "The Unarchiver", id: 425424353
 mas "Twitter", id: 1482454543
