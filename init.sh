@@ -32,6 +32,7 @@ rm ./installer.sh
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 defaults write com.googlecode.iterm2 OptimumTabWidth -int 2000
 defaults write com.apple.Finder AppleShowAllFiles true
+defaults write com.apple.screencapture location ~/Downloads
 
 # deoplete
 if which pip3; then
