@@ -20,6 +20,7 @@ ln -s ~/dotfiles/.eslintrc.js ~/.eslintrc.js
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.tigrc ~/.tigrc
+ln -s ~/dotfiles/.xvimrc ~/.xvimrc
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 rm -fr ~/dotfiles/karabiner
 ln -s ~/dotfiles/karabiner ~/.config/karabiner
