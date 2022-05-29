@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = r-plus
-	email = r-plus@users.noreply.github.com
+	email = anasthasia.r@gmail.com
 	signingkey = 9FB5D5CC
 [core]
 	editor = vim
