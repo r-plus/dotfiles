@@ -157,8 +157,8 @@ hook_post_source = '''
 '''
 
 [[plugins]]
-repo = 'h1mesuke/vim-alignta'
-on_cmd = ['Aling', 'Alignta']
+repo = 'junegunn/vim-easy-align'
+on_cmd = ['EasyAlign']
 
 [[plugins]]
 repo = 'thinca/vim-qfreplace'

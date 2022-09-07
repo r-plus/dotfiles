@@ -156,7 +156,7 @@ nnoremap <F5> :tabe $MYVIMRC<CR>
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 " align for textile table macro
-xnoremap <silent> \| :Alignta \|<CR>
+xnoremap <silent> \| :EasyAlign *\|<CR>
 
 " keymap for insert current file name
 imap <C-F> <C-R>=expand("%")<CR>
