@@ -1,6 +1,6 @@
 # export ARCHS=armv7 arm64 arm64e
 # export _THEOS_PLATFORM_DPKG_DEB = dpkg-deb
-export THEOS_PLATFORM_DEB_COMPRESSION_TYPE = gzip
+# export THEOS_PLATFORM_DEB_COMPRESSION_TYPE = gzip
 #export STRIP=0
 # PrivateFrameworks tbd files/binaries removed since Xcode 7.3.
 # so download iOS 9.2 sdk from https://jbdevs.org/sdks/ then extract to $(THEOS)/sdks/
