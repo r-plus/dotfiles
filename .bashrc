@@ -1,4 +1,4 @@
-HISTSIZE=50000
+HISTSIZE=500000
 
 # homebrew PATH
 export PATH=/opt/homebrew/bin:$PATH
@@ -138,6 +138,14 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 
 # project npm binary
 export PATH=./node_modules/.bin:$PATH
+# requireable from global installed npm
+export NODE_PATH=$(npm root -g)
+# new mint PATH
+export PATH=~/.mint/bin:$PATH
 
 # lesspipe
 [ -x ${BrewPath}/bin/lesspipe.sh ] && export LESSOPEN="|${BrewPath}/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
+# copilot
+if which github-copilot-cli; then
+    eval "$(github-copilot-cli alias -- "$0")"
+fi
