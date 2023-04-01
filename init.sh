@@ -24,11 +24,6 @@ ln -s ~/dotfiles/.xvimrc ~/.xvimrc
 # https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/#about-symbolic-link
 rm -fr ~/.config/karabiner
 ln -s ~/dotfiles/karabiner ~/.config/karabiner
-# dein
-mkdir -p ~/.cache/dein
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
-rm ./installer.sh
 
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 defaults write com.googlecode.iterm2 OptimumTabWidth -int 2000
