@@ -146,6 +146,6 @@ export PATH=~/.mint/bin:$PATH
 # lesspipe
 [ -x ${BrewPath}/bin/lesspipe.sh ] && export LESSOPEN="|${BrewPath}/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
 # copilot
-if which github-copilot-cli; then
+if which github-copilot-cli > /dev/null; then
     eval "$(github-copilot-cli alias -- "$0")"
 fi
