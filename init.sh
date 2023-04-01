@@ -6,7 +6,7 @@ mkdir -p ~/.vim/view
 mkdir -p ~/.vim/swap
 mkdir -p ~/.vim/after
 mkdir -p ~/.cache/shell
-mkdir -p ~/.config/karabiner
+mkdir -p ~/.config
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
