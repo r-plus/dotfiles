@@ -149,3 +149,15 @@ export PATH=~/.mint/bin:$PATH
 if which github-copilot-cli > /dev/null; then
     eval "$(github-copilot-cli alias -- "$0")"
 fi
+
+function local_repo()
+{
+    (
+        [ -d packages ] && cd packages
+        [ ! -L Release ] && ln -s ~/dotfiles/Release Release
+        dpkg-scanpackages . /dev/null > Packages 2>/dev/null
+        gzip -f Packages
+        python3 -m http.server 80
+    )
+}
+
