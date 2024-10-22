@@ -12,6 +12,7 @@ xcode:
 	mv xcode-master/Dracula.xccolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 	rm -fr xcode-master
 	# defaults
+	defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme Dracula.xccolortheme
 	defaults write com.apple.dt.Xcode DVTTextShowFoldingSidebar 1
 	defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines 1
 
