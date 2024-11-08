@@ -15,4 +15,8 @@ xcode:
 	defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme Dracula.xccolortheme
 	defaults write com.apple.dt.Xcode DVTTextShowFoldingSidebar 1
 	defaults write com.apple.dt.Xcode DVTTextEditorTrimWhitespaceOnlyLines 1
+	# Copilot
+	cd ~/Downloads
+	curl -O https://github.com/github/CopilotForXcode/releases/latest/download/GitHubCopilotForXcode.dmg
+	cd
 

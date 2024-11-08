@@ -43,3 +43,9 @@ fi
 # TouchID for sudo
 sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
 
+# Download not cask managables
+cd ~/Downloads
+curl -O "https://github.com/kishikawakatsumi/BandwidthLimiter/releases/download/v0.1.3/Bandwidth-Limiter-0.1.3.dmg"
+curl -O "https://sideloadly.io/SideloadlySetup.dmg"
+curl -O "https://github.com/tue-savvy/SimulatorManager/releases/download/1.3/SimulatorManager.zip"
+cd
