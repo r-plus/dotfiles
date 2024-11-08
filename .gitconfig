@@ -34,3 +34,5 @@
 	root = ~/go/src
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
