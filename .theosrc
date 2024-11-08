@@ -10,3 +10,4 @@
 # export SYSROOT = $(THEOS)/sdks/iPhoneOS10.1.sdk
 X11.THEOS_PLATFORM_SDK_ROOT = /Applications/Xcode_117.app/Contents/Developer
 #TARGET_LIPO = /usr/local/bin/plipo
+export CCFLAGS=-Wno-module-import-in-extern-c
