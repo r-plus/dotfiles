@@ -29,6 +29,8 @@ defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 defaults write com.googlecode.iterm2 OptimumTabWidth -int 2000
 defaults write com.apple.Finder AppleShowAllFiles 1
 defaults write com.apple.Finder ShowHardDrivesOnDesktop 1
+defaults write com.apple.Finder ShowStatusBar 1
+defaults write com.apple.Finder ShowPathbar 1
 defaults write com.apple.screencapture location ~/Downloads
 defaults write NSGlobalDomain AppleShowAllExtensions 1
 defaults write -g ApplePressAndHoldEnabled -bool false
