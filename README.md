@@ -6,6 +6,14 @@
 make init
 ```
 
+### Homebrew
+
+Restore from Brewfile.
+
+```bash
+brew bundle
+```
+
 ### Vim-Plugins
 
 * Install | :call dein#install()
