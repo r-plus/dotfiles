@@ -155,8 +155,18 @@ function local_repo()
     (
         [ -d packages ] && cd packages
         [ ! -L Release ] && ln -s ~/dotfiles/Release Release
-        dpkg-scanpackages . /dev/null > Packages 2>/dev/null
+        dpkg-scanpackages -m . /dev/null > Packages 2>/dev/null
         gzip -f Packages
+        (
+            fswatch -0 . | while read -d "" event; do
+                if [ -z "${event##*.deb}" ]; then
+                    dpkg-scanpackages -m . /dev/null > Packages 2>/dev/null
+                    gzip -f Packages
+                    echo "Update Packages: ${event}"
+                fi
+            done
+        ) &
+        trap "killall -9 fswatch" 2
         python3 -m http.server 80
     )
 }
