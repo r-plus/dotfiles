@@ -139,7 +139,9 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 # project npm binary
 export PATH=./node_modules/.bin:$PATH
 # requireable from global installed npm
-export NODE_PATH=$(npm root -g)
+if which npm > /dev/null 2>&1; then
+    export NODE_PATH=$(npm root -g)
+fi
 # new mint PATH
 export PATH=~/.mint/bin:$PATH
 
